@@ -1,0 +1,130 @@
+---
+output:
+  pdf_document:
+    toc: false
+    toc_depth: 3
+    keep_tex: no
+    number_sections: true
+fontsize: 12pt 
+documentclass: article
+classoption: a4paper
+lang: pt-br
+mainfont: Times New Roman
+sansfont: Times New Roman
+monofont: Times New Roman
+indent: true
+nocite: '@*'
+header-includes:
+  - \usepackage{geometry}
+  - \geometry{headheight=30pt,left=3cm,bottom=2cm,top=3cm,right=2cm}
+  - \usepackage{graphicx}
+  - \usepackage[utf8]{inputenc}
+  - \usepackage[onehalfspacing]{setspace}
+  - \usepackage{fancyhdr}
+  - \usepackage{ stmaryrd }
+  - \usepackage{eqnarray,amsmath}
+  - \usepackage{float}
+---
+
+\pagestyle{fancy}
+\fancyhead[ROE]{\leftmark}
+\fancyhead[LO]{}
+\fancyfoot[C]{}
+\fancyfoot[E]{}
+\fancyfoot[RO]{\thepage}
+\setlength{\parindent}{1.25cm} 
+<!--\setlength{\parskip}{1.0em} -->
+
+
+\newcommand{\regterm}{\beta_0+{\beta_1}x+\varepsilon}
+\newcommand{\regest}{\beta_0+{\beta_1}x+\varepsilon}
+\newcommand{\regesti}{\beta_0+{\beta_1}x_i+\varepsilon_i}
+\newcommand{\regesp}{\beta_0+{\beta_1}x}
+\newcommand{\regespi}{\beta_0+{\beta_1}x_i}
+\newcommand{\regefiti}{\hat{\beta_0}+\hat{{\beta_1}x_i}}
+\newcommand{\bz}{\beta_0}
+\newcommand{\bzh}{\hat{\beta_0}}
+\newcommand{\bum}{\beta_1}
+\newcommand{\bumh}{\hat{\beta_1}}
+\newcommand{\somat}{\sum_{i=1}^{n}}
+\newcommand{\xbar}{\overline{x}}
+\newcommand{\ybar}{\overline{y}}
+\newcommand{\bh}{\hat{\beta}}
+
+\newpage  
+
+\begin{titlepage} 
+\begin{center}
+{\normalsize \bf UNIVERSIDADE ESTADUAL DE MARINGÁ         \\
+        CENTRO DE CIÊNCIAS EXATAS                    \\
+        CURSO DE ESTATÍSTICA                          \\
+
+      
+
+ }
+ 
+\end{center} 
+
+\vfill
+\begin{center}
+{\bf \Large AVALIAÇÃO DE MÉTODOS NÃO PARAMÉTRICOS PARA ESTIMAÇÃO DE MODELOS ADITIVOS }\\[1cm]
+\end{center}
+
+\vfill
+
+\begin{center}
+{\bf  \Large Marco Aurelio Valles Leal    }\\[1cm]
+\end{center}
+
+ 
+
+\vfill
+ 
+   \hspace{.45\textwidth}
+   \begin{minipage}{.5\textwidth}
+     
+   \end{minipage}
+
+
+\vfill
+\begin{center}
+{\normalsize	 Maringá \\ \today }\\[0.2cm]
+\end{center}
+\end{titlepage}
+
+
+
+
+\begin{titlepage} 
+
+\begin{center}
+{\bf  \Large MARCO AURELIO VALLES LEAL    }\\[1cm]
+\end{center}
+
+\vfill
+
+\begin{center}
+{\bf \Large AVALIAÇÃO DE MÉTODOS NÃO PARAMÉTRICOS PARA ESTIMAÇÃO DE MODELOS ADITIVOS}\\[1cm]
+\end{center}
+
+
+ 
+
+\vfill
+ 
+   \hspace{.45\textwidth}
+   \begin{minipage}{.5\textwidth}
+    
+       Trabalho de conclusão de curso apresentado como requisito parcial para a obtenção do título de bacharel em Estatística pela Universidade Estadual de Maringá. \\
+
+Orientador: Dr. Willian  Luís de Oliveira
+
+     
+   \end{minipage}
+
+
+\vfill
+\begin{center}
+{\normalsize	 Maringá \\ \today }\\[0.2cm]
+\end{center}
+\end{titlepage}
