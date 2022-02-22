@@ -1,9 +1,9 @@
 {
     "id": "8E33C757",
-    "path": "C:/Users/marco/Desktop/TCC - V2/TCC_01.Rmd",
+    "path": "~/ProjetosGit/TCC/TCC_01.Rmd",
     "project_path": "TCC_01.Rmd",
     "type": "r_markdown",
-    "hash": "72309530",
+    "hash": "1858154907",
     "contents": "",
     "dirty": false,
     "created": 1635013087215.0,
@@ -13,16 +13,16 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "2365,96",
-        "scrollLine": "2359",
-        "last_setup_crc32": ""
+        "cursorPosition": "2460,37",
+        "scrollLine": "2453",
+        "last_setup_crc32": "56FA17B3ec030c56"
     },
     "folds": "",
-    "lastKnownWriteTime": 1645063253,
+    "lastKnownWriteTime": 1645499001,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1645063253982,
+    "last_content_update": 1645499002119,
     "read_only": false,
     "read_only_alternatives": []
 }

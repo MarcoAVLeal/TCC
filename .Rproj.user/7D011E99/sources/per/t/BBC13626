@@ -1,6 +1,6 @@
 {
     "id": "BBC13626",
-    "path": "C:/Users/marco/Desktop/TCC - V2/funcoes.R",
+    "path": "~/ProjetosGit/TCC/funcoes.R",
     "project_path": "funcoes.R",
     "type": "r_source",
     "hash": "1363029223",
@@ -12,7 +12,7 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "608,14",
+        "cursorPosition": "799,32",
         "scrollLine": "0"
     },
     "folds": "",

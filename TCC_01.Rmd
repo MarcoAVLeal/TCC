@@ -1211,7 +1211,7 @@ plot1 <- plot.mult.curves(df = df,title = NULL)
 
 
 ```
-Como podemos ver os ajuste mais adequados para representar a tendência destes dados  estaria próximos de 7 e 8 nós. Os ajustes anteriores está considerando uma distribuição equidistante para diferentes valores de quantis para os dados simulados. Porém para estas técnicas além da quantidade nós, a localização de cada nó, pode nos levar a uma representação diferente e mais adequada para os dados. A figura 15 (gráfico B), nos mostra um ajuste realizado escolhendo a posição utilizando dois nós.
+Como podemos ver os ajuste mais adequados para representar a tendência destes dados  estaria próximos de 7 e 8 nós. Os ajustes anteriores está considerando uma distribuição equidistante para diferentes valores de quantis para os dados simulados. Porém para estas técnicas além da quantidade nós, a localização de cada nó, pode nos levar a uma representação diferente e mais adequada para os dados. A Figura 15 (gráfico B), nos mostra um ajuste realizado escolhendo a posição utilizando dois nós.
 
  
 ```{r,fig.cap="Splines de Regressão com polinômio de grau 1 para a escolha de nós distintos", fig.height=5}
@@ -1295,32 +1295,54 @@ A Figura 15 nos mostra, um comparativo entre a técnicas vista até agora.Em ver
 ```{r,fig.cap="Ajustes comparativos para as técnicas Lowess, Kernel Smoother e Splines de Regressão Cubico", fig.height=2}
 
 library(additive.models)
+source(file = "funcoes.R",encoding = "UTF-8")
+library(tidyverse)
+library(binsmooth)
+library(knitr)
+library(kableExtra)
+library(additive.models)
+
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message= FALSE,
+                      out.width = "100%",fig.align = "center",size ="large",fig.height = 3)
+
+library(additive.models)
+library(caret)
+n <- 1e3
+set.seed(103159)
+n           <- 50
+x           <- seq(0,2,0.01)
+norms       <- rnorm(length(x),0,0.25)
+dens_gamma  <- dgamma(x = x,shape = 6,rate = 10)
+y           <- dens_gamma + norms
+
+dados       <- data.frame(x=x,y=y,variable = "Gamma(6,10)",value = dens_gamma)
 
 
+df        <- cbind(dados$x,dados$y) 
 
-df        <- cbind(dados$x,dados$y)
+
 
   
-  fit.loess              <-  lowess(x = dados$x,y = dados$y,f = 0.25)$y 
+  fit.loess              <-  lowess(x = dados$x,y = dados$y,f = 0.25)$y
   fit.kssmooth           <-  ksmooth(x = dados$x,y = dados$y,kernel ="normal", bandwidth = 0.22)$y
   k=3
    p         <-  seq(1,k-1,1)/k
   knots     <-  quantile(dados$x, p = p)
   #fit.splinecubico       <-  lm(dados$y ~ ns(dados$x,knots = knots,df = 3) )$fitted.values
   fit.splinecubico       <-  additive.spline.cubic(x = dados$x, y = dados$y, k = k,knots = c(0,0.5,0.75,1.25))$fitted.values
-  
-  df      <-  cbind(df,fit.loess,fit.kssmooth,fit.splinecubico)
+
+  df1      <-  cbind(df,fit.loess,fit.kssmooth,fit.splinecubico)
 
 
-colnames(df) <- c("x","y",
+colnames(df1) <- c("x","y",
                     paste("Ajuste1\nLowess\nSpan : 0.25 \n"),
                     paste("Ajuste2\nKernel Smoother\nBandwidth : 0.22 \n"),
                     paste("Ajuste3\nSplines de Regressão\nCubico\nNós : c(0.5,0.75,1.25)"))
 
-df <- as.tibble(df) %>%
+df1 <- as.tibble(df1) %>%
   gather(key = "variable", value = "value",-x,-y)
 
-plot.mult.curves(df = df,title = NULL)
+plot.mult.curves(df = df1,title = NULL)
 
 
 ```
@@ -1331,6 +1353,184 @@ plot.mult.curves(df = df,title = NULL)
  Ao observarmos o Ajuste3 (\textit{Splines} de Regressão Cúbica), utilizando os seguintes nós localizados em $c(0,0.5,0.75,1.25)$, consegue captar de forma mais adequada a tendência em torno do ponto $x = 0.5$. Logo podemos concluir que dentre as técnicas abordadas até o momento, para estes dados simulados, os \textit{splines} de regressão cúbico aparentam ajustar a tendência dos dados de forma mais suave levando em consideração um equilibrio entre viés e variância.
 
 **Consegue recuperar os ajustes? Se sim, aplicar as métricas de qualidade da predição e concluir qual método tem melhor poder preditivo.**
+```{r,fig.cap="Ajustes comparativos para as técnicas Lowess, Kernel Smoother e Splines de Regressão Cubico", fig.height=2}
+
+library(additive.models)
+source(file = "funcoes.R",encoding = "UTF-8")
+library(tidyverse)
+library(binsmooth)
+library(knitr)
+library(kableExtra)
+library(additive.models)
+
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message= FALSE,
+                      out.width = "100%",fig.align = "center",size ="large",fig.height = 3)
+
+library(additive.models)
+library(caret)
+n <- 1e3
+set.seed(103159)
+n           <- 50
+x           <- seq(0,2,0.01)
+norms       <- rnorm(length(x),0,0.25)
+dens_gamma  <- dgamma(x = x,shape = 6,rate = 10)
+y           <- dens_gamma + norms
+
+dados       <- data.frame(x=x,y=y,variable = "Gamma(6,10)",value = dens_gamma)
+
+
+df        <- cbind("X" = dados$x,"Y" = dados$y) 
+
+
+
+  
+  fit.loess              <-  lowess(x = dados$x,y = dados$y,f = 0.25)$y
+  fit.kssmooth           <-  ksmooth(x = dados$x,y = dados$y,kernel ="normal", bandwidth = 0.22)$y
+  k=3
+   p         <-  seq(1,k-1,1)/k
+  knots     <-  quantile(dados$x, p = p)
+  #fit.splinecubico       <-  lm(dados$y ~ ns(dados$x,knots = knots,df = 3) )$fitted.values
+  fit_splinecubico       <-  additive.spline.cubic(x = dados$x, y = dados$y, k = k,knots = c(0,0.5,0.75,1.25))$fitted.values[,1]
+
+  df1      <-  cbind( df,"Loess" = fit.loess,"Kernel" = fit.kssmooth,"Spline" = fit_splinecubico) %>% as.data.frame
+
+
+# colnames(df1) <- c("x","y",
+#                     paste("Ajuste1\nLowess\nSpan : 0.25 \n"),
+#                     paste("Ajuste2\nKernel Smoother\nBandwidth : 0.22 \n"),
+#                     paste("Ajuste3\nSplines de Regressão\nCubico\nNós : c(0.5,0.75,1.25)"))
+# 
+# df1 <- as.tibble(df1) %>%
+#   gather(key = "variable", value = "value",-x,-y)
+
+#plot.mult.curves(df = df1,title = NULL)
+
+library(Metrics)
+rmse(actual = df1$Y,df1$Loess)
+sqrt(mean((df1$Y - df1$Loess)^2))
+df_metrics <- data.frame(Smoother = c("Loess","Kernel","Cubic Spline"),
+                         EQM      =  c(rmse(actual = df1$Y,df1$Loess),rmse(actual = df1$Y,df1$Kernel),rmse(actual = df1$Y,df1$Spline)))
+```
+```{r,include=T,echo=FALSE}
+kable_data(data = df_metrics,cap = "Erro Quadrático Médio para os suavizadores Loess, Kernel e Spline Cúbico",foot = NULL)
+```
+
+**Avaliando Ponto Ótimo para o Span (LOESS)**
+
+
+```{r}
+
+# best_span <- function(f,df){
+#   
+#   fit.loess              <-  lowess(x = df$X,y = df$Y,f = f)$y
+#   eqm                    <-  rmse(actual = df$Y,fit.loess)
+#   return(c(Span = f,EQM = eqm))
+# }
+# 
+# teste = sapply(X = seq(0.001,1,0.001),FUN = best_span,df1) %>%
+#   t %>% 
+#   as.data.frame 
+# 
+# bf <- teste[which.min(teste$EQM),]
+
+ fit.loess              <-  lowess(x = dados$x,y = dados$y,f = 0.13)$y
+  
+
+  df1      <-  cbind( df,"Loess" = fit.loess) %>% as.data.frame
+
+
+colnames(df1) <- c("x","y",
+                    paste("Ajuste1\nLowess\nSpan : 0.25 \n")
+                    #paste("Ajuste2\nKernel Smoother\nBandwidth : 0.22 \n"),
+                    #paste("Ajuste3\nSplines de Regressão\nCubico\nNós : c(0.5,0.75,1.25)")
+                   )
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+plot.mult.curves(df = df1,title = NULL)
+
+
+#plot(teste$Span,teste$EQM)
+
+```
+
+
+```{r}
+
+locv1 <- function(x1, y1, nd, span, ntrial)
+{
+locvgcv <- function(sp, x1, y1)
+{
+    nd <- length(x1)
+
+    assign("data1", data.frame(xx1 = x1, yy1 = y1))
+    fit.lo <- loess(yy1 ~ xx1, data = data1, span = sp, family = "gaussian", degree = 2, surface = "direct")
+    res <- residuals(fit.lo)
+
+    dhat2 <- function(x1, sp)
+    {
+        nd2 <- length(x1)
+        diag1 <- diag(nd2)
+        dhat <- rep(0, length = nd2)
+
+        for(jj in 1:nd2){
+            y2 <- diag1[, jj]
+            assign("data1", data.frame(xx1 = x1, yy1 = y2))
+            fit.lo <- loess(yy1 ~ xx1, data = data1, span = sp, family = "gaussian", degree = 2, surface = "direct")
+            ey <- fitted.values(fit.lo)
+            dhat[jj] <- ey[jj]
+            }
+            return(dhat)
+        }
+
+        dhat <- dhat2(x1, sp)
+        trhat <- sum(dhat)
+        sse <- sum(res^2)
+
+        cv <- sum((res/(1 - dhat))^2)/nd
+        gcv <- sse/(nd * (1 - (trhat/nd))^2)
+
+        return(gcv)
+    }
+
+    gcv <- sapply(as.list(span1), locvgcv, x1 = x1, y1 = y1)
+    #cvgcv <- unlist(cvgcv)
+    #cv <- cvgcv[attr(cvgcv, "names") == "cv"]
+    #gcv <- cvgcv[attr(cvgcv, "names") == "gcv"]
+
+    return(gcv)
+}
+
+
+```
+
+
+```{r}
+
+nd <- length(df1$x)
+xx <- df1$x
+yy <- df1$y
+
+ntrial <- 50
+span1 <- seq(from = 0.1, by = 0.01, length = ntrial)
+
+output.lo <- locv1(xx, yy, nd, span1, ntrial)
+#cv <- output.lo
+gcv <- output.lo
+
+plot(span1, gcv, type = "n", xlab = "span", ylab = "GCV")
+points(span1, gcv, pch = 3)
+lines(span1, gcv, lwd = 2)
+
+
+gpcvmin <- seq(along = gcv)[gcv == min(gcv,na.rm = T)]
+spangcv <- span1[gpcvmin]
+gcvmin <- gcv[gpcvmin]
+points(spangcv, gcvmin, cex = 1, pch = 15)
+
+
+```
 
 
   \subsubsection{Cenário 3}
