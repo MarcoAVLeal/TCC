@@ -201,7 +201,7 @@ Intituição do professor membro da banca
 \end{titlepage}
 
 
-\begin{titlepage}rre
+\begin{titlepage}
 
 \begin{center}
 \bf RESUMO

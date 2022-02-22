@@ -3,7 +3,7 @@
     "path": "~/ProjetosGit/TCC/TCC_01.Rmd",
     "project_path": "TCC_01.Rmd",
     "type": "r_markdown",
-    "hash": "1858154907",
+    "hash": "3201985548",
     "contents": "",
     "dirty": false,
     "created": 1635013087215.0,
@@ -13,16 +13,16 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "2460,37",
-        "scrollLine": "2453",
-        "last_setup_crc32": "56FA17B3ec030c56"
+        "cursorPosition": "203,17",
+        "scrollLine": "192",
+        "last_setup_crc32": ""
     },
     "folds": "",
-    "lastKnownWriteTime": 1645499001,
+    "lastKnownWriteTime": 1645569911,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1645499002119,
+    "last_content_update": 1645569911152,
     "read_only": false,
     "read_only_alternatives": []
 }
