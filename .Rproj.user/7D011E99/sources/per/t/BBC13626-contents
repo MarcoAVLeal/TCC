@@ -7,6 +7,88 @@ library(kableExtra)
 library(wesanderson)
 library(RColorBrewer)
 
+
+locv1 <- function(x1, y1, nd, span, ntrial)
+{
+  locvgcv <- function(sp, x1, y1)
+  {
+    nd <- length(x1)
+    
+    assign("data1", data.frame(xx1 = x1, yy1 = y1))
+    fit.lo <- loess(yy1 ~ xx1, data = data1, span = sp, family = "gaussian", degree = 2, surface = "direct")
+    res <- residuals(fit.lo)
+    
+    dhat2 <- function(x1, sp)
+    {
+      nd2 <- length(x1)
+      diag1 <- diag(nd2)
+      dhat <- rep(0, length = nd2)
+      
+      for(jj in 1:nd2){
+        y2 <- diag1[, jj]
+        assign("data1", data.frame(xx1 = x1, yy1 = y2))
+        fit.lo <- loess(yy1 ~ xx1, data = data1, span = sp, family = "gaussian", degree = 2, surface = "direct")
+        ey <- fitted.values(fit.lo)
+        dhat[jj] <- ey[jj]
+      }
+      return(dhat)
+    }
+    
+    dhat <- dhat2(x1, sp)
+    trhat <- sum(dhat)
+    sse <- sum(res^2)
+    
+    cv <- sum((res/(1 - dhat))^2)/nd
+    gcv <- sse/(nd * (1 - (trhat/nd))^2)
+    
+    return(gcv)
+  }
+  
+  gcv <- sapply(as.list(span1), locvgcv, x1 = x1, y1 = y1)
+  #cvgcv <- unlist(cvgcv)
+  #cv <- cvgcv[attr(cvgcv, "names") == "cv"]
+  #gcv <- cvgcv[attr(cvgcv, "names") == "gcv"]
+  
+  return(gcv)
+}
+
+
+
+library(np)
+cv_bws_npreg <- function(x,y,bandwidths=(1:50)/50,
+                         num.folds=10) {
+  require(np)
+  n <- length(x)
+  stopifnot(n> 1, length(y) == n)
+  stopifnot(length(bandwidths) > 1)
+  stopifnot(num.folds > 0, num.folds==trunc(num.folds))
+  fold_MSEs <- matrix(0,nrow=num.folds,
+                      ncol=length(bandwidths))
+  colnames(fold_MSEs) = bandwidths
+  case.folds <- rep(1:num.folds,length.out=n)
+  case.folds <- sample(case.folds)
+  for (fold in 1:num.folds) {
+    train.rows = which(case.folds==fold)
+    x.train = x[train.rows]
+    y.train = y[train.rows]
+    x.test = x[-train.rows]
+    y.test = y[-train.rows]
+    for (bw in bandwidths) {
+      fit <- npreg(txdat=x.train,tydat=y.train,
+                   exdat=x.test,eydat=y.test,bws=bw)
+      fold_MSEs[fold,paste(bw)] <- fit$MSE
+    }
+  }
+  CV_MSEs = colMeans(fold_MSEs)
+  best.bw = bandwidths[which.min(CV_MSEs)]
+  return(list(best.bw=best.bw,
+              CV_MSEs=CV_MSEs,
+              fold_MSEs=fold_MSEs))
+}
+
+
+
+
 textsize <<- 10
 textsize2 <<- 18
 point.size  <<- 3

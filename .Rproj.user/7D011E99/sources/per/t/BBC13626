@@ -3,7 +3,7 @@
     "path": "~/ProjetosGit/TCC/funcoes.R",
     "project_path": "funcoes.R",
     "type": "r_source",
-    "hash": "1363029223",
+    "hash": "3072089393",
     "contents": "",
     "dirty": false,
     "created": 1644364643625.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "799,32",
-        "scrollLine": "0"
+        "cursorPosition": "86,1",
+        "scrollLine": "59"
     },
     "folds": "",
-    "lastKnownWriteTime": 1611163241,
+    "lastKnownWriteTime": 1647903919,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1611163241,
+    "last_content_update": 1647903919158,
     "read_only": false,
     "read_only_alternatives": []
 }
