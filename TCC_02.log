@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.23)  5 APR 2022 19:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.23)  12 APR 2022 01:24
 entering extended mode
-**./TCC_01.tex
-(TCC_01.tex
+**./TCC_02.tex
+(TCC_02.tex
 LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-10-12> (C:\Users\marco\AppData\Local\Programs\MiKTeX
 \tex/latex/base\article.cls
@@ -547,8 +547,15 @@ tex.def
 File: l3backend-pdftex.def 2021-10-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count308
 \l__pdf_internal_box=\box71
-) (TCC_01.aux)
-\openout1 = `TCC_01.aux'.
+) (TCC_02.aux
+
+LaTeX Warning: Label `smoothers_fit' multiply defined.
+
+
+LaTeX Warning: Label `tab:tab_eqm_cenario1' multiply defined.
+
+)
+\openout1 = `TCC_02.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
 LaTeX Font Info:    ... okay on input line 95.
@@ -756,9 +763,9 @@ ifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.274 \end{titlepage}
-                      [1] (TCC_01.toc)
+                      [1] (TCC_02.toc)
 \tf@toc=\write3
-\openout3 = `TCC_01.toc'.
+\openout3 = `TCC_02.toc'.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
@@ -767,525 +774,139 @@ been already used, duplicate ignored
 l.279 \clearpage
                  [1
 
-] [2] [3
+] [2
 
-] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 463--464
-
- []
-
-[5pdfTeX warning (ext4): destination with the same identifier (name{equation.3.
-4}) has been already used, duplicate ignored
+] [3] [4pdfTeX warning (ext4): destination with the same identifier (name{equat
+ion.3.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.464 
-      ]pdfTeX warning (ext4): destination with the same identifier (name{equati
-on.3.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.471 \begin{eqnarray}
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{equation.3.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.471 \begin{eqnarray}
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{equation.3.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.471 \begin{eqnarray}
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{equation.3.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.471 \begin{eqnarray}
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{equation.3.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.487 estimado como sendo \begin{equation}
-                                          pdfTeX warning (ext4): destination wi
-th the same identifier (name{equation.3.4}) has been already used, duplicate ig
-nored
-<to be read again> 
-                   \relax 
-l.487 estimado como sendo \begin{equation}
-                                          pdfTeX warning (ext4): destination wi
-th the same identifier (name{equation.3.4}) has been already used, duplicate ig
-nored
-<to be read again> 
-                   \relax 
-l.487 estimado como sendo \begin{equation}
-                                          pdfTeX warning (ext4): destination wi
-th the same identifier (name{equation.3.4}) has been already used, duplicate ig
-nored
-<to be read again> 
-                   \relax 
-l.487 estimado como sendo \begin{equation}
-                                           [6]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 533.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\sigma' on input line 533.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 533.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 533.
-
-[7]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 575.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\beta' on input line 575.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 575.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 575.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 575.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\beta' on input line 575.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 575.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 575.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 607--611
-
- []
-
-[8] [9] [10pdfTeX warning (ext4): destination with the same identifier (name{ta
-ble.1}) has been already used, duplicate ignored
+l.458 C
+       omo pode ser visto anteriormente, o modelo de regressão linear simples,
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.4}
+) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.740 
-      ] [11] [12] [13] [14] [15] [16] [17]
-<TCC_01_files/figure-latex/curva_real-1.pdf, id=181, 469.755pt x 180.675pt>
-File: TCC_01_files/figure-latex/curva_real-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/curva_real-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/curva_real-1.pdf  used on in
-put line 1177.
+l.458 C
+       omo pode ser visto anteriormente, o modelo de regressão linear simples,
+] [5] [6] [7] [8] [9] [10] [11]
+<TCC_02_files/figure-latex/unnamed-chunk-2-1.pdf, id=130, 469.755pt x 180.675pt
+>
+File: TCC_02_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+<use TCC_02_files/figure-latex/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: TCC_02_files/figure-latex/unnamed-chunk-2-1.pdf  used 
+on input line 864.
 (pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-[18]
-<TCC_01_files/figure-latex/bin-1.pdf, id=187, 469.755pt x 180.675pt>
-File: TCC_01_files/figure-latex/bin-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/bin-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/bin-1.pdf  used on input lin
-e 1190.
+<TCC_02_files/figure-latex/unnamed-chunk-3-1.pdf, id=132, 469.755pt x 180.675pt
+>
+File: TCC_02_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
+<use TCC_02_files/figure-latex/unnamed-chunk-3-1.pdf>
+Package pdftex.def Info: TCC_02_files/figure-latex/unnamed-chunk-3-1.pdf  used 
+on input line 880.
 (pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-<TCC_01_files/figure-latex/loess-1.pdf, id=188, 469.755pt x 180.675pt>
-File: TCC_01_files/figure-latex/loess-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/loess-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/loess-1.pdf  used on input l
-ine 1210.
-(pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-[19pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
+<TCC_02_files/figure-latex/unnamed-chunk-11-1.pdf, id=133, 469.755pt x 578.16pt
+>
+File: TCC_02_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type pdf)
+<use TCC_02_files/figure-latex/unnamed-chunk-11-1.pdf>
+Package pdftex.def Info: TCC_02_files/figure-latex/unnamed-chunk-11-1.pdf  used
+ on input line 898.
+(pdftex.def)             Requested size: 455.24608pt x 560.30286pt.
+[12pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1226 \textbf{Kernel}
-                      pdfTeX warning (ext4): destination with the same identifi
-er (name{figure.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1226 \textbf{Kernel}
-                       <./TCC_01_files/figure-latex/curva_real-1.pdf> <./TCC_01
-_files/figure-latex/bin-1.pdf>]
-<TCC_01_files/figure-latex/kernel-1.pdf, id=213, 469.755pt x 180.675pt>
-File: TCC_01_files/figure-latex/kernel-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/kernel-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/kernel-1.pdf  used on input 
-line 1230.
-(pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-<TCC_01_files/figure-latex/splines-1.pdf, id=214, 469.755pt x 180.675pt>
-File: TCC_01_files/figure-latex/splines-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/splines-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/splines-1.pdf  used on input
- line 1250.
-(pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-[20pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
+l.913 
+       <./TCC_02_files/figure-latex/unnamed-chunk-2-1.pdf>]
+<TCC_02_files/figure-latex/unnamed-chunk-13-1.pdf, id=149, 469.755pt x 252.945p
+t>
+File: TCC_02_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type pdf)
+<use TCC_02_files/figure-latex/unnamed-chunk-13-1.pdf>
+Package pdftex.def Info: TCC_02_files/figure-latex/unnamed-chunk-13-1.pdf  used
+ on input line 943.
+(pdftex.def)             Requested size: 455.24608pt x 245.13249pt.
+[13pdfTeX warning (ext4): destination with the same identifier (name{figure.2})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1272 
-       pdfTeX warning (ext4): destination with the same identifier (name{figure
-.4}) has been already used, duplicate ignored
+l.959 
+       <./TCC_02_files/figure-latex/unnamed-chunk-3-1.pdf>] [14pdfTeX warning (
+ext4): destination with the same identifier (name{figure.3}) has been already u
+sed, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1272 
-        <./TCC_01_files/figure-latex/loess-1.pdf> <./TCC_01_files/figure-latex/
-kernel-1.pdf>]
-<TCC_01_files/figure-latex/metodos-1.pdf, id=239, 469.755pt x 180.675pt>
-File: TCC_01_files/figure-latex/metodos-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/metodos-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/metodos-1.pdf  used on input
- line 1277.
-(pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-[21pdfTeX warning (ext4): destination with the same identifier (name{figure.5})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1297 
-       pdfTeX warning (ext4): destination with the same identifier (name{figure
-.6}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1297 
-        <./TCC_01_files/figure-latex/splines-1.pdf> <./TCC_01_files/figure-late
-x/metodos-1.pdf>]
-<TCC_01_files/figure-latex/unnamed-chunk-5-1.pdf, id=265, 469.755pt x 144.54pt>
+l.959 
+       <./TCC_02_files/figure-latex/unnamed-chunk-11-1.pdf>]
+<TCC_02_files/figure-latex/unnamed-chunk-16-1.pdf, id=182, 469.755pt x 578.16pt
+>
+File: TCC_02_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
+<use TCC_02_files/figure-latex/unnamed-chunk-16-1.pdf>
+Package pdftex.def Info: TCC_02_files/figure-latex/unnamed-chunk-16-1.pdf  used
+ on input line 993.
+(pdftex.def)             Requested size: 455.24608pt x 560.30286pt.
 
-File: TCC_01_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-5-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-5-1.pdf  used 
-on input line 1320.
-(pdftex.def)             Requested size: 455.24608pt x 140.07568pt.
-<TCC_01_files/figure-latex/unnamed-chunk-6-1.pdf, id=266, 469.755pt x 144.54pt>
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-File: TCC_01_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-6-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-6-1.pdf  used 
-on input line 1328.
-(pdftex.def)             Requested size: 455.24608pt x 140.07568pt.
-[22pdfTeX warning (ext4): destination with the same identifier (name{table.2}) 
-has been already used, duplicate ignored
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+020.
+(C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [15pdfTeX warning (ext4): destination with the same identifier (name{figure.4
+}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1344 
-       pdfTeX warning (ext4): destination with the same identifier (name{figure
-.7}) has been already used, duplicate ignored
+l.1024 \clearpage
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{table.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1344 
-       pdfTeX warning (ext4): destination with the same identifier (name{figure
-.8}) has been already used, duplicate ignored
+l.1024 \clearpage
+                  <./TCC_02_files/figure-latex/unnamed-chunk-13-1.pdf>] [16pdfT
+eX warning (ext4): destination with the same identifier (name{figure.5}) has be
+en already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1344 
-        <./TCC_01_files/figure-latex/unnamed-chunk-5-1.pdf> <./TCC_01_files/fig
-ure-latex/unnamed-chunk-6-1.pdf>]
-<TCC_01_files/figure-latex/unnamed-chunk-8-1.pdf, id=289, 469.755pt x 180.675pt
->
-File: TCC_01_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-8-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-8-1.pdf  used 
-on input line 1347.
-(pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-<TCC_01_files/figure-latex/unnamed-chunk-9-1.pdf, id=290, 469.755pt x 180.675pt
->
-File: TCC_01_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-9-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-9-1.pdf  used 
-on input line 1356.
-(pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-[23pdfTeX warning (ext4): destination with the same identifier (name{figure.9})
- has been already used, duplicate ignored
+l.1024 \clearpage
+                  <./TCC_02_files/figure-latex/unnamed-chunk-16-1.pdf>] [17pdfT
+eX warning (ext4): destination with the same identifier (name{table.2}) has bee
+n already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1378 
-       pdfTeX warning (ext4): destination with the same identifier (name{figure
-.10}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1378 
-        <./TCC_01_files/figure-latex/unnamed-chunk-8-1.pdf> <./TCC_01_files/fig
-ure-latex/unnamed-chunk-9-1.pdf>]
-<TCC_01_files/figure-latex/unnamed-chunk-10-1.pdf, id=315, 469.755pt x 180.675p
-t>
-File: TCC_01_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-10-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-10-1.pdf  used
- on input line 1381.
-(pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-<TCC_01_files/figure-latex/unnamed-chunk-11-1.pdf, id=316, 469.755pt x 180.675p
-t>
-File: TCC_01_files/figure-latex/unnamed-chunk-11-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-11-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-11-1.pdf  used
- on input line 1400.
-(pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-[24pdfTeX warning (ext4): destination with the same identifier (name{figure.11}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1429 
-       pdfTeX warning (ext4): destination with the same identifier (name{figure
-.12}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1429 
-        <./TCC_01_files/figure-latex/unnamed-chunk-10-1.pdf> <./TCC_01_files/fi
-gure-latex/unnamed-chunk-11-1.pdf>]
-<TCC_01_files/figure-latex/unnamed-chunk-12-1.pdf, id=341, 469.755pt x 180.675p
-t>
-File: TCC_01_files/figure-latex/unnamed-chunk-12-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-12-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-12-1.pdf  used
- on input line 1432.
-(pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-[25pdfTeX warning (ext4): destination with the same identifier (name{figure.13}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1439 \newpage
-                <./TCC_01_files/figure-latex/unnamed-chunk-12-1.pdf>]
-<TCC_01_files/figure-latex/unnamed-chunk-13-1.pdf, id=356, 469.755pt x 180.675p
-t>
-File: TCC_01_files/figure-latex/unnamed-chunk-13-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-13-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-13-1.pdf  used
- on input line 1454.
-(pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-[26pdfTeX warning (ext4): destination with the same identifier (name{figure.14}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1472 \newpage
-                <./TCC_01_files/figure-latex/unnamed-chunk-13-1.pdf>]
-<TCC_01_files/figure-latex/unnamed-chunk-15-1.pdf, id=371, 469.755pt x 361.35pt
->
-File: TCC_01_files/figure-latex/unnamed-chunk-15-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-15-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-15-1.pdf  used
- on input line 1485.
-(pdftex.def)             Requested size: 455.24608pt x 350.18929pt.
-[27pdfTeX warning (ext4): destination with the same identifier (name{figure.15}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1497 \newpage
-                <./TCC_01_files/figure-latex/unnamed-chunk-15-1.pdf>]
-<TCC_01_files/figure-latex/unnamed-chunk-16-1.pdf, id=387, 469.755pt x 180.675p
-t>
-File: TCC_01_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-16-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-16-1.pdf  used
- on input line 1511.
-(pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-<TCC_01_files/figure-latex/unnamed-chunk-17-1.pdf, id=388, 469.755pt x 144.54pt
->
-File: TCC_01_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-17-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-17-1.pdf  used
- on input line 1529.
-(pdftex.def)             Requested size: 455.24608pt x 140.07568pt.
-[28pdfTeX warning (ext4): destination with the same identifier (name{figure.16}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1536 \newpage
-               pdfTeX warning (ext4): destination with the same identifier (nam
-e{figure.17}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1536 \newpage
-                <./TCC_01_files/figure-latex/unnamed-chunk-16-1.pdf> <./TCC_01_
-files/figure-latex/unnamed-chunk-17-1.pdf>]
-<TCC_01_files/figure-latex/unnamed-chunk-29-1.pdf, id=413, 469.755pt x 144.54pt
->
-File: TCC_01_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-29-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-29-1.pdf  used
- on input line 1572.
-(pdftex.def)             Requested size: 455.24608pt x 140.07568pt.
-<TCC_01_files/figure-latex/unnamed-chunk-30-1.pdf, id=414, 469.755pt x 144.54pt
->
-File: TCC_01_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-30-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-30-1.pdf  used
- on input line 1581.
-(pdftex.def)             Requested size: 455.24608pt x 140.07568pt.
-[29pdfTeX warning (ext4): destination with the same identifier (name{table.3}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1607 I
-        remos agora incluir os modelos aditivos para dados simuladospdfTeX warn
-ing (ext4): destination with the same identifier (name{figure.18}) has been alr
-eady used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1607 I
-        remos agora incluir os modelos aditivos para dados simuladospdfTeX warn
-ing (ext4): destination with the same identifier (name{table.4}) has been alrea
-dy used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1607 I
-        remos agora incluir os modelos aditivos para dados simulados <./TCC_01_
-files/figure-latex/unnamed-chunk-29-1.pdf>]
-<TCC_01_files/figure-latex/unnamed-chunk-32-1.pdf, id=428, 469.755pt x 180.675p
-t>
-File: TCC_01_files/figure-latex/unnamed-chunk-32-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-32-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-32-1.pdf  used
- on input line 1628.
-(pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-[30pdfTeX warning (ext4): destination with the same identifier (name{figure.19}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1654 
-       pdfTeX warning (ext4): destination with the same identifier (name{figure
-.20}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1654 
-        <./TCC_01_files/figure-latex/unnamed-chunk-30-1.pdf> <./TCC_01_files/fi
-gure-latex/unnamed-chunk-32-1.pdf>]
-<TCC_01_files/figure-latex/unnamed-chunk-34-1.pdf, id=453, 469.755pt x 361.35pt
->
-File: TCC_01_files/figure-latex/unnamed-chunk-34-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-34-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-34-1.pdf  used
- on input line 1657.
-(pdftex.def)             Requested size: 455.24608pt x 350.18929pt.
-[31pdfTeX warning (ext4): destination with the same identifier (name{figure.21}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1672 
-        <./TCC_01_files/figure-latex/unnamed-chunk-34-1.pdf>]
-<TCC_01_files/figure-latex/h1-1.pdf, id=468, 469.755pt x 216.81pt>
-File: TCC_01_files/figure-latex/h1-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/h1-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/h1-1.pdf  used on input line
- 1706.
-(pdftex.def)             Requested size: 455.24608pt x 210.11356pt.
-[32pdfTeX warning (ext4): destination with the same identifier (name{table.5}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1743 
-       ]
-<TCC_01_files/figure-latex/h5-1.pdf, id=475, 469.755pt x 216.81pt>
-File: TCC_01_files/figure-latex/h5-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/h5-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/h5-1.pdf  used on input line
- 1767.
-(pdftex.def)             Requested size: 455.24608pt x 210.11356pt.
-[33pdfTeX warning (ext4): destination with the same identifier (name{figure.22}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1784     \item $
-                  \hat{\beta_0}$: nesse caso o intercepto não tem interpret...
- <./TCC_01_files/figure-latex/h1-1.pdf>]
-<TCC_01_files/figure-latex/unnamed-chunk-35-1.pdf, id=491, 469.755pt x 216.81pt
->
-File: TCC_01_files/figure-latex/unnamed-chunk-35-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-35-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-35-1.pdf  used
- on input line 1807.
-(pdftex.def)             Requested size: 455.24608pt x 210.11356pt.
-[34pdfTeX warning (ext4): destination with the same identifier (name{figure.23}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1824 
-        <./TCC_01_files/figure-latex/h5-1.pdf>] [35pdfTeX warning (ext4): desti
-nation with the same identifier (name{figure.24}) has been already used, duplic
-ate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1863 
-        <./TCC_01_files/figure-latex/unnamed-chunk-35-1.pdf>]
-<TCC_01_files/figure-latex/unnamed-chunk-37-1.pdf, id=517, 469.755pt x 180.675p
-t>
-File: TCC_01_files/figure-latex/unnamed-chunk-37-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-37-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-37-1.pdf  used
- on input line 1866.
-(pdftex.def)             Requested size: 455.24608pt x 175.09462pt.
-[36pdfTeX warning (ext4): destination with the same identifier (name{figure.25}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1914 
-       pdfTeX warning (ext4): destination with the same identifier (name{table.
-6}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1914 
-        <./TCC_01_files/figure-latex/unnamed-chunk-37-1.pdf>] [37pdfTeX warning
- (ext4): destination with the same identifier (name{table.7}) has been already 
-used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1977 
-       pdfTeX warning (ext4): destination with the same identifier (name{table.
-8}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1977 
-       ] [38]
-<TCC_01_files/figure-latex/unnamed-chunk-65-1.pdf, id=548, 469.755pt x 397.485p
-t>
-File: TCC_01_files/figure-latex/unnamed-chunk-65-1.pdf Graphic file (type pdf)
-<use TCC_01_files/figure-latex/unnamed-chunk-65-1.pdf>
-Package pdftex.def Info: TCC_01_files/figure-latex/unnamed-chunk-65-1.pdf  used
- on input line 2052.
-(pdftex.def)             Requested size: 455.24608pt x 385.2082pt.
-[39] [40pdfTeX warning (ext4): destination with the same identifier (name{figur
-e.26}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.2088 
-        <./TCC_01_files/figure-latex/unnamed-chunk-65-1.pdf>] [41] [42
+l.1024 \clearpage
+                 ] [18
 
-] (TCC_01.aux) ) 
+] (TCC_02.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 15821 strings out of 478889
- 247831 string characters out of 2850833
- 598835 words of memory out of 3000000
- 33020 multiletter control sequences out of 15000+600000
- 465015 words of font info for 171 fonts, out of 8000000 for 9000
+ 15511 strings out of 478889
+ 237733 string characters out of 2850833
+ 594055 words of memory out of 3000000
+ 32842 multiletter control sequences out of 15000+600000
+ 454008 words of font info for 145 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,13n,80p,1100b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/l
-m/lm-ec.enc}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm
--rm.enc}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mat
-hsy.enc}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mat
-hit.enc}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mat
-hex.enc}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1
-.enc}<C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12
-.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.
-pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.
-pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.
-pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.p
-fb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pf
-b><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb
-><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><
-C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:
-/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:
-/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:
-/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb>
-Output written on TCC_01.pdf (46 pages, 1342235 bytes).
+ 74i,13n,80p,1100b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
+{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C
+:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C
+:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Us
+ers/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Us
+ers/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Us
+ers/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}<C:/Users
+/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users
+/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users
+/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users
+/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/Users/
+marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/m
+arco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/ma
+rco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/marc
+o/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/marco/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/marco/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/marco/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/marco/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
+Output written on TCC_02.pdf (22 pages, 566745 bytes).
 PDF statistics:
- 778 PDF objects out of 1000 (max. 8388607)
- 122 named destinations out of 1000 (max. 500000)
- 33187 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 369 PDF objects out of 1000 (max. 8388607)
+ 57 named destinations out of 1000 (max. 500000)
+ 26834 words of extra memory for PDF output out of 29859 (max. 10000000)
 

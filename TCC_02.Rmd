@@ -1,0 +1,1058 @@
+---
+output:
+  pdf_document:
+    toc: false
+    toc_depth: 3
+    keep_tex: no
+    number_sections: true
+fontsize: 12pt 
+documentclass: article
+classoption: a4paper
+lang: pt-br
+mainfont: Times New Roman
+sansfont: Times New Roman
+monofont: Times New Roman
+indent: true
+nocite: '@*'
+header-includes:
+  - \usepackage{geometry}
+  - \geometry{headheight=30pt,left=3cm,bottom=2cm,top=3cm,right=2cm}
+  - \usepackage{graphicx}
+  - \usepackage[utf8]{inputenc}
+  - \usepackage[onehalfspacing]{setspace}
+  - \usepackage{fancyhdr}
+  - \usepackage{ stmaryrd }
+  - \usepackage{eqnarray,amsmath}
+  - \usepackage{float}
+---
+
+\pagestyle{fancy}
+\fancyhead[ROE]{\leftmark}
+\fancyhead[LO]{}
+\fancyfoot[C]{}
+\fancyfoot[E]{}
+\fancyfoot[RO]{\thepage}
+\setlength{\parindent}{1.25cm} 
+<!--\setlength{\parskip}{1.0em} -->
+
+
+\newcommand{\regterm}{\beta_0+{\beta_1}x+\varepsilon}
+\newcommand{\regest}{\beta_0+{\beta_1}x+\varepsilon}
+\newcommand{\regesti}{\beta_0+{\beta_1}x_i+\varepsilon_i}
+\newcommand{\regesp}{\beta_0+{\beta_1}x}
+\newcommand{\regespi}{\beta_0+{\beta_1}x_i}
+\newcommand{\regefiti}{\hat{\beta_0}+\hat{{\beta_1}x_i}}
+\newcommand{\bz}{\beta_0}
+\newcommand{\bzh}{\hat{\beta_0}}
+\newcommand{\bum}{\beta_1}
+\newcommand{\bumh}{\hat{\beta_1}}
+\newcommand{\somat}{\sum_{i=1}^{n}}
+\newcommand{\xbar}{\overline{x}}
+\newcommand{\ybar}{\overline{y}}
+\newcommand{\bh}{\hat{\beta}}
+
+\begin{titlepage} 
+\begin{center}
+{\normalsize \bf UNIVERSIDADE ESTADUAL DE MARINGÁ         \\
+        CENTRO DE CIÊNCIAS EXATAS                    \\
+        CURSO DE ESTATÍSTICA                          \\
+
+      
+
+ }
+ 
+\end{center} 
+
+\vfill
+\begin{center}
+{\bf \Large AVALIAÇÃO DE MÉTODOS NÃO PARAMÉTRICOS PARA PREDIÇÃO EM MODELOS ADITIVOS }\\[1cm]
+\end{center}
+
+\vfill
+
+\begin{center}
+{\bf  \Large Marco Aurelio Valles Leal    }\\[1cm]
+\end{center}
+
+ 
+
+\vfill
+ 
+   \hspace{.45\textwidth}
+   \begin{minipage}{.5\textwidth}
+     
+   \end{minipage}
+
+
+\vfill
+\begin{center}
+{\normalsize	 Maringá \\ 2021 }\\[0.2cm]
+\end{center}
+\end{titlepage}
+
+
+
+
+\begin{titlepage} 
+
+\begin{center}
+{\bf  \Large MARCO AURELIO VALLES LEAL    }\\[1cm]
+\end{center}
+
+\vfill
+
+\begin{center}
+{\bf \Large AVALIAÇÃO DE MÉTODOS NÃO PARAMÉTRICOS PARA PREDIÇÃO EM MODELOS ADITIVOS}\\[1cm]
+\end{center}
+
+
+ 
+
+\vfill
+ 
+   \hspace{.35\textwidth}
+   \begin{minipage}{.5\textwidth}
+    
+       Trabalho de conclusão de curso apresentado como requisito parcial para a obtenção do título de bacharel em Estatística pela Universidade Estadual de Maringá. \\
+
+
+\begin{tabular}{ll}
+Orientador:   &    Profº Drº George Lucas Moraes Pezzot    \\
+Coorientador: &    Profº Drº Willian  Luís de Oliveira  
+\end{tabular}
+
+
+
+
+     
+   \end{minipage}
+
+
+\vfill
+\begin{center}
+{\normalsize	 Maringá \\ 2022 }\\[0.2cm]
+\end{center}
+\end{titlepage}
+
+
+
+\begin{titlepage} 
+
+
+\begin{flushleft}
+{ AVALIAÇÃO DE MÉTODOS NÃO PARAMÉTRICOS PARA PREDIÇÃO EM MODELOS ADITIVOS}\\[1cm]
+\end{flushleft}
+
+
+\vfill
+
+
+\begin{flushleft}
+{MARCO AURELIO VALLES LEAL    }\\[1cm]
+\end{flushleft}
+
+ 
+
+\vfill
+ 
+   \hspace{.45\textwidth}
+   \begin{minipage}{.5\textwidth}
+    
+       Trabalho de conclusão de curso apresentado como requisito parcial para a obtenção do título de bacharel em Estatística pela Universidade Estadual de Maringá.
+
+     
+   \end{minipage} \\[1cm]
+
+\vfill
+
+\begin{flushleft}
+Aprovado em: \_\_\_\_\_\_\_\_/\_\_\_\_\_\_\_\_/\_\_\_\_\_\_\_\_. 
+\end{flushleft}
+
+\vfill
+
+\begin{center}
+\textbf {BANCA EXAMINADORA}\\[1cm] 
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ \\
+\textbf{ Orientador }\\
+ Profº Drº George Lucas Moraes Pezzot \\
+Universidade Estadual de Maringá
+\end{center}
+
+\vfill
+
+\begin{center}
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ \\
+\textbf{Membro da banca} \\
+Nome do professor membro da banca \\
+Intituição do professor membro da banca
+\end{center}
+
+\vfill
+
+\begin{center}
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ \\
+\textbf{Membro da banca} \\
+Nome do professor membro da banca \\
+Intituição do professor membro da banca
+\end{center}
+
+
+\end{titlepage}
+
+
+\begin{titlepage}
+
+\begin{center}
+\bf RESUMO
+\end{center}
+
+É comum, nas mais diversas áreas, investigar e modelar a relação entre variáveis. O modelo mais simples é denominado modelo de regressão linear simples e assume que a média da variável resposta é modelada como uma função linear das variáveis explicativas, supondo erros aleatórios com média zero, variância constante e não correlacionados. Entretanto, nem sempre a relação existente é perfeitamente linear. Neste contexto, é possível flexibilizar o modelo de regressão linear modelando a dependência da variável resposta com cada uma das variáveis explicativas em um contexto não paramétrico. Esta nova classe de modelos é dita modelos aditivos e mantêm a característica dos modelos de regressão lineares de serem aditivos nos efeitos preditivos. Portanto, este projeto visa apresentar os modelos aditivos, além de técnicas de suavização utilizadas para ajustar modelos no contexto não paramétrico. Por fim, a metodologia é aplicada em dados artificiais (simulados) e em dados reais, dando enfoque à qualidade das predições.
+
+Palavras-chave : regressão, modelo aditivo, suavizadores  
+
+\end{titlepage}
+
+
+```{r setup, include=FALSE}
+rm(list=ls())
+source(file = "funcoes.R",encoding = "UTF-8")
+library(tidyverse)
+library(binsmooth)
+library(knitr)
+library(kableExtra)
+library(additive.models)
+
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message= FALSE,
+                      out.width = "100%",fig.align = "center",size ="large",fig.height = 2.5)
+```
+
+
+
+
+\clearpage
+\tableofcontents
+
+\clearpage
+\section{Introdução}
+
+\hspace{1.25cm} Análise de regressão é uma técnica amplamente utilizada na estatística para investigar e modelar a relação entre variáveis. Usualmente, é de interesse apenas uma variável, chamada de variável resposta ou dependente, e desejamos estudar como esta variável depende de um conjunto de variáveis observáveis, chamadas de variáveis explicativas ou independentes. Nesse contexto, os modelos de regressão (linear simples ou múltipla) podem ser utilizados.
+
+Nota-se, porém, que em muitos casos a relação existente entre a variável resposta (média) e cada uma das variáveis explicativas não é perfeitamente linear e determinar uma função que representa a correta relação existente nem sempre é fácil. Uma alternativa é flexibilizar o modelo de regressão linear, modelando a dependência da variável resposta com cada uma das variáveis explicativas em um contexto não paramétrico. Esta nova classe de modelos é dita modelos aditivos e mantêm a característica dos modelos de regressão lineares de serem aditivos nos efeitos preditivos. **REFERÊNCIA**
+
+Portanto, o objetivo do presente trabalho é apresentar os modelos aditivos e estudar as principais técnicas de suavização existentes utilizadas para ajustar modelos no contexto não paramétrico, em particular os modelos aditivos, apresentando suas principais características e aplicações. Além disso, pretende-se mostrar o ganho na predição, ao se utilizar modelos mais flexíveis, em determinadas situações.  
+
+
+\subsection{Objetivo Geral}
+
+\hspace{1.25cm}O objetivo deste projeto é apresentar os modelos aditivos, uma generalização dos modelos de regressão linear, descrevendo suas principais características e estudar algumas técnicas de estimação do modelo, no contexto não paramétrico.
+
+\subsection{Objetivos Específicos}
+
+* Introduzir os modelos aditivos, especificando sua principais características e apresentar os principais métodos de estimação dos parâmetros do modelo assim como as técnicas de diagnóstico;
+
+* Apresentar técnicas de suavização utilizadas para estimar funções não paramétricas presentes nos modelos aditivos, identificando suas principais características;
+
+* Apresentar métricas para verificar a qualidade de predição;
+
+* Realizar um estudo de simulação para verificar a qualidade do ajuste dos modelos em alguns cenários, considerando os modelos aditivos;
+
+* Aplicar a metodologia estudada a um conjunto de dados reais, comparando modelos e técnicas de estimação e predição.
+
+\section{Referencial Teórico}
+
+
+
+
+\section{Metodologia}
+
+
+\subsection{Regressão Linear}
+
+\hspace{1.25cm} Análise de regressão é uma técnica estatística utilizada para investigar e modelar a relação entre variáveis. Aplicações de regressão são numerosas e ocorrem em quase todas as áreas do conhecimento, como engenharia, ciências físicas e químicas, economia, ciência biológicas, etc. Resumidamente a regressão tem como objetivo  descrever uma relação entre uma variável de interesse, chamada de variável resposta ou dependente (Y) e um conjunto de variáveis preditoras ou independentes (X), as co-variáveis. Através do modelo é possível estimar parâmetros e fazer inferências sobre os mesmos, como testes de hipóteses e intervalos de confiança.
+
+\hspace{1.25cm} Além disso, o modelo de regressão pode ser usado para predição, onde se é esperado que grande parte da variação de Y seja explicado pelas variáveis X. Dessa forma, obtem-se valores esperados de Y correspondentes a valores de X que não estavam entre os dados.
+
+
+\hspace{1.25cm} O modelo de regressão linear simples, constitui uma tentativa de estabelecer uma equação matemática linear que descreve o relacionamento entre duas variáveis, X (preditora) e Y (resposta). O modelo de regressão linear populacional é definido por:
+
+\begin{equation}
+   Y = \regest,
+\end{equation}
+onde o intercepto $\beta_0$ e a inclinação da reta $\beta_1$ são parâmetros desconhecidos e $\varepsilon$ é um erro aleatório. Pressupõe-se que os erros têm média zero, variância $\sigma^2$ desconhecida e  são não correlacionados, assim, as respostas também não têm relação. A média da distribuição é dada por uma função linear de x:
+\begin{equation}
+    E(Y|x) = \regesp
+\end{equation}
+
+Os parâmetros $\bz$ e $\bum$, também chamados de coeficientes da regressão, tÊm uma interpretação simples e muitas vezes útil. A inclinação  $\bum$ é a alteração média da distribuição de Y produzida por uma mudança unitária  da variável X, ou seja, o quanto varia a média de Y para o aumento de uma unidade de X. Se os dados de X incluem $x=0$, então o intercepto $\bz$ é a média da distribuição da resposta Y quando $x=0$. Porém, se a observação no zero não estiver incluída, $\bz$ não tem interpretação prática e  é chamado de intercepto ou coeficiente linear, pois é o ponto onde a reta regressora corta o eixo y.
+
+ 
+
+
+\subsubsection{Estimação dos parâmetros pelo Métodos dos Mínimos Quadrados}
+
+\hspace{1.25cm} Os parâmetros $\bz$ e $\bum$ são desconhecidos e devem ser estimados usando dados de uma amostra. Suponha que tem-se $n$ pares de dados, $(x_1, y_1), ..., (x_n, y_n)$. Esses dados podem ter sido resultado de um experimento controlado feito especificamente para coletá-los, de um estudo observacional, etc. Uma maneira de estimar esses parâmetros, é utilizando o Método dos Mínimos Quadrados, onde não é necessário conhecer a distribuição dos erros. Esse método tem como objetivo encontrar os valores de $\bz$ e $\bum$ que minimizam a soma dos quadrados dos erros (ou desvios do modelo). A equação de regressão linear amostral é definida como:
+
+ \begin{equation}
+  y_i=\regesti   \text{, para i=1,2,...,n}
+ \end{equation}
+ 
+ A partir de (3) tem-se:
+$$
+\varepsilon_i = y_i - \bz - \bum x_i \Rightarrow
+\somat \varepsilon_i ^2 = \somat{(y_i - \bz - \bum x_i)^2} \Rightarrow
+S(\bz,\bum)=\somat(y_i-\bz-\bum x_i)^2
+$$
+Denomina-se os estimadores de mínimos quadrados de $\bz$ e $\bum$, $\bzh$ e $\bumh$, respectivamente. Para obtê-los deve-se encontrar os valores para $\bzh$ e $\bumh$ que minimizam a equação $S(\bz,\bum)$. Em geral, deriva-se a equação, iguala a zero e isola os parâmetros e,(**determinante?** se a segunda derivada em relação a cada parâmetro for positiva), os valores encontrados são os que minimizam a equação. Sendo assim é fácil verificar que:
+ 
+
+\begin{minipage}{.3\textwidth}
+\begin{flushleft}
+\begin{eqnarray}
+\bzh & =   &\bar{ y} - \bumh \bar{x}  \nonumber
+\end{eqnarray}
+\end{flushleft}
+\end{minipage}
+\hspace{1.5cm}
+\begin{minipage}{0.45\textwidth}
+\begin{flushleft}
+\begin{eqnarray}
+\bumh& = &\dfrac{\somat(x_i - \bar{x})(y_i - \bar{y})}{\somat(x_i - \bar{x})^2}  \nonumber
+\end{eqnarray}
+\end{flushleft}
+\end{minipage}
+
+
+E portanto podemos definir, o modelo de regressão linear simples ajustado como sendo
+\begin{equation}
+    \hat{y} = \bzh + \bumh x
+\end{equation}
+
+A diferença entre o valor observado $y_i$ e o correspondente valor estimado é o resíduo, que é importante para verificar a adequação do modelo. Matematicamente, o i-ésimo resíduo é
+$$
+e_i = y_i - \hat{y_i} = y_i -  (\bzh + \bumh x), \quad i=1,...,n \nonumber
+$$
+**FALAR DA PREDIÇÂO!**
+
+ 
+
+
+
+
+
+
+
+\subsubsection{Regressão Linear Múltipla}
+
+**FALAR BREVEMENTE**
+
+Como pode ser visto anteriormente, o modelo de regressão linear simples, com uma variável explicativa, aplica-se a várias situações. Entretanto, diversos problemas envolvem dois ou mais regressores influenciando o comportamento da variável resposta (dependente) $y$.
+
+Suponha que o rendimento, em libras, de conversão em um processo químico dependa da temperatura e da concentração do catalisador. Um modelo de regressão múltipla que talvez descreva esse relacionamento é dado por
+$$
+y = \bz + \bum x_1 + \beta_2 x_2 + \varepsilon,
+$$
+onde $y$ é o rendimento, $x_1$ a temperatura e $x_2$ a concentração do catalisador. Esse é um modelo de regressão linear múltipla com duas variáveis regressoras. O termo linear é usado porque a equação é uma função linear dos parâmetros desconhecidos $\bum , \bz$ e $\beta_2$. Outro ponto a ser destacado é que esse modelo forma um plano no espaço tridimensional de $y, x_1$ e $x_2$. O parâmetro $\bz$ é o intercepto do plano; se os dados incluem $x_1 = x_2 = 0$, então $\bz$ é a média de $y$ quando $x_1 = x_2 = 0$. Caso contrário, $\bz$ não tem interpretação prática. Já $\bum$ indica a mudança na resposta média $y$ a cada mudança unitária de $x_1$ quando $x_2$ é constante. O parâmetro $\beta_2$ indica a mudança na resposta média a cada unidade de mudança em $x_2$, quando $x_1$ é constante. Em geral, a resposta $y$ pode estar relacionada a $k$ regressores ou variáveis preditoras. O modelo
+
+\begin{equation*}
+y = \bz + \bum x_1 + \beta_2 x_2 +...+ \beta_k x_k + \varepsilon
+\end{equation*}
+é chamado de modelo de regressão linear múltipla com $k$ regressores. Os parâmetros $\beta_j, j = 0,1,...,k$ são os coeficientes de regressão. Esse modelo descreve um hiperplano no espaço k-dimensional das variáveis regressoras $x_j$. O parâmetro $\beta_j$  representa a mudança esperada na resposta $y$ a cada mudança unitária  de $x_j$ quando quando todas as outras variáveis regressoras $x_i$, com $(i \neq j)$, são constantes. Por isso, os parâmetros $\beta_j$ são frequentemente chamados de coeficientes parciais de regressão.
+
+Os modelos de regressão linear múltipla são frequentemente usados como modelos empíricos ou funções aproximadas. Isso é, a verdadeira função que descreve o relacionamento entre $y$ e $x_1, x_2, ..., x_k$ é desconhecida, mas em certos intervalos das variáveis regressoras, o modelo de regressão linear é uma aproximação adequada para a verdadeira função desconhecida. 
+
+
+**FALAR BREVEMENTE DOS EMQ'S**
+
+\subsection{Modelo Aditivo}
+
+
+\hspace{1.25cm} Uma das mais populares e úteis ferramentas em análise de dados é o modelo de regressão linear. Se a dependência de de Y em X é linear ou quase linear, então o modelo de regressão linear é útil. Caso esta dependência não seja  linear, não iremos querer resumi-la em uma linha reta. Poderíamos adicionar um termo quadrático, mas geralmente é dificultoso encontrar a forma mais apropriada. Nesse contexto, tem-se os modelos aditivos, que podem ser vistos como uma flexibilização do modelo de regressão linear, considerando a dependência da variável resposta com cada uma das variáveis explicativas em um contexto não paramétrico. 
+
+\hspace{1.25cm} Para isto, considera-se que cada uma das variáveis explicativas está relacionada à média da variável resposta Y através de uma função univariada desconhecida (função suave) não especificada de uma forma paramétrica, ou seja, o componente sistemático é formado por uma soma de funções suaves não especificadas das variáveis explicativas. Esta nova classe de modelos é dita modelos aditivos e mantêm a característica dos modelos de regressão lineares de serem aditivos nos efeitos preditivos. Os modelos aditivos são um caso particular de uma classe mais geral denominada modelos aditivos generalizados (HASTIE & TIBSHIRANI, 1990). Um modelo aditivo é definido por
+
+\begin{equation*}
+ y = \alpha + \sum_{j=1}^{p} f_j (X_j) + \epsilon,
+\end{equation*}
+onde os erros $\epsilon$ são independentes, com $E(\epsilon) = 0$ e $var(\epsilon) = \sigma^2$. As $f_js$ são funções univariadas arbitrárias, uma para cada preditor.
+
+
+\hspace{1.25cm} Os modelos aditivos mantêm muitas das boas propriedades dos modelos lineares, porém são mais flexíveis. Como visto, Uma das vantagens de modelos lineares é sua simplicidade na interpretação: caso o interesse seja em saber como a previsão muda conforme mudanças em $x_j$, só é necessário saber o valor de $\beta_j$, embora a função de resposta parcial $f_j$ desempenha esse mesmo papel em um modelo aditivo.
+
+\subsection{Suavizadores}
+
+\hspace{1.25cm} Essas funções do componente sistemático podem ser estimadas através de um suavizador (\textit{smoother}), uma ferramenta que representa a tendência da variável resposta como função das covariáveis disponíveis. No caso em que apenas uma covariável está disponível para predizer a variável resposta, um suavizador do gráfico de dispersão é frequentemente utilizado. 
+
+\hspace{1.25cm} Um suavizador (\textit{smoother}) pode ser definido como uma ferramenta para resumo da tendência das medidas Y como função de uma ou mais medidas X. É importante destacar que as estimativas das tendências terão menos variabilidade que as variáveis respostas observadas, o que explica o nome de suavizador para a técnica aplicada (HASTIE & TIBSHIRANI, 1990). Chamamos a estimativa produzida por um suavizador (\textit{smoother}) de “\textit{smooth}”. O caso de uma variável preditora é chamado de suavizador em diagrama de dispersão.
+
+\hspace{1.25cm} Os suavizadores possuem dois usos principais, sendo o primeiro uso a descrição. Um gráfico de dispersão suavizador pode ser usado para melhorar a aparência visual de um gráfico de dispersão de Y vs X, para nos ajudar a encontrar uma tendência no gráfico. O segundo uso é de estimar a dependência da esperança de Y com o seus preditores e nos servem como blocos de construção para os modelos aditivos.
+
+\hspace{1.25cm} O suavizador mais simples é o caso dos preditores categóricos, como sexo (masculino, feminino). Para suavizar Y podemos simplesmente realizar a médias dos valores de Y para cada categoria. Este processo captura a tendência de Y em X. Pode não parecer que simplesmente realizar as médias seja um processo de suavização, mas este conceito é a base para a configuração mais geral, já que a maioria dos suavizadores tenta imitar a média da categoria através da média local, ou seja, realizar a média dos valores de Y tendo os valores preditores próximos dos valores alvo. Esta média é feita nas vizinhanças em torno do valor alvo.
+
+Nesse caso, tem-se duas decisões a serem tomadas:
+
+• Como realizar a média dos valores da resposta em cada vizinhança;
+
+• O quão grande esta vizinhança deve ser.
+
+A questão de como realizar a média em uma vizinhança é a questão de qual tipo de suavizador utilizar, pois os suavizadores diferem principalmente pelo jeito de realizar as médias. O tamanho da vizinhança a ser tomada é normalmente expressa em forma de um parâmetro. Intuitivamente grandes vizinhanças irão produzir estimativas com variância pequena mas potencialmente com um grande viés e inversamente quando adotado vizinhanças pequenas. Portanto temos uma troca fundamental entre variância e viés estipulada pelo parâmetro suavizador. Este problema é análogo à questão de quantas variáveis preditoras colocar em uma equação de regressão.
+
+\subsubsection{Técnicas de suavização}
+
+\hspace{1.25cm} Entre as principais técnicas de suavização estão a regressão paramétrica, vista anteriormente e que consiste em uma linha de regressão estimada por mínimos quadrados. Essa abordagem pode ou não ser apropriada para dado conjunto de dados.
+
+O suavizador bin, também conhecido como regressograma, imita um suavizador categórico, particionando os valores preditores em regiões disjuntas e então realizando a média da resposta em cada região. A estimativa final não tem uma forma bem suavizada, pois é possível ver um salto em cada ponto de corte.
+
+A média móvel (\textit{running mean}) é outra técnica que leva em conta o cálculo da média. É muito comum utilizar uma vizinhança/região de $(2k + 1)$ observações, $k$ para a esquerda e $k$ para a direita de cada observação, onde o valor de $k$ tem um comportamento de troca entre suavidade e qualidade do ajuste.
+
+Um problema comum encontrado na média móvel é o viés. Uma saída é usar pesos para dar mais importância às vizinhanças mais próximas. Uma solução ainda melhor é utilizar a técnica de linha móvel (\textit{running line}), na qual novamente são definidas as vizinhanças para cada ponto, tipicamente os $k$ pontos mais próximos de cada lado. Nesse caso é mais interessante considerar a proporção de pontos em cada vizinhança, ou seja, $w = \dfrac{(2k+1)}{n}$, denominado \textit{span}. Então ajusta-se uma linha de regressão aos pontos de cada região, que é usada para encontrar o valor predito suavizado para o ponto de interesse.
+
+\subsubsection{Loess}
+
+\hspace{1.25cm} Também chamado de \textit{Lowess}, essa técnica pode ser vista como uma linha móvel com pesos locais (\textit{locally weighted running line}). Um suavizador desse tipo, seja denominado $s(x_0)$, usando $k$ vizinhos mais próximos pode ser computada por meio dos seguintes passos:
+
+\begin{itemize}
+    \item Os $k$ vizinhos próximos de $x_0$ são identificados e denotados por $N(X_0)$;
+    \item É computada a distância do vizinho-próximo mais distante de $x_0$:
+    
+    \begin{equation*}
+        \Delta(x_0) = max_{N_{x_0}} |X_0 - x_i|
+    \end{equation*}
+    
+    \item Pesos $w_i$ são designados para cada ponto $(N_{x_0}$, usando a função de peso tri-cúbica:
+    
+    \begin{equation*}
+        W \Bigg( \dfrac{|x_0 - x_i|}{\Delta (x_0)}\Bigg)
+    \end{equation*}
+    
+    onde
+    
+    \begin{equation*}
+        W(u) = 
+        \begin{cases}
+        (1-u^3)^3, \quad 0 \leq u \leq 1 \\
+        0 , \qquad \qquad \mbox{caso contrário}
+        \end{cases}
+    \end{equation*}
+    
+    \item $s(x_0)$ é o valor ajustado no ponto $x_0$ do ajuste de mínimos quadrados ponderados de $y$ para $x$ contidos em $N(X_0)$ usando os pesos computados anteriormente.
+    
+\end{itemize}
+
+As hipóteses em relação ao modelo \textit{Loess} são menos restritivas se comparadas às do modelo de regressão linear, já que assume-se que ao redor de cada ponto $x_0$ o modelo deve ser aproximadamente **uma função local?**.
+
+Destaca-se que nessa técnica deve-se ter atenção à escolha do valor do \textit{span}. Um valor muito pequeno faz com que a curva seja muito irregular e tenha variância alta. Por outro lado, um valor muito grande fará com que a curva seja sobre-suavizada, podendo não se ajustar bem aos dados e resultando em perda de informações e viés alto. Nos passos mostrados anteriormente o valor do \textit{span} foi escolhido através do método de vizinhos mais próximos.
+
+
+\subsubsection{Kernels}
+
+\hspace{1.25cm} Um suavizador kernel usa pesos que decrescem suavemente enquanto se distancia do ponto de interesse $x_0$. Vários métodos podem ser chamados de suavizadores kernel através dessa definição. Porém na prática, o suavizador kernel representa a sequência de pesos descrevendo a forma da função peso através de uma função densidade com um parâmetro de escala que ajusta o tamanho e a forma dos pesos perto de $x_0$.
+Um suavizador Kernel pode ser definido da forma
+
+\begin{equation*}
+    \hat{y}_i = \dfrac{\sum_{j=1}^{n} y_i K \Big( \dfrac{x_i - x_j}{b} \Big)  }{\sum_{j=1}^{n} K \Big( \dfrac{x_i - x_j}{b} \Big)}
+\end{equation*}
+onde $b$ é o tamanho da vizinhança  (parâmetro de escala), e $K$ uma função kernel, ou seja, uma função densidade. Existem diferentes escolhas para $K$, geralmente usa-se a densidade de uma Normal, tendo-se assim um kernel Gaussiano.
+
+
+\subsubsection{Splines}
+
+**REVER COMO FUNCIONA A ESTIMAÇÂO DOS SPLINES**
+
+\hspace{1.25cm} Um \textit{Spline} pode ser visto como uma função definida por um polinômio por partes. Pontos distintos são escolhidos no intervalo das observações (nós) e um polinômio é definido para cada intervalo, dessa forma é possível modelar com polinômios mais simples as curvas mais complexas. Os \textit{splines} dependem principalmente do grau do polinômio e do número e localização dos nós.
+
+Essa técnica é interessante pois tem uma maior flexibilidade para o ajuste dos modelos em comparação com o modelo de regressão polinomial ou linear e, após a determinação da localização e quantidade de nós, o modelo é de fácil ajuste. Além disso, o \textit{spline} permite modelar um comportamento atípico dos dados, o que não seria possível com apenas uma função.
+
+\subsubsection{Splines de regressão}
+
+\hspace{1.25cm} Existem várias diferentes configurações para um \textit{spline}, mas uma escolha popular é o \textit{spline} cúbico, contínuo  e contendo primeira e segunda derivadas contínuas nos nós. As \textit{splines} cúbicas são as de menor ordem nas quais a descontinuidade nos nós são suficientemente suaves para não serem vistas a olho nu, então a não ser que seja necessário mais derivadas suavizadas, existe pouca justificativa para utilizar \textit{splines} de maior ordem.
+
+Para qualquer grupo de nós, o \textit{spline} de regressão é ajustado a partir de mínimos quadrados em um grupo apropriado de vetores base. Esses vetores são as funções base representando a família do pedaço do polinômio cúbico, com valor dado a partir dos valores observados de $X$.
+
+Uma variação do \textit{spline} cúbico é o \textit{spline} cúbico natural, que contêm a restrição adicional de que a função é linear além dos nós dos limites. Para impor essa condição, é necessário que, nas regiões dos limites: $f''' = f'' = 0$, o que reduz a dimensão do espaço de $K + 4$ para $K$, se há $K$ nós. Então com $K$ nós no interior e dois nos limites, a dimensão do espaço do ajuste é de $K + 2$. 
+
+Quando trabalha-se com \textit{splines}, existe uma dificuldade em escolher a localização e quantidade ideal dos nós, sendo mais importante o número de nós do que sua localização. Salienta-se que incluir mais nós que o necessário pode resultar em uma piora do ajuste do modelo. Existem algumas maneiras para fazer essas escolhas, como por exemplo colocar os nós nos quantis das variável preditora (três nós interiores nos três quartis).
+
+Outro problema é a escolha de funções base para representar o \textit{spline} para dados nós. Suponha que os nós interiores são denotados por $\xi_1 < ... < \xi_k$ e os nós dos limites são $\xi_0$ e $\xi_{k+1}$. Uma escolha simples de funções base para um \textit{spline} cúbico é conhecida como base de séries de potência truncada, que deriva de:
+
+\begin{equation*}
+    s(x) = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 + \sum_{j=1}^{K} \theta_j (x - \xi_j)^3_+
+\end{equation*}
+
+Onde $s$ tem as propriedades necessárias: é um polinômio cúbico em qualquer subintervalo $[\xi_j , \xi_{j+1})$, possui duas derivadas contínuas e possui uma terceira derivada.
+
+A função $s$ pode ser escrita como uma combinação linear de $K + 4$ funções base $P_j (x): P_1 (x) = 1, P_2 (x) = x$ e assim por diante. Cada função deve satisfazer as três condições e ser linearmente independente para ser considerada uma base. Então fica claro que são necessários $(K + 4)$ parâmetros para representar um \textit{spline} cúbico.
+
+As funções base B-\textit{spline} fornecem uma alternativa numericamente superior para a base de séries de potência truncada. A ideia principal é de que qualquer função base $B_j (x)$ é diferente de zero em um intervalo de no máximo cinco diferentes nós. Fica claro que as funções $B_j$ são \textit{splines} cúbicas, e são necessárias $K + 4$ delas para abranger o espaço.
+
+A partir disso, observa-se que \textit{splines} de regressão podem ser atrativos devido à sua facilidade computacional, quando os nós são dados. Porém a dificuldade em escolher o número e localização dos nós pode ser uma grande desvantagem da técnica.
+
+\subsubsection{Backfitting}
+
+**REVER CASO FOR DEIXAR NO TRABALHO OU RETIRAR**
+
+No contexto dos modelos aditivos, quando mais de uma covariável está disponível para predizer a resposta, frequentemente utiliza-se o algoritmo retroajuste (HASTIE & TIBSHIRANI, 1987; BUJA et. al., 1989; HASTIE & TIBSHIRANI, 1990), para estimar cada função suave em um cenário não paramétrico, além do intercepto. A ideia do geral do algoritmo pode ser dado pelos seguintes passos:
+
+1. Adotam-se os valores iniciais $\beta_0^{(0)} = \sum_{i=1}^n$ e $s_1^{0}(.) = s_2^{0}(.) = ... = s_p^{0}(.) = 0$;
+2. Aplica-se um ciclo retroajuste, ou seja, para cada $j_Y = 1,2,...,p$, as funções $s_{jY}(.)$ são atualizadas, suavizando $y - \beta_0 - \sum_{jj\neq jY}s_{jj}^{(0)} | (z_{jj})$ por meio de algum suavizador do gráfico de dispersão, o que resulta em novas funções suaves $s_1^{1}(.), s_2^{1}(.),...,s_p^{1}(.)$. Para acelerar a convergência, as funções suaves atualizadas podem ser utilizadas, por exemplo, $s_1^{1}(.)$ ao invés de $s_1^{0}(.)$ no cálculo de $s_2^{1}(.)$;
+2. Repetem-se os passos 1 e 2 até que se obtenha a convergência.
+
+Essa ideia é genérica, já que os detalhes diferem dependendo da técnica de suavização usada e do contexto no qual o algoritmo será utilizado.
+
+\subsection{Seleção de Modelos - Enfoque de Predição}
+
+**Inserir aqui a parte do livro do Rafael sobre seleção de modelos, Data splitting, Validação cruzada.. a partir da pagina 12 do livro do Rafael - Resumir o conteúdo adequando a notação que você usou acima**
+
+
+\section{Resultados e Discussão}
+
+\subsection{Estudo de simulação}
+
+Neste seção será utilizada as simulações de dados, para gerar situações nas quais possam ser aplicadas as técnicas estudadas, analisando assim suas respectivas performances. A partir disso, iremos avaliar sob estes dados, aspectos visuais dos ajustes de todas as técnicas vistas até o momento. Realizaremos comparações , adotando diferentes tamanhos de janelas (\textit{span}) para cada técnica e então para qual valor de \textit{span}, temos o melhor ajuste. Em um segundo momento, classificaremos para qual técnica obtemos o melhor ajuste. Para esta etapa iremos utilizar as técnicas: Suavizadores com Kernel, \textit{LOWESS} (Suavizador em diagrama de dispersão com pesos locais) e \textit{Splines} de Regressão. Por fim, compararemos as performances dos ajustes do modelo linear e modelo aditivo, em relação a qualidade da predição. Para esta finalidade, utilizaremos as métricas apresentadas na Seção 3.4.
+
+\subsubsection{Cenário 1}
+
+```{r,fig.height=2, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+#library(tidyverse)
+library(dslabs)
+library(zoo)
+library(igraph)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(wesanderson)
+library(RColorBrewer)
+
+
+###### DADOS  ########
+
+set.seed(102585)
+normal = rnorm(200)
+x = seq(0, 50, length.out = 200)
+y = 10 + (5*sin(pi*x/24)) + normal
+
+dados = data.frame(x,y)
+
+## plotando a curva real
+true = 10 + (5*sin(pi*x/24))
+
+df = cbind(dados$x, dados$y, true)
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+```
+
+Foram geradas 200 observações, sendo $X$ uma sequência de 0 a 50 e $Y$ definido pela função
+$$ y = 10 + 5sen\pi \dfrac{x}{24} + \epsilon $$
+onde $\epsilon$ é um termo aleatório.
+Para ter uma ideia da variabilidade dos dados, foi calculado o coeficiente de variação, obtendo-se que $CV_x = 0.5817$ e $CV_y = 0.3645$. Na Figura \ref{fig:cenario1} temos o comportamento  dos dados juntamente com a curva:$10 + 5sen\pi \dfrac{x}{24}$.
+
+
+
+```{r , echo = FALSE,fig.cap="\\label{fig:cenario1}Gráfico de dispersão dos dados simulados e curva real"}
+plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y") 
+```
+
+
+Considerando as técnicas de suavização, dependendo da escolhas dos parâmetros de suavização teremos uma curva ajustda mais irregular, ou seja, uma curva que ira interpolar uma quantidade grande de pontos, ou ainda, uma curva extremamente suavizada, que tendera a ser uma reta. Na Figura \ref{fig:cenario1_bin}, observa-se alguns ajustes realizados considerando a técnica *Bin Smoother*.
+
+
+
+```{r, echo = FALSE,fig.cap="\\label{fig:cenario1_bin}Alguns ajustes utilizando a técnica Bin Smoother"}
+library(FNN)
+
+
+widths  <- c(5.1,15,30,45,60)
+  df      <- cbind(dados$x,dados$y)
+  for(k in widths){
+  #fit    <- knn.reg(train = dados$x, y = dados$y, k = k)
+  fit <- glm(y ~ cut(x, k), data=dados)
+  #fit    <- bin.smoother2(y = dados$y,k = k)$value
+  df     <- cbind(df,fit$fitted.values)
+  }
+  
+
+  colnames(df) <- c("x","y",
+                    paste0("A1\n", "L1:",widths[1]),
+                    paste0("A2\n", "L2:",widths[2]),
+                    paste0("A3\n", "L3:",widths[3]),
+                    paste0("A4\n", "L4:",widths[4]),
+                    paste0("A5\n", "L5:",widths[5]))
+  
+  df           <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+p1 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1,alpha.o = .95) 
+p1
+```
+
+```{r,echo=FALSE}
+
+# calcSSE <- function(k){
+#   # loessMod <- try(bin.smoother2(y = dados$y,k = x)$value, silent=T)
+#   # res <- try(dados$y - loessMod, silent=T)
+#   
+#   loessMod <- loess(y ~ x, degree=1, span = k, data=dados)
+#   sse <- rmse(loessMod$y,loessMod$fitted)
+#   
+#   return(sse)
+# }
+# 
+# 
+# 
+# 
+# 
+# # Run optim to find span that gives min SSE, starting at 0.5
+# optim(par = c(0.0005),fn = calcSSE,method = "SANN",lower = 0.005,upper = 200)
+
+```
+
+
+
+
+, tem-se o tamanho da vizinhança, ou seja, quantos pontos são considerados para fazer o ajuste em cada região, sendo indicado no gráfico por $tam$. Na Figura 2, observa-se que com o tamanho da vizinhança menor (0.5) a técnica interpola os dados, já com o valor maior nota-se que o suavizador tende a uma reta. Com o valor 11 tem-se um equilíbrio da curva, que capta a tendência dos dados. Logo, dentre os valores observados, pode-se concluir que nesse cenário os valores próximos de 11 tendem a apresentar um resultado melhor.
+
+
+
+```{r,fig.cap="Linha Móvel para diferentes intervalos", fig.height=2.5}
+library(smooth)
+library(forecast)
+widths    <- c(3,10,15,30,60)
+df        <- cbind(dados$x,dados$y)
+for(size in widths){
+  fit     <-  ma(x = dados$y,order = size)
+  #fit     <-  rollmean(x = dados$y,k = size,align = "center",na.pad = T)
+  df      <- cbind(df,fit)
+}
+
+colnames(df) <- c("x","y",paste0("A1\n", "L1:",widths[1]) ,
+                    paste0("A2\n", "L2:",widths[2]),
+                    paste0("A3\n", "L3:",widths[3]),
+                    paste0("A4\n", "L4:",widths[4]),
+                    paste0("A5\n", "L5:",widths[5]))
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+
+
+p2 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1,alpha.o = .95)
+
+
+```
+
+
+```{r,fig.cap="Linha Móvel para diferentes intervalos", fig.height=2.5}
+library(igraph)
+
+library(zoo)
+
+
+widths    <- c(0.05,0.1,.15,0.25,.45)
+df        <- cbind(dados$x,dados$y)
+for(size in widths){
+  
+  fit     <-  running.line(x = dados$x,y = dados$y,f = size)$fitted.values 
+  df      <-  cbind(df,fit)
+}
+
+ colnames(df) <- c("x","y",
+                    paste0("A1\n", "L1:",widths[1]),
+                    paste0("A2\n", "L2:",widths[2]),
+                    paste0("A3\n", "L3:",widths[3]),
+                    paste0("A4\n", "L4:",widths[4]),
+                    paste0("A5\n", "L5:",widths[5]))
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p3 <-plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y")
+
+
+```
+
+ 
+```{r , echo = FALSE,fig.cap="Alguns ajustes utilizando a ténica LOESS"}
+
+
+spans = c(0.02,.10, 0.2,.3,.6)
+
+
+df        <- cbind(dados$x,dados$y)
+for(s in spans){
+  
+  fit     <-  loess(y ~ x, degree=1, span = s, data=dados)$fitted
+  df      <-  cbind(df,fit)
+}
+
+ colnames(df) <- c("x","y",
+                    paste0("A1\n", "S1:",spans[1]),
+                    paste0("A2\n", "S2:",spans[2]),
+                    paste0("A3\n", "S3:",spans[3]),
+                    paste0("A4\n", "S4:",spans[4]),
+                    paste0("A5\n", "S5:",spans[5]))
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+
+p4 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y")
+```
+
+
+
+
+
+```{r , echo=F, fig.cap="Alguns ajustes utilizando os Suavizadores com Kernel"}
+
+
+spans = c(2,6,20,40,60)
+
+
+df        <- cbind(dados$x,dados$y)
+for(s in spans){
+  
+  fit     <-  ksmooth(x, y, kernel = "normal", bandwidth = s)$y
+  df      <-  cbind(df,fit)
+}
+
+ colnames(df) <- c("x","y",
+                    paste0("A1\n", "L1:",spans[1]),
+                    paste0("A2\n", "L2:",spans[2]),
+                    paste0("A3\n", "L3:",spans[3]),
+                    paste0("A4\n", "L4:",spans[4]),
+                    paste0("A5\n", "L5:",spans[5]))
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+p5 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y")
+
+```
+
+
+
+
+```{r , echo=F,fig.cap="Alguns ajustes utilizando a técnica Spliness de Regressão de Grau 1.",warning=FALSE}
+no <- function(x, no) ifelse(x < no, 0, x-no)  # funcao truncada, so pega os positivos
+
+library(segmented)
+#p_load(kirkegaard, rms)
+library(rms)
+library(pacman)
+library(igraph)
+library(zoo)
+library(splines)
+
+
+df        <- as.data.frame(cbind(dados$x,dados$y))
+nos       = c(2,3,5,11,21) 
+colnames(df)<-c("x","y")
+for(k in nos){
+  
+  p         <-  seq(1,k-1,1)/k
+  knots     <-  quantile(df$x  , p = p)
+  
+
+  fit       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data = df)
+  df        <-  cbind(df,predict(fit))
+}
+
+colnames(df) <- c("x","y",
+                    paste("A1\n", "Nós:",nos[1]-1),
+                    paste("A2\n", "Nós:",nos[2]-1),
+                    paste("A3\n", "Nós:",nos[3]-1),
+                    paste("A4\n", "Nós:",nos[4]-1),
+                    paste("A5\n", "Nós:",nos[5]-1)
+                    )
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p6 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y")
+
+```
+
+
+
+
+```{r, echo=F,fig.cap="Alguns ajustes utilizando a técnica Spliness de Regressão"}
+library(igraph)
+library(zoo)
+library(splines)
+
+
+df        <- as.data.frame(cbind(dados$x,dados$y))
+nos       = c(2,3,5,11,21) 
+
+
+for(k in nos){
+
+  
+  p         <-  seq(1,k-1,1)/k
+  knots     <-  quantile(dados$x, p = p)
+  fit       <-  additive.spline.cubic(x = dados$x, y = dados$y, k = k,knots = knots)$fitted.values
+  df        <-  cbind(df,fit)
+}
+
+colnames(df) <- c("x","y",
+                    paste("A1\n", "Nós:",nos[1]-1),
+                    paste("A2\n", "Nós:",nos[2]-1),
+                    paste("A3\n", "Nós:",nos[3]-1),
+                    paste("A4\n", "Nós:",nos[4]-1),
+                    paste("A5\n", "Nós:",nos[5]-1)
+                    )
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+
+
+
+
+p7 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y")
+
+```
+
+
+
+
+
+
+
+```{r,fig.cap="\\label{smoothers_fit}Comparação entre diferentes ajustes para valores de parâmetros distintos.", fig.height=8}
+
+partial_plots <- cowplot::plot_grid(p1,p2,p3,p4,p5,p6,p7,ncol=2,nrow = 4,labels=paste0(LETTERS[1:8],c("-Bin","-Média Móvel", "-Linha Móvel","-Loess","-Kernel","-Splines:Grau1","-Splines:Grau3")),vjust = 1,hjust = 0)
+partial_plots
+
+```
+
+
+
+
+ 
+
+Nesse caso tem-se o valor do \textit{span}, ou seja, a proporção de observações em cada vizinhança. Na Figura 3, com \textit{span} = 0.02 é possível observar que a técnica fica bastante irregular, enquanto que com \textit{span} = 0.2 a curva já fica mais suave e reflete bem o comportamento das observações. Nesse cenário, a técnica fica suave demais (tendendo a uma reta) quando o valor do \textit{span} é igual a 1. Dessa forma, nota-se que o resultado é mais satisfatório para valores de \textit{span} próximos de 0.2.
+
+ 
+Nesse método tem-se a largura da região (\textit{bandwidth}), indicado no gráfico por $tam$. Observando a Figura 4, como nas demais comparações até o momento, a técnica Kernel se comporta de maneira semelhante em relação à dimensão da largura nesse cenário: o menor valor resulta em uma curva extremamente irregular, enquanto o maior valor faz a curva ficar muito suave, tendendo a uma reta. Então dentro dos valores observados, percebe-se que valores próximos de 6 podem ser uma escolha interessante, resultando em uma curva suave que acompanha os dados.
+
+
+
+Através da Figura 5, nota-se que o \textit{spline} de regressão de grau um é extremamente desapropriado, pois a descontinuidade é muito grande. Já o \textit{spline} cúbico segue a tendência dos pontos de uma forma suave, não sendo possível notar qualquer descontinuidade da curva nos nós. Logo, nesse cenário, o \textit{spline} cúbico teve um resultado visualmente melhor.
+
+Vale ressaltar que em todos os métodos vistos é possível notar a relação de troca entre a variância e o viés. Para valores menores de \textit{span} e largura/tamanho da vizinhança os pontos são interpolados (ou praticamente interpolados), o que resulta em uma curva com grande variância, porém viés pequeno, já que a curva está muito próxima de todas as observações. Por outro lado, quando esses valores aumentam, tem-se a situação inversa: a variância em relação à curva diminui, mas o viés aumenta.
+
+ **Comparação entre os métodos**
+
+```{r,  echo=F}
+# bin  -  span = 11
+fit1 <- bin.smoother2(y = dados$y,k = 11)
+
+
+
+# RM  -  span = 10
+fit2 <- rollmean(x = dados$y,k = 10,align = "center",na.pad = T)
+
+# RL  -  span = 0.1
+fit3 <- with(dados, running.line(x = x, y = y, f = 0.1))
+
+
+# loess -  span = 0.2
+fit4 <- loess(y ~ x, degree=1, span = 0.2, data=dados)
+
+# kernel - span = 6
+fit5 <- with(dados, ksmooth(x, y, kernel = "normal", bandwidth = 6))
+
+
+#Spline grau 1
+
+
+k = 21
+  
+p         <-  seq(1,k-1,1)/k
+knots     <-  quantile(dados$x  , p = p)
+fit6       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data = df)
+
+# spline cubico
+require(splines)
+fit7 <- lm(y ~ bs(x, knots = c(15,35)),data = dados )
+
+
+spans = c(11,10,0.1, 0.2,6, 20,20)
+df = cbind(x= dados$x, y = dados$y, Bin = fit1$value,RM = fit2,RL = fit3$fitted.values,Loess = fit4$fitted,Kernel = fit5$y,`Spline Grau 1`= predict(fit6),`Spline Cubico`= fit7$fitted)
+df1 = df %>% as.data.frame
+colnames(df) = c("x", "y",
+                 paste0("A1\n", "Bin-", spans[1]),
+                 paste0("A2\n", "RM-", spans[2]),
+                 paste0("A3\n", "RL-", spans[3]),
+                 paste0("A4\n", "Loess-", spans[4]),
+                 paste0("A5\n", "Kernel-", spans[5]),
+                 paste0("A6\n", "Spline Grau 1"),
+                 paste0("A7\n", "Spline Grau 3"))
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+```
+
+```{r echo=F,fig.height=3.5, fig.cap="\\label{fig:smoothers_fit_comp}Comparação dos ajustes entre os métodos"}
+plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1,alpha.o = .85)
+```
+
+Pela Figura \ref{fig:smoothers_fit_comp}, percebemos que o ajuste bin é extremamente irregular, sendo possível ver a descontinuidade da curva. A técnica kernel não tem um comportamento muito bom nas extremidades. É possivel notar que os ajustes das técnicas \textit{loess} e \textit{spline} cúbico ficaram muito próximas, se adequando muito bem aos dados, mas o \textit{spline} ficou melhor, pois está captando melhor o comportamento dos dados. Portanto, para os dados gerados e dentre os métodos vistos, o \textit{spline} cúbico mostrou um resultado mais satisfatório.
+
+É importante notar que, para a escolha dos valores de \textit{span} ou tamanho/largura da vizinhança e do método mais adequado para esse cenário, a análise feita foi estritamente gráfica, ou seja, visual. Existem medidas numéricas adequadas para fazer essa análise.
+
+Tabela \ref{tab:tab_eqm_cenario1}
+
+```{r,echo=FALSE,warning=FALSE}
+nas <- complete.cases(df1$RM)
+library(Metrics)
+df_metrics <- data.frame(Smoother = c("Bin","RM","RL", "Loess", "Kernel","Splines Grau 1","Splines Grau 3"),
+                         EQM      =  c(rmse(actual = df1$y,df1$Bin),
+                                       rmse(actual = df1$y[nas],df1$RM[nas]),
+                                       rmse(actual = df1$y,df1$RL),
+                                       rmse(actual = df1$y,df1$Loess),
+                                       rmse(actual = df1$y,df1$Kernel),
+                                       rmse(actual = df1$y,df1$`Spline Grau 1`),
+                                       rmse(actual = df1$y,df1$`Spline Cubico`)))
+
+
+kable_data(data = df_metrics,cap = "\\label{tab:tab_eqm_cenario1}Erro Quadrático Médio para os suavizadores Loess, Kernel e Spline Cúbico",foot = NULL)
+
+```
+  
+\subsubsection{Avaliando melhores parâmetros para os suavizadores}
+
+\subsubsection{Leave One Out Cross Validation}
+
+
+
+
+
+```{r,warning=FALSE}
+
+library(splines)
+library(ISLR)
+set.seed(103159)
+df <- data.frame(x = x,y = y)
+cv.error.min <- c()
+tr= 1:nrow(df)
+dftr= df[tr,]
+number_of_bins = seq(2,51)
+cv.errors = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
+
+for( i in number_of_bins){ # for each number of knots to test
+  
+  for( j in tr ){ # for each fold
+    x1 <- with(dados, cut(x,i))
+    df_cut <- data.frame(y = df$y, x = x1)
+    fit.bin <- glm(y ~ x, data=df_cut[tr!=j,])
+    bin.pred = predict( fit.bin, newdata=data.frame(x = df_cut[tr==j,c("x")]) )
+    cv.errors[j,(i-1)] = mean( ( df_cut$y[tr==j] - bin.pred )^2 ) }
+  
+}
+
+cv.errors.mean = apply(cv.errors,2,mean)
+cv.errors.stderr = apply(cv.errors,2,sd)/sqrt(nrow(dftr)-1)
+
+min.cv.index = which.min( cv.errors.mean )+1
+cv.error.min[1] = cv.errors.mean[min.cv.index-1]
+one_se_up_value = ( cv.errors.mean+cv.errors.stderr )[min.cv.index] 
+
+# Set up the x-y limits for plotting:
+min_lim=min( one_se_up_value, cv.errors.mean, cv.errors.mean-cv.errors.stderr, cv.errors.mean+cv.errors.stderr ) * 0.9
+max_lim=max( one_se_up_value, cv.errors.mean, cv.errors.mean-cv.errors.stderr, cv.errors.mean+cv.errors.stderr ) * 1.1
+
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins, y = cv.errors.mean,EQM = cv.errors.mean)
+
+
+
+colnames(df1) <- c("x","y",
+                    paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p1.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Binwidth",y = "EQM")+
+  geom_vline(xintercept = min.cv.index,color ="red")+
+  annotate("text",x = min.cv.index+8,y = max(cv.errors.mean)/2,label=paste0("Largura:",min.cv.index,"\nEQM:",round(cv.error.min,4))) +
+  axis.theme()
+
+
+
+
+
+
+```
+
+```{r,fig.cap="\\label{smoothers_fit}Comparação entre diferentes ajustes para valores de parâmetros distintos.", fig.height=8}
+
+partial_plots <- cowplot::plot_grid(p1.cv,p2,p3,p4,p5,p6,p7,ncol=2,nrow = 4,labels=paste0(LETTERS[1:8],c("-Bin","-Média Móvel", "-Linha Móvel","-Loess","-Kernel","-Splines:Grau1","-Splines:Grau3")),vjust = 1,hjust = 0)
+partial_plots
+
+```
+
+
+
+```{r,echo=FALSE,warning=FALSE}
+
+library(Metrics)
+df_metrics <- data.frame(Smoother = c("Bin","RM","RL", "Loess", "Kernel","Splines Grau 1","Splines Grau 3"),
+                         EQM      =  c(cv.error.min[1],
+                                       1,
+                                       rmse(actual = df1$y,df1$RL),
+                                       rmse(actual = df1$y,df1$Loess),
+                                       rmse(actual = df1$y,df1$Kernel),
+                                       rmse(actual = df1$y,df1$`Spline Grau 1`),
+                                       rmse(actual = df1$y,df1$`Spline Cubico`)))
+
+
+kable_data(data = df_metrics,cap = "\\label{tab:tab_eqm_cenario1}Erro Quadrático Médio para os suavizadores Loess, Kernel e Spline Cúbico",foot = NULL)
+
+```
+
+
+```{r}
+
+
+  v <- c()
+  for( j in tr ){ # for each fold
+    x1 <- with(dados, cut(x,24))
+    df_cut <- data.frame(y = df$y, x = x1)
+    fit.bin <- glm(y ~ x, data=df_cut[tr!=j,])
+    bin.pred = predict( fit.bin, newdata=data.frame(x = df_cut[tr==j,c("x")]) )
+    v[j] = mean( ( df_cut$y[tr==j] - bin.pred )^2 ) }
+  
+
+
+mean(v)
+
+```
+
+
+
+\clearpage
+
+\section{Referências}
+
+\noindent BUJA, A., HASTIE, T. & TIBSHIRANI, R. (1989). **Linear smoothers and additive models**. The Annals of Statistics, 17, 453-510.
+
+\noindent CLEVELAND, W. S. (1979). **Robust locally weighted regression and smoothing scatterplots**. Journal of the American Statistical Association, 74,
+829-836.  
+HASTIE, T. J. & TIBSHIRANI, R. J. (1990). **Generalized additive models**, volume 43. Chapman and Hall, Ltd., London. ISBN 0-412-34390-8.
+
+\noindent MONTGOMERY, D. C.; PECK, E. A.; VINING, G. G. **Introduction to Linear Regression Analysis**. 5th Edition. John Wiley & Sons, 2012. 
+
+\noindent Izbicki, Rafael; Santos, Tiago Mendonça. **Aprendizado de máquina: uma abordagem estatística**. ISBN 978-65-00-02410-4.
+
+\noindent TEAM, R. CORE. R: **A language and environment for statistical computing**. (2013). 
+
+
+
+

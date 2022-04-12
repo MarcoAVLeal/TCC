@@ -7,6 +7,62 @@ library(kableExtra)
 library(wesanderson)
 library(RColorBrewer)
 
+running.mean <- function(x = NULL, y = NULL, span = 5, align="full"){
+  data <- data.frame(x = x,y = y)
+  data <- data %>% arrange(x)
+  estimates <- c()
+  
+  k=1
+  j=span
+  x_r <- c()
+  for(i in 1:length(data[,1])){
+    
+    l <- length(data[,1])
+    if(align=="left"){
+      
+      if((l-(i + (span))) > 0  ){
+        estimates[i] <- mean(data[(i):(i+(span-1)),2])
+        x_r[i] <- data$x[i]
+        k = k + 1
+      }
+      
+      
+    }else if (align == "right"){
+      if(i >= span){
+        estimates[i] <- mean(data[(i):(i+(span-1)),2])
+        x_r[i] <- data$x[i+(span-1)]
+        k = k + 1
+      }
+    }else{
+      if((i - span) < 0){
+        
+      }else if((l-(i + (span))) < 0  ){
+        
+      }else{
+        
+        estimates[k] <- mean(data[(i - (span - 1)):(i + (span - 1)),2])
+        x_r[k] <- data$x[i]
+        k = k + 1
+      }
+    }
+  }
+  d = data.frame(x=x_r,y=estimates)
+  return(list(name = "Running Mean",fitted.values = estimates,span = span,data=d))
+}
+
+
+bin.smoother2  <- function(y,k){
+  # y=dados$y
+  # k=3
+  library(reshape2)
+  v   = split(y, ceiling(seq_along(y)/k))
+  fit = sapply(v, function(item){rep(mean(item), length(item))})
+  
+  fit =  melt(data = fit,id.vars=1:k) %>% select(value)
+  
+  return(fit)
+  
+}
 
 locv1 <- function(x1, y1, nd, span, ntrial)
 {
@@ -15,7 +71,7 @@ locv1 <- function(x1, y1, nd, span, ntrial)
     nd <- length(x1)
     
     assign("data1", data.frame(xx1 = x1, yy1 = y1))
-    fit.lo <- loess(yy1 ~ xx1, data = data1, span = sp, family = "gaussian", degree = 2, surface = "direct")
+    fit.lo <- loess(yy1 ~ xx1, data = data1, span = sp, degree = 1, surface = "direct")
     res <- residuals(fit.lo)
     
     dhat2 <- function(x1, sp)
@@ -829,8 +885,9 @@ plot.curves <- function(data  = NULL, x,y,labelx="Eixo X",labely="Eixo Y",
 
 
 
-plot.mult.curves <- function(df,labelx="Eixo X",labely="Eixo Y",
-                        title = "Gráfico de Dispersão"
+plot.mult.curves <- function(df,df_fit = NULL,labelx="Eixo X",labely="Eixo Y",
+                        title = "Gráfico de Dispersão",legend.pos = "right",line.s = 1.2,alpha.o = 1,point.alpha = .25,
+                        point.color = "black"
                         ){
   
  
@@ -842,8 +899,8 @@ plot.mult.curves <- function(df,labelx="Eixo X",labely="Eixo Y",
     xlim(range(x)+c(-0,+0))+
     ylim(range(y)+c(-0,+0))+
     ggtitle(paste0(title))+
-    geom_line(aes(x=x,y = value,color=variable),size=line.size,alpha=line.alpha) +
-    scale_color_manual(values = cores) + axis.theme(pos_leg = "right")
+    geom_line(data = df_fit,aes(x=x,y = value,color=variable),size=line.s,alpha=alpha.o) +
+    scale_color_manual(values = cores) + axis.theme(pos_leg =legend.pos)
   
   
   plot
