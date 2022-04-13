@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.23)  12 APR 2022 01:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.23)  12 APR 2022 22:22
 entering extended mode
 **./TCC_02.tex
 (TCC_02.tex
@@ -554,6 +554,9 @@ LaTeX Warning: Label `smoothers_fit' multiply defined.
 
 LaTeX Warning: Label `tab:tab_eqm_cenario1' multiply defined.
 
+
+LaTeX Warning: Label `fig:smoothers_fit_comp' multiply defined.
+
 )
 \openout1 = `TCC_02.aux'.
 
@@ -835,43 +838,51 @@ sed, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.959 
        <./TCC_02_files/figure-latex/unnamed-chunk-11-1.pdf>]
-<TCC_02_files/figure-latex/unnamed-chunk-16-1.pdf, id=182, 469.755pt x 578.16pt
+<TCC_02_files/figure-latex/unnamed-chunk-20-1.pdf, id=182, 469.755pt x 578.16pt
 >
-File: TCC_02_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
-<use TCC_02_files/figure-latex/unnamed-chunk-16-1.pdf>
-Package pdftex.def Info: TCC_02_files/figure-latex/unnamed-chunk-16-1.pdf  used
+File: TCC_02_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file (type pdf)
+<use TCC_02_files/figure-latex/unnamed-chunk-20-1.pdf>
+Package pdftex.def Info: TCC_02_files/figure-latex/unnamed-chunk-20-1.pdf  used
  on input line 993.
 (pdftex.def)             Requested size: 455.24608pt x 560.30286pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-020.
-(C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [15pdfTeX warning (ext4): destination with the same identifier (name{figure.4
-}) has been already used, duplicate ignored
+<TCC_02_files/figure-latex/unnamed-chunk-23-1.pdf, id=183, 469.755pt x 252.945p
+t>
+File: TCC_02_files/figure-latex/unnamed-chunk-23-1.pdf Graphic file (type pdf)
+<use TCC_02_files/figure-latex/unnamed-chunk-23-1.pdf>
+Package pdftex.def Info: TCC_02_files/figure-latex/unnamed-chunk-23-1.pdf  used
+ on input line 1022.
+(pdftex.def)             Requested size: 455.24608pt x 245.13249pt.
+[15pdfTeX warning (ext4): destination with the same identifier (name{figure.4})
+ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1024 \clearpage
+l.1029 \clearpage
                  pdfTeX warning (ext4): destination with the same identifier (n
 ame{table.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1024 \clearpage
+l.1029 \clearpage
                   <./TCC_02_files/figure-latex/unnamed-chunk-13-1.pdf>] [16pdfT
 eX warning (ext4): destination with the same identifier (name{figure.5}) has be
 en already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1024 \clearpage
-                  <./TCC_02_files/figure-latex/unnamed-chunk-16-1.pdf>] [17pdfT
+l.1029 \clearpage
+                  <./TCC_02_files/figure-latex/unnamed-chunk-20-1.pdf>] [17pdfT
 eX warning (ext4): destination with the same identifier (name{table.2}) has bee
 n already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1024 \clearpage
-                 ] [18
+l.1029 \clearpage
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{figure.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1029 \clearpage
+                  <./TCC_02_files/figure-latex/unnamed-chunk-23-1.pdf>] [18
 
 ] (TCC_02.aux)
 
@@ -879,17 +890,17 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 15511 strings out of 478889
- 237733 string characters out of 2850833
- 594055 words of memory out of 3000000
- 32842 multiletter control sequences out of 15000+600000
- 454008 words of font info for 145 fonts, out of 8000000 for 9000
+ 15475 strings out of 478889
+ 237460 string characters out of 2850833
+ 594120 words of memory out of 3000000
+ 32809 multiletter control sequences out of 15000+600000
+ 453690 words of font info for 144 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,13n,80p,1100b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C
-:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C
-:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Us
-ers/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Us
+{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.en
+c}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C
+:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C
+:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Us
 ers/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Us
 ers/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}<C:/Users
 /marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users
@@ -902,11 +913,10 @@ rco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/marc
 o/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/marco/
 AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/marco/
 AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/marco/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/marco/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt12.pfb>
-Output written on TCC_02.pdf (22 pages, 566745 bytes).
+AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb>
+Output written on TCC_02.pdf (22 pages, 474325 bytes).
 PDF statistics:
- 369 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
- 26834 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 371 PDF objects out of 1000 (max. 8388607)
+ 58 named destinations out of 1000 (max. 500000)
+ 26839 words of extra memory for PDF output out of 29859 (max. 10000000)
 

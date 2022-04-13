@@ -222,7 +222,8 @@ library(binsmooth)
 library(knitr)
 library(kableExtra)
 library(additive.models)
-
+library(rms)
+library(locfit)
 knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message= FALSE,
                       out.width = "100%",fig.align = "center",size ="large",fig.height = 2.5)
 ```
@@ -615,7 +616,7 @@ p1
 
 
 
-```{r,fig.cap="Linha Móvel para diferentes intervalos", fig.height=2.5}
+```{r,fig.cap="Linha Móvel para diferentes intervalos", fig.height=2.5,warning=FALSE}
 library(smooth)
 library(forecast)
 widths    <- c(3,10,15,30,60)
@@ -847,12 +848,12 @@ Vale ressaltar que em todos os métodos vistos é possível notar a relação de
 
 ```{r,  echo=F}
 # bin  -  span = 11
-fit1 <- bin.smoother2(y = dados$y,k = 11)
+fit1  <- glm(y ~ cut(x, 11), data=dados)
 
 
 
 # RM  -  span = 10
-fit2 <- rollmean(x = dados$y,k = 10,align = "center",na.pad = T)
+fit2 <- ma(x = dados$y,order = 10)
 
 # RL  -  span = 0.1
 fit3 <- with(dados, running.line(x = x, y = y, f = 0.1))
@@ -861,8 +862,10 @@ fit3 <- with(dados, running.line(x = x, y = y, f = 0.1))
 # loess -  span = 0.2
 fit4 <- loess(y ~ x, degree=1, span = 0.2, data=dados)
 
+
+
 # kernel - span = 6
-fit5 <- with(dados, ksmooth(x, y, kernel = "normal", bandwidth = 6))
+fit5 <- it.kernel <- locfit(y ~ x,deg=1, alpha = 0.2,kern="gauss", data=dados)
 
 
 #Spline grau 1
@@ -876,11 +879,15 @@ fit6       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data = df)
 
 # spline cubico
 require(splines)
-fit7 <- lm(y ~ bs(x, knots = c(15,35)),data = dados )
+k = 21
+  
+p         <-  seq(1,k-1,1)/k
+knots     <-  quantile(dados$x  , p = p)
+fit7 <- lm(y ~ bs(x, knots = knots),data = dados )
 
 
 spans = c(11,10,0.1, 0.2,6, 20,20)
-df = cbind(x= dados$x, y = dados$y, Bin = fit1$value,RM = fit2,RL = fit3$fitted.values,Loess = fit4$fitted,Kernel = fit5$y,`Spline Grau 1`= predict(fit6),`Spline Cubico`= fit7$fitted)
+df = cbind(x= dados$x, y = dados$y, Bin = fit1$fitted.values,RM = fit2,RL = fit3$fitted.values,Loess = fit4$fitted,Kernel = fitted.values(fit5),`Spline Grau 1`= predict(fit6),`Spline Cubico`= fit7$fitted)
 df1 = df %>% as.data.frame
 colnames(df) = c("x", "y",
                  paste0("A1\n", "Bin-", spans[1]),
@@ -937,10 +944,14 @@ library(splines)
 library(ISLR)
 set.seed(103159)
 df <- data.frame(x = x,y = y)
-cv.error.min <- c()
+
+
+#### Bin Smoother LOOCV
+
+cv.error.min <- c(7L)
 tr= 1:nrow(df)
 dftr= df[tr,]
-number_of_bins = seq(2,51)
+number_of_bins = seq(2,30)
 cv.errors = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
 
 for( i in number_of_bins){ # for each number of knots to test
@@ -958,7 +969,7 @@ cv.errors.mean = apply(cv.errors,2,mean)
 cv.errors.stderr = apply(cv.errors,2,sd)/sqrt(nrow(dftr)-1)
 
 min.cv.index = which.min( cv.errors.mean )+1
-cv.error.min[1] = cv.errors.mean[min.cv.index-1]
+cv1 = cv.errors.mean[min.cv.index-1]
 one_se_up_value = ( cv.errors.mean+cv.errors.stderr )[min.cv.index] 
 
 # Set up the x-y limits for plotting:
@@ -981,19 +992,250 @@ p1.cv <-ggplot(df1,aes(x = x,y=y))+
   geom_point()+
   labs(x = "Binwidth",y = "EQM")+
   geom_vline(xintercept = min.cv.index,color ="red")+
-  annotate("text",x = min.cv.index+8,y = max(cv.errors.mean)/2,label=paste0("Largura:",min.cv.index,"\nEQM:",round(cv.error.min,4))) +
+  annotate("text",x = min.cv.index-8,y = max(cv.errors.mean)*0.8,label=paste0("Largura:",min.cv.index,"\nEQM:",round(cv1,4))) +
   axis.theme()
-
-
+par1 = min.cv.index
 
 
 
 
 ```
 
+
+```{r,echo=FALSE}
+
+### Loess LOOCV
+
+tr= 1:nrow(df)
+dftr= df[tr,]
+number_of_bins = seq(0.1,0.35,0.01)
+cv.errors = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
+
+
+for( i in 1:length(number_of_bins)){ # for each number of knots to test
+  
+  for( j in tr ){ # for each fold
+   
+    
+    fit.loess <- loess(y ~ x,degree=1, span = number_of_bins[i], data=df[tr!=j,])
+    loess.pred = predict( fit.loess, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors[j,i] = mean( ( df$y[tr==j] - loess.pred )^2,na.rm = TRUE ) }
+  
+}
+
+cv.errors.mean = apply(cv.errors,2,mean,na.rm = TRUE)
+cv.errors.stderr = apply(cv.errors,2,sd)/sqrt(nrow(dftr)-1)
+
+min.cv.index = which.min( cv.errors.mean )
+cv4 = cv.errors.mean[min.cv.index]
+one_se_up_value = ( cv.errors.mean+cv.errors.stderr )[min.cv.index] 
+
+# Set up the x-y limits for plotting:
+min_lim=min( one_se_up_value, cv.errors.mean, cv.errors.mean-cv.errors.stderr, cv.errors.mean+cv.errors.stderr ) * 0.9
+max_lim=max( one_se_up_value, cv.errors.mean, cv.errors.mean-cv.errors.stderr, cv.errors.mean+cv.errors.stderr ) * 1.1
+
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins, y = cv.errors.mean,EQM = cv.errors.mean)
+
+
+
+colnames(df1) <- c("x","y",
+                    paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p4.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Binwidth",y = "EQM") +
+  geom_vline(xintercept = number_of_bins[min.cv.index],color ="red")+
+  annotate("text",x = number_of_bins[min.cv.index]-0.05,y = max(cv.errors.mean)*0.99,label=paste0("Span:",number_of_bins[min.cv.index],"\nEQM:",round(cv4,4))) +
+  axis.theme()
+
+par4 = number_of_bins[min.cv.index]
+
+
+```
+
+
+```{r,echo=FALSE}
+
+### Kernel (Nadaraya-Watson) LOOCV
+library(locfit)
+tr= 1:nrow(df)
+dftr= df[tr,]
+number_of_bins = seq(0.1,0.35,0.01)
+cv.errors = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
+
+
+for( i in 1:length(number_of_bins)){ # for each number of knots to test
+  
+  for( j in tr ){ # for each fold
+   
+    fit.kernel <- locfit(y ~ x,deg=1, alpha = number_of_bins[i],kern="gauss", data=df[tr!=j,])
+    kernel.pred = predict( fit.kernel, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors[j,i] = mean( ( df$y[tr==j] - kernel.pred )^2,na.rm = TRUE ) }
+  
+}
+
+cv.errors.mean = apply(cv.errors,2,mean,na.rm = TRUE)
+cv.errors.stderr = apply(cv.errors,2,sd)/sqrt(nrow(dftr)-1)
+
+min.cv.index = which.min( cv.errors.mean )
+cv5 = cv.errors.mean[min.cv.index]
+one_se_up_value = ( cv.errors.mean+cv.errors.stderr )[min.cv.index] 
+
+# Set up the x-y limits for plotting:
+min_lim=min( one_se_up_value, cv.errors.mean, cv.errors.mean-cv.errors.stderr, cv.errors.mean+cv.errors.stderr ) * 0.9
+max_lim=max( one_se_up_value, cv.errors.mean, cv.errors.mean-cv.errors.stderr, cv.errors.mean+cv.errors.stderr ) * 1.1
+
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins, y = cv.errors.mean,EQM = cv.errors.mean)
+
+
+
+colnames(df1) <- c("x","y",
+                    paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p5.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Binwidth",y = "EQM") +
+  geom_vline(xintercept = number_of_bins[min.cv.index],color ="red")+
+  annotate("text",x = number_of_bins[min.cv.index]-0.05,y = max(cv.errors.mean)*.99,label=paste0("Span:",number_of_bins[min.cv.index],"\nEQM:",round(cv5,4))) +
+  axis.theme()
+
+par5 = number_of_bins[min.cv.index]
+
+```
+
+
+```{r,echo=FALSE}
+library(rms)
+### Kernel (Nadaraya-Watson) LOOCV
+library(locfit)
+tr= 1:nrow(df)
+dftr= df[tr,]
+number_of_bins = seq(2,20)
+cv.errors = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
+
+
+for( i in number_of_bins){ # for each number of knots to test
+  
+  for( j in tr ){ # for each fold
+    
+    
+    
+    p              <-  seq(1,i-1,1)/i
+    knots          <-  quantile(dados$x  , p = p)
+    fit.spg1       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data=df[tr!=j,])
+    spg1.pred    = predict( fit.spg1, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors[j,(i-1)] = mean( ( df$y[tr==j] - spg1.pred )^2,na.rm = TRUE ) }
+  
+}
+
+cv.errors.mean = apply(cv.errors,2,mean,na.rm = TRUE)
+cv.errors.stderr = apply(cv.errors,2,sd)/sqrt(nrow(dftr)-1)
+
+min.cv.index = which.min( cv.errors.mean )-1
+cv6 = cv.errors.mean[min.cv.index]
+one_se_up_value = ( cv.errors.mean+cv.errors.stderr )[min.cv.index] 
+
+# Set up the x-y limits for plotting:
+min_lim=min( one_se_up_value, cv.errors.mean, cv.errors.mean-cv.errors.stderr, cv.errors.mean+cv.errors.stderr ) * 0.9
+max_lim=max( one_se_up_value, cv.errors.mean, cv.errors.mean-cv.errors.stderr, cv.errors.mean+cv.errors.stderr ) * 1.1
+
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins, y = cv.errors.mean,EQM = cv.errors.mean)
+
+
+
+colnames(df1) <- c("x","y",
+                    paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p6.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Binwidth",y = "EQM") +
+  geom_vline(xintercept = number_of_bins[min.cv.index],color ="red")+
+  annotate("text",x = number_of_bins[min.cv.index]+5,y = max(cv.errors.mean)*0.8,label=paste0("Span:",number_of_bins[min.cv.index]-1,"\nEQM:",round(cv6,4))) +
+  axis.theme()
+
+par6 = number_of_bins[min.cv.index]-1
+
+```
+
+```{r,echo=FALSE}
+library(rms)
+library(locfit)
+### Kernel (Nadaraya-Watson) LOOCV
+
+tr= 1:nrow(df)
+dftr= df[tr,]
+number_of_bins = seq(2,20)
+cv.errors = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
+
+
+for( i in number_of_bins){ # for each number of knots to test
+  
+  for( j in tr ){ # for each fold
+
+    
+    p              <-  seq(1,i-1,1)/i
+    knots          <-  quantile(dados$x  , p = p)
+    fit.spg3       <- lm(y ~ bs(x, knots = knots), data=df[tr!=j,] )
+   spg3.pred      = predict( fit.spg3, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors[j,(i-1)] = mean( ( df$y[tr==j] - spg3.pred )^2,na.rm = TRUE ) }
+  
+}
+
+cv.errors.mean = apply(cv.errors,2,mean,na.rm = TRUE)
+cv.errors.stderr = apply(cv.errors,2,sd)/sqrt(nrow(dftr)-1)
+
+min.cv.index = which.min( cv.errors.mean ) 
+cv7 = cv.errors.mean[min.cv.index]
+one_se_up_value = ( cv.errors.mean+cv.errors.stderr )[min.cv.index] 
+
+# Set up the x-y limits for plotting:
+min_lim=min( one_se_up_value, cv.errors.mean, cv.errors.mean-cv.errors.stderr, cv.errors.mean+cv.errors.stderr ) * 0.9
+max_lim=max( one_se_up_value, cv.errors.mean, cv.errors.mean-cv.errors.stderr, cv.errors.mean+cv.errors.stderr ) * 1.1
+
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins, y = cv.errors.mean,EQM = cv.errors.mean)
+
+
+
+colnames(df1) <- c("x","y",
+                    paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p7.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Binwidth",y = "EQM") +
+  geom_vline(xintercept = number_of_bins[min.cv.index],color ="red")+
+  annotate("text",x = number_of_bins[min.cv.index]+5,y = max(cv.errors.mean)*0.99,label=paste0("Span:",number_of_bins[min.cv.index]-1,"\nEQM:",round(cv7,4))) +
+  axis.theme()
+
+par7 = number_of_bins[min.cv.index]-1
+```
+
+
+
+
+
 ```{r,fig.cap="\\label{smoothers_fit}Comparação entre diferentes ajustes para valores de parâmetros distintos.", fig.height=8}
 
-partial_plots <- cowplot::plot_grid(p1.cv,p2,p3,p4,p5,p6,p7,ncol=2,nrow = 4,labels=paste0(LETTERS[1:8],c("-Bin","-Média Móvel", "-Linha Móvel","-Loess","-Kernel","-Splines:Grau1","-Splines:Grau3")),vjust = 1,hjust = 0)
+partial_plots <- cowplot::plot_grid(p1.cv,p1.cv,p1.cv,p4.cv,p5.cv,p6.cv,p7.cv,ncol=2,nrow = 4,labels=paste0(LETTERS[1:8],c("-Bin","-Média Móvel", "-Linha Móvel","-Loess","-Kernel","-Splines:Grau1","-Splines:Grau3")),vjust = -0.5,hjust = 0)
 partial_plots
 
 ```
@@ -1004,13 +1246,13 @@ partial_plots
 
 library(Metrics)
 df_metrics <- data.frame(Smoother = c("Bin","RM","RL", "Loess", "Kernel","Splines Grau 1","Splines Grau 3"),
-                         EQM      =  c(cv.error.min[1],
+                         EQM      =  c(cv1,
                                        1,
-                                       rmse(actual = df1$y,df1$RL),
-                                       rmse(actual = df1$y,df1$Loess),
-                                       rmse(actual = df1$y,df1$Kernel),
-                                       rmse(actual = df1$y,df1$`Spline Grau 1`),
-                                       rmse(actual = df1$y,df1$`Spline Cubico`)))
+                                       1,
+                                       cv4,
+                                       cv5,
+                                       cv6,
+                                       cv7))
 
 
 kable_data(data = df_metrics,cap = "\\label{tab:tab_eqm_cenario1}Erro Quadrático Médio para os suavizadores Loess, Kernel e Spline Cúbico",foot = NULL)
@@ -1018,7 +1260,72 @@ kable_data(data = df_metrics,cap = "\\label{tab:tab_eqm_cenario1}Erro Quadrátic
 ```
 
 
-```{r}
+```{r,  echo=F}
+# bin  -  span = 11
+fit1  <- glm(y ~ cut(x, par1), data=dados)
+
+
+
+# RM  -  span = 10
+fit2 <- ma(x = dados$y,order = 10)
+
+# RL  -  span = 0.1
+fit3 <- with(dados, running.line(x = x, y = y, f = 0.1))
+
+
+# loess -  span = 0.2
+fit4 <- loess(y ~ x, degree=1, span = par4, data=dados)
+
+
+
+# kernel - span = 6
+fit5 <- it.kernel <- locfit(y ~ x,deg=1, alpha = par5,kern="gauss", data=dados)
+
+
+#Spline grau 1
+
+
+k = par6
+  
+p         <-  seq(1,k-1,1)/k
+knots     <-  quantile(dados$x  , p = p)
+fit6       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data = df)
+
+# spline cubico
+require(splines)
+k = par7
+  
+p         <-  seq(1,k-1,1)/k
+knots     <-  quantile(dados$x  , p = p)
+fit7 <- lm(y ~ bs(x, knots = knots),data = dados )
+
+
+spans = c(par1,par1,par1,par4,par5,par6,par7)
+df = cbind(x= dados$x, y = dados$y, Bin = fit1$fitted.values,RM = fit2,RL = fit3$fitted.values,Loess = fit4$fitted,Kernel = fitted.values(fit5),`Spline Grau 1`= predict(fit6),`Spline Cubico`= fit7$fitted)
+df1 = df %>% as.data.frame
+colnames(df) = c("x", "y",
+                 paste0("A1\n", "Bin-", par1),
+                 paste0("A2\n", "RM-", par1),
+                 paste0("A3\n", "RL-", par1),
+                 paste0("A4\n", "Loess-", par4),
+                 paste0("A5\n", "Kernel-", par5),
+                 paste0("A6\n", "Spline Grau 1", par6),
+                 paste0("A7\n", "Spline Grau 3", par7))
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+```
+
+```{r echo=F,fig.height=3.5, fig.cap="\\label{fig:smoothers_fit_bestloocv}Comparação dos ajustes entre os métodos"}
+plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1,alpha.o = .85)
+```
+
+
+
+
+
+```{r,echo=FALSE,include=FALSE}
 
 
   v <- c()
