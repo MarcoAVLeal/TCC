@@ -7,6 +7,8 @@ library(kableExtra)
 library(wesanderson)
 library(RColorBrewer)
 
+
+
 running.mean <- function(x = NULL, y = NULL, span = 5, align="full"){
   data <- data.frame(x = x,y = y)
   data <- data %>% arrange(x)
