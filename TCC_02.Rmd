@@ -86,7 +86,7 @@ header-includes:
 
 \vfill
 \begin{center}
-{\normalsize	 Maringá \\ 2021 }\\[0.2cm]
+{\normalsize	 Maringá \\ 2022 }\\[0.2cm]
 \end{center}
 \end{titlepage}
 
@@ -510,7 +510,7 @@ Essa ideia é genérica, já que os detalhes diferem dependendo da técnica de s
 
 \subsection{Estudo de simulação}
 
-Neste seção será utilizada as simulações de dados, para gerar situações nas quais possam ser aplicadas as técnicas estudadas, analisando assim suas respectivas performances. A partir disso, iremos avaliar sob estes dados, aspectos visuais dos ajustes de todas as técnicas vistas até o momento. Realizaremos comparações , adotando diferentes tamanhos de janelas (\textit{span}) para cada técnica e então para qual valor de \textit{span}, temos o melhor ajuste. Em um segundo momento, classificaremos para qual técnica obtemos o melhor ajuste. Para esta etapa iremos utilizar as técnicas: Suavizadores com Kernel, \textit{LOWESS} (Suavizador em diagrama de dispersão com pesos locais) e \textit{Splines} de Regressão. Por fim, compararemos as performances dos ajustes do modelo linear e modelo aditivo, em relação a qualidade da predição. Para esta finalidade, utilizaremos as métricas apresentadas na Seção 3.4.
+\hspace{1.25cm} Nesta seção será utilizada as simulações de dados, para gerar situações nas quais possam ser aplicadas as técnicas estudadas, analisando assim suas respectivas performances. A partir disso, iremos avaliar sob estes dados, aspectos visuais dos ajustes de todas as técnicas vistas até o momento. Realizaremos comparações , adotando diferentes tamanhos de janelas (\textit{span}) para cada técnica e então para qual valor de \textit{span}, temos o melhor ajuste. Em um segundo momento, classificaremos para qual técnica obtemos o melhor ajuste. Para esta etapa iremos utilizar as técnicas: Suavizadores com Kernel, \textit{LOWESS} (Suavizador em diagrama de dispersão com pesos locais) e \textit{Splines} de Regressão. Por fim, compararemos as performances dos ajustes do modelo linear e modelo aditivo, em relação a qualidade da predição. Para esta finalidade, utilizaremos as métricas apresentadas na Seção 3.4.
 
 \subsubsection{Cenário 1}
 
@@ -546,10 +546,9 @@ df = as_tibble(df) %>%
 
 ```
 
-Foram geradas 200 observações, sendo $X$ uma sequência de 0 a 50 e $Y$ definido pela função
-$$ y = 10 + 5sen\pi \dfrac{x}{24} + \epsilon $$
-onde $\epsilon$ é um termo aleatório.
-Para ter uma ideia da variabilidade dos dados, foi calculado o coeficiente de variação, obtendo-se que $CV_x = 0.5817$ e $CV_y = 0.3645$. Na Figura \ref{fig:cenario1} temos o comportamento  dos dados juntamente com a curva:$10 + 5sen\pi \dfrac{x}{24}$.
+\hspace{1.25cm} Foram geradas 200 observações, sendo $X$ uma sequência de 0 a 50 e $Y$ definido pela função
+$$ y = 10 + 5sen\pi \dfrac{x}{24} + \epsilon,$$
+onde $\epsilon$ é um termo aleatório. Na Figura \ref{fig:cenario1} temos o comportamento  dos dados juntamente com a curva : $10 + 5sen\pi \dfrac{x}{24}$.
 
 
 
@@ -558,7 +557,6 @@ plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y")
 ```
 
 
-Considerando as técnicas de suavização, dependendo da escolhas dos parâmetros de suavização teremos uma curva ajustda mais irregular, ou seja, uma curva que ira interpolar uma quantidade grande de pontos, ou ainda, uma curva extremamente suavizada, que tendera a ser uma reta. Na Figura \ref{fig:cenario1_bin}, observa-se alguns ajustes realizados considerando a técnica *Bin Smoother*.
 
 
 
@@ -610,10 +608,6 @@ p1
 
 ```
 
-
-
-
-, tem-se o tamanho da vizinhança, ou seja, quantos pontos são considerados para fazer o ajuste em cada região, sendo indicado no gráfico por $tam$. Na Figura 2, observa-se que com o tamanho da vizinhança menor (0.5) a técnica interpola os dados, já com o valor maior nota-se que o suavizador tende a uma reta. Com o valor 11 tem-se um equilíbrio da curva, que capta a tendência dos dados. Logo, dentre os valores observados, pode-se concluir que nesse cenário os valores próximos de 11 tendem a apresentar um resultado melhor.
 
 
 
