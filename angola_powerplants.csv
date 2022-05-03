@@ -1,0 +1,161 @@
+Year,Region,DMU,prod,CO2Emit,plltdH2O,capacity,employees,CKLratio,capCost_MW,laborCost,capCost,costAssetRatio,efficiency,slacksCO2,slacksH2O
+2014,Namibe,Central Termica de Xitoto Novo   ,80,1.88,1161.83,70,45,3.1,0.34,0.35,0.7,5.23,0.271,0.19,0.3
+2014,Namibe,Central Termica de ÿXitoto Antigoÿ   ,10,2.27,1173.51,8,40,3.23,2.67,0.4,0.61,2.07,0.05,0.92,0.91
+2014,Namibe,Central Termica do Aeroporto    ,10,2.25,1197.22,8,23,2.73,2.67,0.65,0.74,3.8,0.068,0.92,0.91
+2014,Lubango,Central Termica de Arimba    ,40,2.23,1185.3,35,15,2.2,0.65,0.99,0.73,5.59,0.333,0.66,0.66
+2014,Lubango,Central Termica de Anexo SE   ,30,2.29,1182.7,20,30,0.79,1.15,0.53,0.75,6.46,0.14,0.75,0.74
+2014,Benguela,Central Termica de Kileva    ,40,2.2,1178.89,30,69,7.36,0.7,0.23,0.51,-2.42,0.093,0.65,0.65
+2014,Benguela,Central Termical do Lobito    ,20,2.18,1158.11,5,31,4.81,3.62,0.49,0.63,-2,0.142,0.82,0.82
+2014,Benguela,Central Termica de Biopio    ,90,2.16,1167.17,15,46,0.63,1.48,0.34,0.78,5.87,0.41,0.2,0.21
+2014,Cunene,Central Termica do Cunene    ,15,2.16,1163.27,5,20,1.18,3.77,0.76,0.72,2.54,0.133,0.87,0.87
+2014,Cuando-Cubango,Central Termica Do Kuando Kubango   ,30,2.12,1197.22,10,16,-0.59,2.15,0.95,0.84,6.79,0.267,0.73,0.74
+2014,Huambo,Central Termica do Benfica    ,40,2.1,1209.25,35,34,0.13,0.53,0.48,0.76,2.25,0.159,0.64,0.66
+2014,Bie,Central Termica do Cuito    ,10,2.08,1195.95,7,42,1.34,2.72,0.37,0.91,2.25,0.05,0.91,0.91
+2014,Moxico,Central termica do Moxico    ,40,2.05,1178.9,30,23,0.92,0.83,0.68,0.77,8.38,0.229,0.63,0.65
+2014,Luanda,Central Termica de Cazenga    ,40,2.03,1174.81,30,50,1.52,0.83,0.32,0.72,7.28,0.119,0.62,0.65
+2014,Luanda,Central Termica do Caminho de Ferro de Luanda,80,2.01,1160.56,50,65,1.61,0.55,0.25,0.64,9.47,0.203,0.24,0.3
+2014,Luanda,Central Termica do Morro Bento   ,30,1.99,1161.46,15,32,1.21,1.44,0.49,0.69,4.63,0.143,0.71,0.74
+2014,Luanda,Central Termica do Morro da Luz  ,30,1.97,1173.51,10,25,4.17,2.16,0.62,0.6,1.94,0.192,0.71,0.74
+2014,Luanda,Central Termica KM9     ,15,1.97,1174.82,10,35,2.33,2.29,0.44,0.76,5.29,0.073,0.85,0.87
+2014,Luanda,Central Termica Benfica     ,20,1.07,1176.12,17,18,1.27,1.37,0.84,0.81,6.89,0.147,0.64,0.83
+2014,Luanda,Central Termica Praia do Bispo   ,35,1.95,1177.43,20,15,-0.33,1.06,0.96,0.87,7.06,0.303,0.66,0.7
+2014,Luanda,Central Termica dos Quarteis    ,30,1.93,1174.96,30,37,1.21,0.71,0.43,0.75,4.34,0.111,0.7,0.74
+2014,Luanda,Central Termica Boavista I    ,30,2.12,1183.76,15,30,1.38,1.41,0.51,0.73,4.35,0.15,0.73,0.74
+2014,Luanda,Central Termica Boavista II    ,20,2.06,1166.9,10,45,1.22,2.08,0.36,0.72,3.18,0.084,0.81,0.83
+2014,Luanda,Central Termica Boavista III    ,20,2.02,1187.02,16,42,1.16,1.3,0.39,0.7,3.32,0.075,0.81,0.83
+2014,Luanda,Central Termica Kassaki     ,10,2,1216.7,8,28,3.92,2.58,0.56,0.63,0.93,0.06,0.9,0.92
+2014,Luanda,Central Termica CEEF     ,15,1.98,1316.7,10,20,1.64,2.07,0.73,0.76,4.37,0.107,0.86,0.88
+2014,Bengo,Central Termica do Bengo    ,30,1.96,1387.6,18,25,1.62,1.19,0.62,0.69,4.4,0.166,0.71,0.78
+2014,Uige,Central Termica do Uige    ,20,2,1321.8,15,20,4.29,1.42,0.76,0.64,1.89,0.133,0.81,0.85
+2014,Zaire,Central Termica Banza Congo    ,20,1.96,1289.6,10,35,4.51,2.06,0.44,0.59,0.68,0.098,0.8,0.84
+2014,Zaire,Central Termica Soyo     ,90,2.26,1789.2,70,15,3.76,0.36,0.99,0.63,6.65,0.764,0.22,0.27
+2014,Cabinda,Central Termica Landana     ,30,2.25,1378.9,20,30,2.49,1.06,0.5,0.77,3.61,0.139,0.75,0.78
+2014,Cabinda,Central Termica Malongo     ,45,2.3,1256.78,40,15,1.42,0.54,0.99,0.72,5.08,0.375,0.63,0.64
+2013,Namibe,Central Termica de Xitoto Novo   ,81,1.82,1138.6,70,45,3.1,0.34,0.34,0.7,5.23,0.278,0.15,0.28
+2013,Namibe,Central Termica de ÿXitoto Antigoÿ   ,11,2.2,1150.04,8,40,3.23,2.67,0.4,0.61,2.07,0.053,0.9,0.9
+2013,Namibe,Central Termica do Aeroporto    ,11,2.18,1173.27,8,23,2.73,2.67,0.65,0.74,3.8,0.075,0.9,0.9
+2013,Lubango,Central Termica de Arimba    ,41,2.16,1161.6,35,15,2.2,0.65,0.99,0.73,5.59,0.343,0.64,0.64
+2013,Lubango,Central Termica de Anexo SE   ,31,2.22,1159.05,20,30,0.79,1.15,0.52,0.75,6.46,0.146,0.73,0.73
+2013,Benguela,Central Termica de Kileva    ,40,2.14,1155.31,30,69,7.36,0.7,0.23,0.51,-2.42,0.093,0.64,0.65
+2013,Benguela,Central Termical do Lobito    ,21,2.12,1134.95,5,31,4.81,3.62,0.49,0.63,-2,0.149,0.81,0.81
+2013,Benguela,Central Termica de Biopio    ,91,2.09,1143.82,15,46,0.63,1.48,0.34,0.78,5.87,0.421,0.17,0.19
+2013,Cunene,Central Termica do Cunene    ,16,2.09,1140,5,20,1.18,3.77,0.76,0.72,2.54,0.143,0.85,0.86
+2013,Cuando-Cubango,Central Termica Do Kuando Kubango   ,31,2.05,1173.27,10,16,-0.59,2.14,0.95,0.84,6.79,0.278,0.71,0.73
+2013,Huambo,Central Termica do Benfica    ,41,2.03,1185.06,35,34,0.13,0.53,0.48,0.76,2.25,0.164,0.61,0.65
+2013,Bie,Central Termica do Cuito    ,11,2.01,1172.03,7,42,1.34,2.72,0.37,0.91,2.25,0.055,0.9,0.9
+2013,Moxico,Central termica do Moxico    ,41,1.99,1155.32,30,23,0.92,0.83,0.68,0.77,8.38,0.237,0.61,0.64
+2013,Luanda,Central Termica de Cazenga    ,41,1.97,1151.32,30,50,1.52,0.83,0.32,0.72,7.28,0.123,0.6,0.64
+2013,Luanda,Central Termica do Caminho de Ferro de Luanda,81,1.95,1137.35,50,65,1.61,0.55,0.25,0.64,9.47,0.209,0.21,0.27
+2013,Luanda,Central Termica do Morro Bento   ,31,1.93,1138.23,15,32,1.21,1.44,0.49,0.69,4.63,0.149,0.69,0.72
+2013,Luanda,Central Termica do Morro da Luz  ,31,1.91,1150.04,10,25,4.17,2.16,0.62,0.6,1.94,0.199,0.69,0.73
+2013,Luanda,Central Termica KPM9     ,15,1.91,1151.32,10,35,2.33,2.29,0.44,0.76,5.29,0.073,0.85,0.87
+2013,Luanda,Central Termica Benfica     ,21,1.04,1152.6,17,18,1.27,1.37,0.84,0.81,6.89,0.156,0.61,0.81
+2013,Luanda,Central Termica Praia do Bispo   ,35,1.9,1153.88,20,15,-0.33,1.06,0.96,0.87,7.06,0.304,0.65,0.69
+2013,Luanda,Central Termica dos Quarteis    ,31,1.88,1151.46,30,37,1.21,0.71,0.43,0.75,4.34,0.115,0.68,0.73
+2013,Luanda,Central Termica Boavista I    ,31,2.06,1160.09,15,30,1.38,1.41,0.51,0.73,4.35,0.156,0.71,0.73
+2013,Luanda,Central Termica Boavista II    ,21,2,1143.56,10,45,1.22,2.08,0.36,0.72,3.18,0.089,0.8,0.81
+2013,Luanda,Central Termica Boavista III    ,21,1.96,1163.28,16,42,1.16,1.3,0.39,0.7,3.32,0.079,0.79,0.82
+2013,Luanda,Central Termica Kassaki     ,11,1.94,1192.37,8,28,3.92,2.57,0.56,0.63,0.93,0.066,0.89,0.91
+2013,Luanda,Central Termica CEEF     ,16,1.92,1290.37,10,20,1.64,2.07,0.73,0.76,4.37,0.115,0.84,0.87
+2013,Bengo,Central Termica do Bengo    ,31,1.9,1359.85,18,25,1.62,1.19,0.61,0.69,4.4,0.172,0.69,0.77
+2013,Uige,Central Termica do Uige    ,21,1.94,1295.36,15,20,4.29,1.42,0.75,0.64,1.89,0.141,0.79,0.83
+2013,Zaire,Central Termica Banza Congo    ,21,1.9,1263.81,10,35,4.51,2.06,0.44,0.59,0.68,0.104,0.79,0.83
+2013,Zaire,Central Termica Soyo     ,91,2.19,1753.42,70,15,3.76,0.36,0.99,0.63,6.65,0.789,0.19,0.23
+2013,Cabinda,Central Termica Landana     ,31,2.18,1351.32,20,30,2.49,1.06,0.5,0.77,3.61,0.145,0.73,0.77
+2013,Cabinda,Central Termica Malongo     ,46,2.23,1231.64,40,15,1.42,0.53,0.99,0.72,5.08,0.386,0.61,0.62
+2012,Namibe,Central Termica de Xitoto Novo   ,81,2.26,1115.83,70,45,3.1,0.34,0.34,0.7,5.24,0.269,0.31,0.26
+2012,Namibe,Central Termica de ÿXitoto Antigoÿ   ,11,1.78,1127.04,8,40,2.54,2.98,0.4,0.7,5.23,0.053,0.88,0.9
+2012,Namibe,Central Termica do Aeroporto    ,11,2.16,1149.81,8,23,4.46,2.67,0.64,0.61,2.07,0.075,0.9,0.9
+2012,Lubango,Central Termica de Arimba    ,41,2.14,1138.37,35,15,2.78,0.61,0.98,0.74,3.8,0.344,0.63,0.63
+2012,Lubango,Central Termica de Anexo SE   ,31,2.12,1135.87,20,30,1.25,1.13,0.52,0.73,5.59,0.146,0.72,0.72
+2012,Benguela,Central Termica de Kileva    ,40,2.18,1132.2,30,69,0.59,0.77,0.23,0.75,6.46,0.093,0.65,0.64
+2012,Benguela,Central Termical do Lobito    ,21,2.09,1112.25,5,31,8.02,4.17,0.49,0.51,-2.42,0.15,0.81,0.81
+2012,Benguela,Central Termica de Biopio    ,91,2.07,1120.95,15,46,4.4,1.2,0.34,0.63,-2,0.423,0.16,0.17
+2012,Cunene,Central Termica do Cunene    ,16,2.05,1117.2,5,20,1.19,4.43,0.76,0.78,5.87,0.143,0.85,0.85
+2012,Cuando-Cubango,Central Termica Do Kuando Kubango   ,31,2.05,1149.81,10,16,1.07,1.88,0.95,0.72,2.54,0.278,0.71,0.73
+2012,Huambo,Central Termica do Benfica    ,41,2.01,1161.36,35,34,-1.6,0.61,0.48,0.84,6.79,0.165,0.61,0.64
+2012,Bie,Central Termica do Cuito    ,11,1.99,1148.59,7,42,0.94,2.66,0.37,0.76,2.25,0.055,0.89,0.9
+2012,Moxico,Central termica do Moxico    ,41,1.97,1132.22,30,23,1.18,0.63,0.68,0.91,2.25,0.237,0.6,0.63
+2012,Luanda,Central Termica de Cazenga    ,41,1.95,1128.29,30,50,0.43,0.83,0.32,0.77,8.38,0.123,0.6,0.63
+2012,Luanda,Central Termica do Caminho de Ferro de Luanda,81,1.93,1114.6,50,65,1.1,0.5,0.25,0.72,7.28,0.21,0.2,0.26
+2012,Luanda,Central Termica do Morro Bento   ,31,1.91,1115.47,15,32,2.4,1.84,0.49,0.64,9.47,0.149,0.69,0.72
+2012,Luanda,Central Termica do Morro da Luz  ,31,1.9,1127.04,10,25,1.48,2.15,0.62,0.69,4.63,0.2,0.69,0.72
+2012,Luanda,Central Termica KPM9     ,15,1.88,1128.29,10,35,4.36,2.15,0.44,0.6,1.94,0.073,0.85,0.86
+2012,Luanda,Central Termica Benfica     ,21,1.88,1129.55,17,18,2.54,1.35,0.84,0.76,5.29,0.151,0.79,0.81
+2012,Luanda,Central Termica Praia do Bispo   ,35,1.02,1130.8,20,15,1.91,1.16,0.96,0.81,6.89,0.323,0.34,0.68
+2012,Luanda,Central Termica dos Quarteis    ,31,1.86,1128.43,30,37,-1.7,0.7,0.43,0.87,7.06,0.115,0.68,0.72
+2012,Luanda,Central Termica Boavista I    ,31,1.84,1136.89,15,30,1.59,1.42,0.51,0.75,4.34,0.157,0.68,0.72
+2012,Luanda,Central Termica Boavista II    ,21,2.02,1120.69,10,45,0.39,2.11,0.36,0.73,4.35,0.089,0.8,0.81
+2012,Luanda,Central Termica Boavista III    ,21,1.96,1140.02,16,42,1.29,1.3,0.39,0.72,3.18,0.079,0.79,0.81
+2012,Luanda,Central Termica Kassaki     ,11,1.92,1168.52,8,28,1.73,2.6,0.56,0.7,3.32,0.066,0.89,0.9
+2012,Luanda,Central Termica CEEF     ,16,1.9,1264.56,10,20,4.99,2.06,0.73,0.63,0.93,0.115,0.84,0.87
+2012,Bengo,Central Termica do Bengo    ,31,1.88,1332.65,18,25,0.95,1.15,0.61,0.76,4.37,0.173,0.69,0.76
+2012,Uige,Central Termica do Uige    ,21,1.86,1269.46,15,20,1.9,1.42,0.75,0.69,4.4,0.141,0.78,0.83
+2012,Zaire,Central Termica Banza Congo    ,21,1.9,1238.53,10,35,3.97,2.12,0.44,0.64,1.89,0.104,0.79,0.83
+2012,Zaire,Central Termica Soyo     ,91,1.86,1718.35,70,15,5.06,0.29,0.99,0.59,0.68,0.818,0.04,0.22
+2012,Cabinda,Central Termica Landana     ,31,2.14,1324.3,20,30,3.48,1.06,0.5,0.63,2.62,0.145,0.72,0.76
+2012,Cabinda,Central Termica Malongo     ,46,2.14,1207.01,40,15,2.73,0.53,0.99,0.77,3.79,0.388,0.59,0.61
+2011,Namibe,Central Termica de Xitoto Novo   ,85,1.7,1064.5,70,45,3.13,0.34,0.34,0.7,5.24,0.306,0.04,0.19
+2011,Namibe,Central Termica de ÿXitoto Antigoÿ   ,13,2.05,1075.2,8,40,2.57,2.97,0.4,0.7,5.23,0.063,0.88,0.88
+2011,Namibe,Central Termica do Aeroporto    ,13,2.03,1096.92,8,23,4.49,2.66,0.64,0.61,2.07,0.089,0.88,0.88
+2011,Lubango,Central Termica de Arimba    ,46,2.01,1086,35,15,2.81,0.61,0.98,0.74,3.8,0.396,0.56,0.57
+2011,Lubango,Central Termica de Anexo SE   ,36,2.07,1083.62,20,30,1.28,1.13,0.52,0.73,5.59,0.173,0.67,0.66
+2011,Benguela,Central Termica de Kileva    ,44,1.99,1080.12,30,69,0.62,0.76,0.23,0.75,6.46,0.105,0.58,0.59
+2011,Benguela,Central Termical do Lobito    ,24,1.97,1061.09,5,31,8.05,4.17,0.49,0.51,-2.42,0.173,0.77,0.77
+2011,Benguela,Central Termica de Biopio    ,100,1.95,1069.38,15,46,4.43,1.2,0.34,0.63,-2,0.495,0.02,0.05
+2011,Cunene,Central Termica do Cunene    ,18,1.95,1065.81,5,20,1.22,4.43,0.75,0.78,5.87,0.162,0.82,0.83
+2011,Cuando-Cubango,Central Termica Do Kuando Kubango   ,34,1.91,1096.92,10,16,1.1,1.88,0.95,0.72,2.54,0.31,0.66,0.68
+2011,Huambo,Central Termica do Benfica    ,45,1.89,1107.94,35,34,-1.57,0.61,0.48,0.84,6.79,0.185,0.55,0.59
+2011,Bie,Central Termica do Cuito    ,12,1.87,1095.75,7,42,0.97,2.65,0.37,0.76,2.25,0.06,0.88,0.89
+2011,Moxico,Central termica do Moxico    ,45,1.86,1080.13,30,23,1.21,0.63,0.67,0.91,2.25,0.267,0.54,0.58
+2011,Luanda,Central Termica de Cazenga    ,45,1.84,1076.39,30,50,0.46,0.83,0.32,0.77,8.38,0.139,0.53,0.57
+2011,Luanda,Central Termica do Caminho de Ferro de Luanda,89,1.82,1063.33,50,65,1.13,0.5,0.25,0.72,7.28,0.244,0.06,0.15
+2011,Luanda,Central Termica do Morro Bento   ,34,1.8,1064.15,15,32,2.43,1.84,0.49,0.64,9.47,0.167,0.64,0.67
+2011,Luanda,Central Termica do Morro da Luz  ,35,1.78,1075.19,10,25,1.51,2.15,0.62,0.69,4.63,0.23,0.62,0.67
+2011,Luanda,Central Termica KPM9     ,16,1.78,1076.39,10,35,4.39,2.15,0.43,0.6,1.94,0.078,0.83,0.85
+2011,Luanda,Central Termica Benfica     ,23,0.97,1077.59,17,18,2.57,1.34,0.83,0.76,5.29,0.174,0.55,0.78
+2011,Luanda,Central Termica Praia do Bispo   ,38,1.76,1078.79,20,15,1.94,1.16,0.96,0.81,6.89,0.337,0.59,0.64
+2011,Luanda,Central Termica dos Quarteis    ,34,1.75,1076.52,30,37,-1.66,0.7,0.42,0.87,7.06,0.129,0.63,0.68
+2011,Luanda,Central Termica Boavista I    ,35,1.92,1084.59,15,30,1.62,1.42,0.51,0.75,4.34,0.18,0.65,0.67
+2011,Luanda,Central Termica Boavista II    ,23,1.86,1069.14,10,45,0.42,2.11,0.36,0.73,4.35,0.099,0.76,0.78
+2011,Luanda,Central Termica Boavista III    ,24,1.82,1087.58,16,42,1.32,1.3,0.39,0.72,3.18,0.091,0.75,0.78
+2011,Luanda,Central Termica Kassaki     ,12,1.8,1114.77,8,28,1.77,2.59,0.56,0.7,3.32,0.072,0.87,0.89
+2011,Luanda,Central Termica CEEF     ,17,1.79,1206.39,10,20,5.02,2.05,0.73,0.63,0.93,0.123,0.82,0.86
+2011,Bengo,Central Termica do Bengo    ,34,1.77,1271.35,18,25,0.98,1.15,0.61,0.76,4.37,0.193,0.63,0.73
+2011,Uige,Central Termica do Uige    ,23,1.8,1211.06,15,20,1.93,1.42,0.75,0.69,4.4,0.156,0.76,0.81
+2011,Zaire,Central Termica Banza Congo    ,24,1.77,1181.56,10,35,4,2.12,0.44,0.64,1.89,0.12,0.74,0.79
+2011,Zaire,Central Termica Soyo     ,100,2.04,1639.3,70,15,5.09,0.29,0.98,0.59,0.68,0.95,0,0
+2011,Cabinda,Central Termica Landana     ,34,2.04,1263.38,20,30,3.51,1.06,0.5,0.63,2.62,0.161,0.68,0.73
+2011,Cabinda,Central Termica Malongo     ,85,1.61,1151.49,40,15,2.76,0.53,0.99,0.77,3.79,0.95,0,0
+2010,Namibe,Central Termica de Xitoto Novo   ,13,1.64,1021.92,70,45,3.12,0.34,0.34,0.7,5.24,0.05,0.85,0.87
+2010,Namibe,Central Termica de ÿXitoto Antigoÿ   ,13,1.99,1032.19,8,40,2.56,2.97,0.4,0.7,5.23,0.063,0.88,0.87
+2010,Namibe,Central Termica do Aeroporto    ,46,1.97,1053.04,8,23,4.48,2.66,0.64,0.6,2.07,0.355,0.55,0.56
+2010,Lubango,Central Termica de Arimba    ,36,1.95,1042.56,35,15,2.8,0.61,0.98,0.74,3.8,0.3,0.65,0.65
+2010,Lubango,Central Termica de Anexo SE   ,39.6,2.01,1040.27,20,30,1.27,1.13,0.52,0.73,5.59,0.194,0.62,0.61
+2010,Benguela,Central Termica de Kileva    ,24,1.93,1036.92,30,69,0.61,0.76,0.23,0.74,6.46,0.053,0.76,0.76
+2010,Benguela,Central Termical do Lobito    ,100,1.91,1018.64,5,31,8.04,4.16,0.49,0.51,-2.42,0.95,0,0
+2010,Benguela,Central Termica de Biopio    ,18,1.89,1026.61,15,46,4.42,1.2,0.34,0.63,-2,0.064,0.82,0.82
+2010,Cunene,Central Termica do Cunene    ,34,1.89,1023.18,5,20,1.21,4.42,0.75,0.78,5.87,0.326,0.66,0.66
+2010,Cuando-Cubango,Central Termica Do Kuando Kubango   ,45,1.85,1053.04,10,16,1.09,1.88,0.95,0.72,2.54,0.43,0.54,0.56
+2010,Huambo,Central Termica do Benfica    ,12,1.84,1063.62,35,34,-1.58,0.61,0.47,0.84,6.79,0.05,0.88,0.89
+2010,Bie,Central Termica do Cuito    ,45,1.82,1051.92,7,42,0.96,2.65,0.37,0.76,2.25,0.257,0.53,0.56
+2010,Moxico,Central termica do Moxico    ,45,1.8,1036.93,30,23,1.2,0.63,0.67,0.91,2.25,0.268,0.52,0.56
+2010,Luanda,Central Termica de Cazenga    ,89,1.78,1033.33,30,50,0.45,0.83,0.32,0.77,8.38,0.336,0.05,0.12
+2010,Luanda,Central Termica do Caminho de Ferro de Luanda,34,1.76,1020.79,50,65,1.12,0.5,0.25,0.72,7.28,0.074,0.63,0.66
+2010,Luanda,Central Termica do Morro Bento   ,35,1.75,1021.59,15,32,2.42,1.84,0.49,0.64,9.47,0.173,0.62,0.65
+2010,Luanda,Central Termica do Morro da Luz  ,16,1.73,1032.19,10,25,1.5,2.15,0.61,0.69,4.63,0.098,0.82,0.84
+2010,Luanda,Central Termica KPM9     ,23,1.73,1033.34,10,35,4.38,2.15,0.43,0.59,1.94,0.115,0.75,0.77
+2010,Luanda,Central Termica Benfica     ,38,0.94,1034.48,17,18,2.56,1.34,0.83,0.76,5.29,0.316,0.23,0.63
+2010,Luanda,Central Termica Praia do Bispo   ,34,1.71,1035.63,20,15,1.93,1.16,0.95,0.81,6.89,0.298,0.62,0.67
+2010,Luanda,Central Termica dos Quarteis    ,35,1.69,1033.46,30,37,-1.67,0.7,0.42,0.87,7.06,0.134,0.61,0.66
+2010,Luanda,Central Termica Boavista I    ,23,1.86,1041.21,15,30,1.61,1.42,0.51,0.75,4.34,0.114,0.76,0.78
+2010,Luanda,Central Termica Boavista II    ,24,1.8,1026.37,10,45,0.41,2.11,0.36,0.73,4.35,0.104,0.75,0.76
+2010,Luanda,Central Termica Boavista III    ,12,1.77,1044.07,16,42,1.31,1.29,0.39,0.72,3.18,0.05,0.87,0.88
+2010,Luanda,Central Termica Kassaki     ,17,1.75,1070.18,8,28,1.76,2.59,0.56,0.7,3.32,0.104,0.81,0.84
+2010,Luanda,Central Termica CEEF     ,34,1.73,1158.13,10,20,5.01,2.05,0.73,0.63,0.93,0.262,0.63,0.7
+2010,Bengo,Central Termica do Bengo    ,23,1.71,1220.5,18,25,0.97,1.14,0.61,0.76,4.37,0.126,0.74,0.81
+2010,Uige,Central Termica do Uige    ,24,1.75,1162.62,15,20,1.92,1.42,0.75,0.69,4.4,0.164,0.74,0.79
+2010,Zaire,Central Termica Banza Congo    ,100,1.71,1134.3,10,35,3.99,2.12,0.44,0.63,1.89,0.95,0,0
+2010,Zaire,Central Termica Soyo     ,34,1.98,1573.73,70,15,5.08,0.29,0.98,0.59,0.68,0.234,0.67,0.71
+2010,Cabinda,Central Termica Landana     ,28,1.98,1212.84,20,30,3.5,1.06,0.5,0.63,2.62,0.131,0.73,0.76
+2010,Cabinda,Central Termica Malongo     ,45,1.56,1105.43,40,15,2.75,0.53,0.99,0.77,3.79,0.392,0.45,0.59

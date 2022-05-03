@@ -184,7 +184,20 @@ axis_theme <- theme_bw()  +
     axis.title = element_text(color="#000000", face="bold", size=textsize,lineheight = 2))
 
 
-axis.theme <- function(x.angle = 0,vjust=0,hjust=0.5,pos_leg="top",textsize = 10,lengend_title_size = 10,lengend_text_size = 8,title_size = 16,axis_x=F,axis_y=F){
+axis.theme <- function(x.angle = 0,vjust=0,leg = TRUE,hjust=0.5,leg_angle = 0,pos_leg="top",textsize = 10,lengend_title_size = 10,lengend_text_size = 8,title_size = 16,axis_x=F,axis_y=F){
+  
+  if(isTRUE(leg)){
+    
+    
+    leg_title =  element_text(colour = "black",size = lengend_title_size)
+  }else{
+    
+    
+    leg_title = element_blank()
+    
+  }
+  
+  
   
   if(isTRUE(axis_x)){
     theme_bw()  +
@@ -197,9 +210,9 @@ axis.theme <- function(x.angle = 0,vjust=0,hjust=0.5,pos_leg="top",textsize = 10
         plot.background = element_rect(fill = "white", colour = NA),
         axis.title.x = element_text(colour = "black",size = textsize,face = "bold"),
         axis.title.y = element_text(colour = "black",size = textsize,face = "bold"),
-        legend.title = element_text(colour = "black",size = lengend_title_size),
+        legend.title = leg_title,
         legend.position = pos_leg,
-        legend.text = element_text(colour = "black",size = lengend_text_size,face = "bold"),
+        legend.text = element_text(colour = "black",size = lengend_text_size,face = "bold",angle = leg_angle),
         panel.grid = element_line(linetype="dashed"),
         panel.grid.major = element_line(colour = "gray"),
         title =element_text(size=title_size, face='bold',hjust = 0.5),
@@ -219,9 +232,9 @@ axis.theme <- function(x.angle = 0,vjust=0,hjust=0.5,pos_leg="top",textsize = 10
         plot.background = element_rect(fill = "white", colour = NA),
         axis.title.x = element_text(colour = "black",size = textsize,face = "bold"),
         axis.title.y = element_text(colour = "black",size = textsize,face = "bold"),
-        legend.title = element_text(colour = "black",size = lengend_title_size),
+        legend.title = leg_title,
         legend.position = pos_leg,
-        legend.text = element_text(colour = "black",size = lengend_text_size,face = "bold"),
+        legend.text = element_text(colour = "black",size = lengend_text_size,face = "bold",angle = leg_angle),
         panel.grid = element_line(linetype="dashed"),
         panel.grid.major = element_line(colour = "gray"),
         title =element_text(size=title_size, face='bold',hjust = 0.5),
@@ -239,9 +252,9 @@ axis.theme <- function(x.angle = 0,vjust=0,hjust=0.5,pos_leg="top",textsize = 10
         plot.background = element_rect(fill = "white", colour = NA),
         axis.title.x = element_text(colour = "black",size = textsize,face = "bold"),
         axis.title.y = element_text(colour = "black",size = textsize,face = "bold"),
-        legend.title = element_text(colour = "black",size = lengend_title_size),
+        legend.title = leg_title,
         legend.position = pos_leg,
-        legend.text = element_text(colour = "black",size = lengend_text_size,face = "bold"),
+        legend.text = element_text(colour = "black",size = lengend_text_size,face = "bold",angle = leg_angle),
         panel.grid = element_line(linetype="dashed"),
         panel.grid.major = element_line(colour = "gray"),
         title =element_text(size=title_size, face='bold',hjust = 0.5),
@@ -888,7 +901,7 @@ plot.curves <- function(data  = NULL, x,y,labelx="Eixo X",labely="Eixo Y",
 
 
 plot.mult.curves <- function(df,df_fit = NULL,labelx="Eixo X",labely="Eixo Y",
-                        title = "Gráfico de Dispersão",legend.pos = "right",line.s = 1.2,alpha.o = 1,point.alpha = .25,
+                        title = "Gráfico de Dispersão",legend.pos = "right",line.s = 1.2,alpha.o = 1,point.alpha = .3,
                         point.color = "black"
                         ){
   

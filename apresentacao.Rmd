@@ -1,0 +1,1456 @@
+---
+output:
+  beamer_presentation:
+    toc: false
+keep_tex: no
+number_sections: false
+classoption: "aspectratio=169"
+fontsize: 10pt 
+lang: pt-br
+mainfont: Times New Roman
+sansfont: Times New Roman
+monofont: Times New Roman
+indent: true
+nocite: '@*'
+header-includes:
+  - \usepackage{geometry}
+  - \usepackage{graphicx}
+  - \usepackage[utf8]{inputenc}
+  - \usepackage{fancyhdr}
+  - \usepackage{ stmaryrd }
+  - \usepackage{eqnarray,amsmath}
+  - \usepackage{float}
+  - \usepackage{bm}
+  - \usepackage{amssymb,geometry,verbatim,graphics,subfigure,epsfig,setspace,amsmath,ae,float,multirow,latexsym,verbatim,float, pdflscape }
+  - \usepackage{scalefnt,longtable,setspace,multirow,amsfonts,amsthm} 
+  - \usepackage[singlelinecheck=off]{caption}
+  - \usepackage{color,array}
+  - \usepackage{hyperref,adjustbox}
+  - \usepackage[square,numbers]{natbib}
+  - \usepackage{bm}
+  - \usepackage{bm}
+  - \usepackage{tikz}
+  - \usepackage{booktabs}
+  - \usepackage{mdframed}
+  - \usepackage{stackrel}
+  - \usepackage{ragged2e}
+  - \usepackage{etoolbox}
+  - \usepackage{lipsum}
+  - \usepackage{multirow}
+  - \usepackage{multicol}
+  - \usepackage{booktabs}
+  - \usepackage{mdframed}
+  - \usepackage{bm}
+  - \usepackage{stackrel}
+---
+\setbeamertemplate{section page}{  \begingroup    \centering     \begin{beamercolorbox}[sep=12pt,center,colsep=-4bp,rounded=true,shadow=true]{section title}       \usebeamerfont{section title}\insertsection\par     \end{beamercolorbox}   \endgroup }
+
+\pagestyle{fancy}
+\fancyhf{}
+\chead{{\vspace{0.02cm}  {\Large \textbf{ \tikz\node[opacity=0.15]{3º Encontro Anual de Extensão Universitária}}}}}
+\rhead{\includegraphics[width=2.5cm]{logo.png}}
+\lhead{}
+
+
+\definecolor{cor1}{RGB}{0,100,166}
+\definecolor{cor2}{RGB}{100,195,213}
+\definecolor{cor5}{RGB}{150,203,226}
+\definecolor{cor3}{RGB}{30,130,186}
+\definecolor{cor4}{RGB}{40,185,218}
+\definecolor{preto}{RGB}{0,0,0}
+\definecolor{branco}{RGB}{255,255,255}
+
+\setbeamercolor{paleta1}{fg=cor1,bg=white}
+\setbeamercolor{paleta2}{fg=cor1,bg=white}
+\setbeamercolor{estrutura}{fg=cor1,bg=white}
+\setbeamercolor{titulo_rodape}{fg=black,bg=white}
+\setbeamercolor{data_rodape}{fg=gray,bg=white}
+\setbeamercolor{frametitle}{fg=cor1,bg=branco}
+
+
+
+
+
+\defbeamertemplate*{title page}{mytheme}
+{
+  \begin{tikzpicture}[remember picture,overlay]
+    \filldraw[cor1]
+    (current page.north west) --
+    ([yshift=-12cm]current page.north west) --
+    ([xshift=-4cm,yshift=-12cm]current page.north east) {[rounded corners=15pt]--
+    ([xshift=-4cm,yshift=5cm]current page.south east)} --
+    ([yshift=5cm]current page.south west) --
+    (current page.south west) --
+    (current page.south east) --
+    (current page.north east) -- cycle
+    ;
+  \filldraw[branco]
+    (current page.north west) --
+    ([yshift=-2cm]current page.north west) --
+    ([xshift=-3cm,yshift=-2cm]current page.north east) {[rounded corners=15pt]--
+    ([xshift=-3cm,yshift=4.5cm]current page.south east)} --
+    ([yshift=4.5cm]current page.south west) --
+    (current page.south west) --
+    (current page.south east) --
+    (current page.north east) -- cycle
+    ;
+   
+    
+  
+  
+  \node[text=cor1,anchor=south west,font=\sffamily\small,text width=.75\paperwidth] 
+  at ([xshift=10pt,yshift=3.0cm]current page.west)
+  (title)
+  {\raggedright  Universidade Estadual de Maringá                     \\
+                 Departamento de Estatística                          \\
+                 Trabalho de Conclusão de Curso                         };  
+  
+  \node[anchor=east]
+  at ([xshift=-0.15cm,yshift=-0.75cm]current page.north east)
+  {\includegraphics[width=2.5cm]{logo.png}};
+  
+ 
+  \end{tikzpicture}
+
+
+
+
+
+
+
+
+\begin{titlepage} 
+
+\begin{flushleft}
+{ \vspace{0cm} \bf \Large Avaliação de métodos não paramétricos  para}\\[0.25cm]
+{\bf \Large  predição em modelos aditivos}\\[1.25cm]
+\end{flushleft}
+
+
+   \hspace{.0\textwidth} 
+   \begin{minipage}{.5\textwidth}
+    
+\begin{flushleft}
+\normalsize
+\begin{tabular}{lll}
+Orientador(ª): & \hspace{0.5em}  Profº Drº George Lucas Moraes Pezzot         &                \\ 
+Co-orientador(ª): & \hspace{0.5em}  Profº Drº Willian  Luís de Oliveira        &                \\
+Aluno(ª)    : & \hspace{0.6em}  Marco Aurelio Valles Leal   &  RA: 103159        
+               
+\end{tabular}
+\end{flushleft} 
+\end{minipage}
+
+
+\vfill
+\begin{center}
+{\normalsize	 Maringá, \today}\\[0.2cm]
+\end{center}
+\end{titlepage}
+
+
+
+\newpage  
+
+
+```{r setup, include=FALSE}
+rm(list=ls())
+source(file = "funcoes.R",encoding = "UTF-8")
+library(tidyverse)
+library(binsmooth)
+library(knitr)
+library(kableExtra)
+library(additive.models)
+library(rms)
+library(locfit)
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message= FALSE,
+                      out.width = "100%",fig.align = "center",size ="large",fig.height = 2.5)
+```
+
+```{r, echo=FALSE}
+library(readxl)
+
+
+```
+
+## Conteúdo
+
+\tableofcontents
+
+
+# Introdução
+
+## Introdução
+
+
+
+# Objetivo
+
+## Objetivos
+
+# Metodologia
+
+## Metodologia
+
+# Resultados e Discussão
+
+## Cenário 1 - Introdução
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+
+
+\begin{itemize}
+\item Valores de $X$ uma sequência de 0 a 5;
+
+\item  $ y = 10 + 5sen\pi \dfrac{x}{24} + \varepsilon$;
+
+\item $\varepsilon$ é um termo aleatório, normalmente, distribuído com média zero e variância constante;
+
+\item Tamanos amostrais utilizados serão iguais a $150,250$ e $350$;
+
+\item Valores de desvio padrão, utilizado nos erros, $0.5,1$ e $2$.
+
+\end{itemize}
+
+
+
+\end{column}
+
+\begin{column}{0.5\textwidth}
+
+```{r,fig.height=2, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+#library(tidyverse)
+library(dslabs)
+library(zoo)
+library(igraph)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(wesanderson)
+library(RColorBrewer)
+
+
+###### DADOS  ########
+
+set.seed(102585)
+tam = 350
+normal = rnorm(tam,sd = 0.5)
+x = seq(0, 50, length.out = tam)
+y = 10 + (5*sin(pi*x/24)) + normal
+
+
+dados = data.frame(x,y)
+
+## plotando a curva real
+true = 10 + (5*sin(pi*x/24))
+
+df = cbind(dados$x, dados$y, true) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+p1 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y")+
+    axis.theme(lengend_text_size = 16,lengend_title_size = 16,textsize = 18,leg = FALSE,pos_leg = "top")
+
+```
+
+
+
+
+
+```{r,fig.height=2, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+#library(tidyverse)
+library(dslabs)
+library(zoo)
+library(igraph)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(wesanderson)
+library(RColorBrewer)
+
+
+###### DADOS  ########
+
+set.seed(102585)
+tam = 350
+normal = rnorm(tam,sd = 1)
+x = seq(0, 50, length.out = tam)
+y = 10 + (5*sin(pi*x/24)) + normal
+
+dados = data.frame(x,y)
+
+## plotando a curva real
+true = 10 + (5*sin(pi*x/24))
+
+df = cbind(dados$x, dados$y, true) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+p2 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y") +
+    axis.theme(lengend_text_size = 16,lengend_title_size = 16,textsize = 18,leg = FALSE,pos_leg = "none")
+
+
+```
+
+
+
+```{r ,fig.height=8.5, echo = FALSE,fig.cap="\\label{fig:sim_cenario1} Gráfico de dispersão dos dados simulados e curva real."}
+#library(tidyverse)
+library(dslabs)
+library(zoo)
+library(igraph)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(wesanderson)
+library(RColorBrewer)
+library(igraph)
+library(zoo)
+library(splines)
+
+###### DADOS  ########
+
+set.seed(102585)
+tam = 350
+normal = rnorm(tam,sd = 2)
+x = seq(0, 50, length.out = tam)
+y = 10 + (5*sin(pi*x/24)) + normal
+
+dados = data.frame(x,y)
+
+## plotando a curva real
+true = 10 + (5*sin(pi*x/24))
+
+df = cbind(dados$x, dados$y, true) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+p3 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y") +
+    axis.theme(lengend_text_size = 16,lengend_title_size = 16,textsize = 18,leg = FALSE,pos_leg = "none")
+
+
+parcial <- cowplot::plot_grid(p1,p2,p3, ncol = 1 , nrow = 3, labels = LETTERS[1:3])
+parcial
+
+```
+
+
+
+\end{column}
+\end{columns}
+
+## Cenário 1 - Ajustes suavizados
+
+
+```{r , echo=F, fig.cap="Alguns ajustes utilizando a técnica Kernel."}
+
+
+spans = c(0.05,.15, 0.3,.6,.8)
+
+
+df        <- cbind(dados$x,dados$y)
+for(s in spans){
+  
+  fit     <-  locfit(y ~ x,deg=1, alpha = s,kern="gauss", data=dados)
+  df      <-  cbind(df,fitted(fit))
+}
+
+colnames(df) <- c("x","y",
+                  paste0("A1\n", "L1:",spans[1]),
+                  paste0("A2\n", "L2:",spans[2]),
+                  paste0("A3\n", "L3:",spans[3]),
+                  paste0("A4\n", "L4:",spans[4]),
+                  paste0("A5\n", "L5:",spans[5]))
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+p4 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1.05,alpha.o = .99)
+
+```
+
+
+
+```{r , echo = FALSE,fig.cap="Alguns ajustes utilizando a técnica Loess."}
+
+
+spans = c(0.05,.15, 0.3,.6,.8)
+
+
+df        <- cbind(dados$x,dados$y)
+for(s in spans){
+  
+  fit     <-  loess(y ~ x, degree=1, span = s, data=dados)$fitted
+  df      <-  cbind(df,fit)
+}
+
+colnames(df) <- c("x","y",
+                  paste0("A1\n", "S1:",spans[1]),
+                  paste0("A2\n", "S2:",spans[2]),
+                  paste0("A3\n", "S3:",spans[3]),
+                  paste0("A4\n", "S4:",spans[4]),
+                  paste0("A5\n", "S5:",spans[5]))
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+
+p5 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1.05,alpha.o = .99)
+```
+
+
+
+```{r , echo=F,fig.cap="Alguns ajustes utilizando a técnica Spliness de Regressão de Grau 1.",warning=FALSE}
+no <- function(x, no) ifelse(x < no, 0, x-no)  # funcao truncada, so pega os positivos
+
+library(segmented)
+#p_load(kirkegaard, rms)
+library(rms)
+library(pacman)
+library(igraph)
+library(zoo)
+library(splines)
+
+
+df        <- as.data.frame(cbind(dados$x,dados$y))
+nos       = c(2,3,5,11,21) 
+colnames(df)<-c("x","y")
+for(k in nos){
+  
+  p         <-  seq(1,k-1,1)/k
+  knots     <-  quantile(df$x  , p = p)
+  
+  
+  fit       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data = df)
+  df        <-  cbind(df,predict(fit))
+}
+
+colnames(df) <- c("x","y",
+                  paste("A1\n", "Nós:",nos[1]-1),
+                  paste("A2\n", "Nós:",nos[2]-1),
+                  paste("A3\n", "Nós:",nos[3]-1),
+                  paste("A4\n", "Nós:",nos[4]-1),
+                  paste("A5\n", "Nós:",nos[5]-1)
+)
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p6 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1.05,alpha.o = .99)
+
+```
+
+
+
+
+```{r, echo=F,fig.cap="Alguns ajustes utilizando a técnica  Spliness de Regressão."}
+library(igraph)
+library(zoo)
+library(splines)
+
+
+df        <- as.data.frame(cbind(dados$x,dados$y))
+nos       = c(2,3,5,11,21) 
+
+
+for(k in nos){
+  
+  
+  p         <-  seq(1,k-1,1)/k
+  knots     <-  quantile(dados$x, p = p)
+  fit       <-  additive.spline.cubic(x = dados$x, y = dados$y, k = k,knots = knots)$fitted.values
+  df        <-  cbind(df,fit)
+}
+
+colnames(df) <- c("x","y",
+                  paste("A1\n", "Nós:",nos[1]-1),
+                  paste("A2\n", "Nós:",nos[2]-1),
+                  paste("A3\n", "Nós:",nos[3]-1),
+                  paste("A4\n", "Nós:",nos[4]-1),
+                  paste("A5\n", "Nós:",nos[5]-1)
+)
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+
+
+
+
+p7 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1.05,alpha.o = .99)
+
+```
+
+
+
+```{r,fig.cap="\\label{fig:smoothers_fit_cenario_1}Comparação entre diferentes ajustes, com parâmetros de suavização distintos, considerando os suavizadores (A) Kernel, (B) Loess, (C) Splines de Regressão Grau 1 e (D) Splines de Regressão Grau 3.", fig.height=4}
+
+partial_plots <- cowplot::plot_grid(p4,p5,p6,p7,ncol=2,nrow = 2,labels=LETTERS[1:4],vjust = 1,hjust = 0)
+partial_plots
+
+```
+
+
+
+
+
+
+## Cenário 1 - Leave One Out Cross-Validation
+
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+
+
+
+```{r,echo=FALSE}
+
+### Loess LOOCV
+df        <- cbind(x= dados$x,y = dados$y) %>% as.data.frame
+tr= 1:nrow(df)
+dftr= df[tr,]
+number_of_bins   = seq(0.05,0.4,0.01)
+number_of_bins_sp= 1:length(number_of_bins) 
+cv.errors.loess  = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
+cv.errors.kernel = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
+cv.errors.sp1 = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins_sp) )
+cv.errors.sp3 = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins_sp) ) 
+
+
+for( i in 1:length(number_of_bins)){ # for each number of knots to test
+  
+  for( j in tr ){ # for each fold
+    
+    
+    fit.loess              <- loess(y ~ x,degree=1, span = number_of_bins[i], data=df[tr!=j,])
+    loess.pred             = predict( fit.loess, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.loess[j,i]   = mean( ( df$y[tr==j] - loess.pred )^2,na.rm = TRUE ) 
+    
+    fit.kernel             <- locfit(y ~ x,deg=1, alpha = number_of_bins[i],kern="gauss", data=df[tr!=j,])
+    kernel.pred            <- predict( fit.kernel, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.kernel[j,i]  <- mean( ( df$y[tr==j] - kernel.pred )^2,na.rm = TRUE ) 
+    
+    
+    p              <-  seq(1,(i),1)/(i+1)
+    knots          <-  quantile(df$x[tr!=j]  , p = p)
+    fit.spg1       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data=df[tr!=j,])
+    spg1.pred    <- predict( fit.spg1, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.sp1[j,i] <- mean( ( df$y[tr==j] - spg1.pred )^2,na.rm = TRUE )
+    
+    #p              <-  seq(1,i-1,1)/i
+    knots          <-  quantile(df$x[tr!=j]  , p = p)
+    fit.spg3       <- lm(y ~ bs(x, knots = knots), data=df[tr!=j,] )
+    spg3.pred      <- predict( fit.spg3, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.sp3[j,i] <- mean( ( df$y[tr==j] - spg3.pred )^2,na.rm = TRUE )
+    
+  }}
+
+cv.errors.mean.sp1   = apply(cv.errors.sp1,2,mean,na.rm = TRUE)
+min.cv.index.sp1     = which.min( cv.errors.mean.sp1 )
+cv.min.sp1           = cv.errors.mean.sp1[min.cv.index.sp1]
+par.sp1              = number_of_bins_sp[min.cv.index.sp1]  
+
+cv.errors.mean.sp3   = apply(cv.errors.sp3,2,mean,na.rm = TRUE)
+min.cv.index.sp3     = which.min( cv.errors.mean.sp3 )
+cv.min.sp3           = cv.errors.mean.sp3[min.cv.index.sp3]
+par.sp3              = number_of_bins_sp[min.cv.index.sp3] 
+
+
+cv.errors.mean.loess   = apply(cv.errors.loess,2,mean,na.rm = TRUE)
+min.cv.index.loess     = which.min( cv.errors.mean.loess )
+cv.min.loess           = cv.errors.mean.loess[min.cv.index.loess]
+par.loess              = number_of_bins[min.cv.index.loess]
+### Kernel (Nadaraya-Watson) LOOCV
+
+cv.errors.mean.kernel  = apply(cv.errors.kernel,2,mean,na.rm = TRUE)
+min.cv.index.kernel    = which.min( cv.errors.mean.kernel )
+cv.min.kernel          = cv.errors.mean.kernel[min.cv.index.kernel]
+par.kernel              = number_of_bins[min.cv.index.kernel]
+
+
+mt <- c()
+mt <- rbind(mt,c(cv.min.kernel,cv.min.loess,cv.min.sp1,cv.min.sp3,par.loess,par.kernel,par.sp1,par.sp3))
+
+
+
+
+
+```
+
+
+
+
+```{r,echo=FALSE}
+
+
+
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins, y = cv.errors.mean.kernel,EQM = cv.errors.mean.kernel)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p4.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Bandwidth",y = "EQM") +
+  geom_vline(xintercept = par.kernel,color ="red")+
+  annotate("text",x = number_of_bins[min.cv.index.kernel]-0.05,y = max(cv.errors.mean.kernel)*0.97,label=paste0("Span:",number_of_bins[min.cv.index.kernel],"\nEQM:",round(cv.min.kernel,2))) +
+  axis.theme(textsize = 18)
+
+par4 = number_of_bins[min.cv.index.kernel]
+
+```
+
+
+```{r,echo=FALSE}
+
+### Kernel (Nadaraya-Watson) LOOCV
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins, y = cv.errors.mean.loess,EQM = cv.errors.mean.loess)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p5.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Span",y = "EQM") +
+  geom_vline(xintercept = par.loess,color ="red")+
+  annotate("text",x = number_of_bins[min.cv.index.loess]-0.05,y = max(cv.errors.mean.loess)*0.97,label=paste0("Span:",number_of_bins[min.cv.index.loess],"\nEQM:",round(cv.min.loess,2))) +
+  axis.theme(textsize = 18)
+
+par5 = number_of_bins[min.cv.index.loess]
+```
+
+
+```{r,echo=FALSE}
+df <- data.frame(x = dados$x, y = dados$y)
+df1 <- data.frame(x = number_of_bins_sp, y = cv.errors.mean.sp1,EQM = cv.errors.mean.sp1)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p6.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Nº de Nós",y = "EQM") +
+  geom_vline(xintercept = number_of_bins_sp[min.cv.index.sp1],color ="red")+
+  annotate("text",x = number_of_bins_sp[min.cv.index.sp1]+5,y = max(cv.errors.mean.sp1)*0.90,label=paste0("Nº Nós:",par.sp1,"\nEQM:",round(cv.min.sp1,2))) +
+  axis.theme(textsize = 18)
+
+par6 = number_of_bins[min.cv.index.sp1]
+```
+
+```{r,echo=FALSE}
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins_sp, y = cv.errors.mean.sp3,EQM = cv.errors.mean.sp3)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p7.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Nº de Nós",y = "EQM") +
+  geom_vline(xintercept = number_of_bins_sp[min.cv.index.sp3],color ="red")+
+  annotate("text",x = number_of_bins_sp[min.cv.index.sp3]+5,y = max(cv.errors.mean.sp3)*0.97,label=paste0("Nº Nós:",par.sp3,"\nEQM:",round(cv.min.sp3,2))) +
+  axis.theme(textsize = 18)
+
+par7 = number_of_bins[min.cv.index.sp3]
+
+```
+
+
+
+
+```{r,fig.cap="\\label{fig:smoothers_best_par_cenario1} Erro quadrático médio versus parâmetro de suavização pós aplicação do Leave One Out Cross-Validation. (A) Kernel, (B) Loess, (C) Splines de Regressão Grau 1 e (D) Splines de Regressão Grau 3.", fig.height=6}
+
+partial_plots <- cowplot::plot_grid(p4.cv,p5.cv,p6.cv,p7.cv,ncol=2,nrow = 2,labels=LETTERS[1:4])
+partial_plots
+
+```
+
+\end{column}
+
+\begin{column}{0.5\textwidth}
+
+```{r,  echo=F}
+
+fit4 <- loess(y ~ x, degree=1, span = par.loess, data=dados)
+
+
+
+# kernel - span = 6
+fit5 <-  locfit(y ~ x,deg=1, alpha = par.kernel,kern="gauss", data=dados)
+
+
+#Spline grau 1
+
+
+k = par.sp1
+
+p         <-  seq(1,k-1,1)/(k)
+knots     <-  quantile(dados$x  , p = p)
+fit6       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data = dados)
+
+# spline cubico
+require(splines)
+
+k = par.sp3 
+p         <-  seq(1,k-1,1)/(k)
+knots     <-  quantile(dados$x  , p = p)
+fit7 <- lm(y ~ bs(x, knots = knots),data = dados )
+
+
+spans = c(par4,par5,par6,par7)
+df = cbind(x= dados$x, y = dados$y, Loess = fit4$fitted,Kernel = fitted.values(fit5),`Spline Grau 1`= predict(fit6),`Spline Cubico`= fit7$fitted)
+df1 = df %>% as.data.frame
+colnames(df) = c("x", "y",
+                 paste0("A4\n", "Loess|Span: ", par.loess),
+                 paste0("A5\n", "Kernel|Width: ", par.kernel),
+                 paste0("A6\n", "Spline Grau 1|Nº Nós: ", par.sp1),
+                 paste0("A7\n", "Spline Grau 3|Nº Nós: ", par.sp3))
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+```
+
+\scriptsize
+
+```{r,echo=FALSE,warning=FALSE,include=TRUE}
+
+library(Metrics)
+df_metrics <- data.frame(Smoother = c("Kernel", "Loess","Splines Grau 1","Splines Grau 3"),
+                         EQM      =  c(
+                           round(cv.min.kernel,4),
+                           round(cv.min.loess,4),
+                           round(cv.min.sp1,4),
+                           round(cv.min.sp3,4)))
+
+
+kable_data(data = df_metrics,cap = "\\label{tab:tab_eqm_cenario2}Erro Quadrático Médio para os suavizadores Loess, Kernel, Splines de Regressão Linear e Splines de Regressão Cúbico",foot = NULL)
+
+```
+
+\normalsize
+
+```{r echo=F,fig.height=5, fig.cap="\\label{fig:smoothers_fit_bestloocv_cenario1}Comparação dos ajustes entre os métodos de suavização"}
+plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1.05,alpha.o = .99) +
+  axis.theme(textsize = 18)
+```
+
+\end{column}
+\end{columns}
+
+
+
+
+
+
+## Cenário 1 - Simulação MCMC
+
+
+```{r,echo=FALSE}
+
+dados_final <- read.csv("dados_sim_final_cen1.csv",header = TRUE) 
+
+# dados_final$var <- ifelse( (dados_final$var == 2 & dados_final$n == 300) ,1,dados_final$var)
+# dados_final$var <- ifelse( (dados_final$var == 3 & dados_final$n == 300) ,2,dados_final$var)
+
+
+table_comp <- tapply(X = dados_final$EQM_MIN,INDEX = dados_final$Tipo,FUN = table)
+
+table_mt <- matrix(data = 0,nrow = 9,ncol = 4)
+df_comp  <- as.data.frame(table_mt)
+colnames(df_comp) <- c(1,2,3,4)
+
+
+for(i in 1:9){
+  ind = colnames(df_comp)%in% names(table_comp[[i]])
+  pos = which(ind)
+  df_comp[i,pos] <- table_comp[[i]]
+  
+  
+}
+
+df_comp_prop <- df_comp %>% mutate(Kernel = paste0(round(((`1`)/1000)*100,2),"%"),
+                                   Loess = paste0(round(((`2` )/1000)*100,2),"%"),
+                                   `Sp. Reg. 1` = paste0(round(((`3` )/1000)*100,2),"%"),
+                                   `Sp. Reg. 3` = paste0(round(((`4` )/1000)*100,2),"%"))
+
+colnames(df_comp) <- c("Kernel","Loess","Sp. Reg. 1","Sp. Reg. 3")
+df_leg <- data.frame(TAMANHO = c(150,150,150,250,250,250,350,350,350),
+                     VAR = c(0.5,1,2,0.5,1,2,0.5,1,2))
+
+df_comp_prop <- cbind(df_leg,df_comp_prop)
+kable_data(data = df_comp_prop[,c(1,2,7,8,9,10)],cap = "\\label{tab:tab_simulacao_namostras_cenario1} Percentual do Erro quadrático mínimo para cada suavizador em relação a 1000 amostras.",foot = NULL)
+
+
+```
+
+## Cenário 1 - Comportamento dos EQM's
+
+
+
+```{r,echo=FALSE}
+
+dados_boxplot <- dados_final %>% select(V1,V2,V3,V4,n,var) %>%
+  gather(key = "variable", value = "value", -n, -var )
+
+dados_boxplot$n <- as.factor(dados_boxplot$n)
+dados_boxplot$var <- as.factor(dados_boxplot$var)
+dados_boxplot$variable <- factor(dados_boxplot$variable,levels = c("V1","V2","V3","V4"),labels = c("Kernel","Loess","Sp. Reg. 1","Sp. Reg. 3"))
+colnames(dados_boxplot) <- c("Tam. Amostra","Desvio Padrão","Legenda","EQM")
+
+
+```
+
+
+```{r, echo=FALSE, fig.height=4, fig.cap= "\\label{fig:comparacao_eqm_var_tam_cenario1} Comparação do erro quadrático para as 1000 amostras para cada suavizador por (A) DP = 0.5, (B) DP = 1 e (C) DP = 2 "}
+
+plot1 <- ggplot(data = as.data.frame(dados_boxplot),aes(x=`Desvio Padrão`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 45,vjust = 1,hjust = 1,lengend_text_size = 6,lengend_title_size = 6)
+
+
+
+plot2 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "0.5") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 45,vjust = 1,hjust = 1,lengend_text_size = 8,lengend_title_size = 6,leg = FALSE,pos_leg = "right")
+#plot2 %>% group_by(`Tam. Amostra`) %>% summarise(t=n())#
+
+
+plot3 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "1") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 45,vjust = 1,hjust = 1,lengend_text_size = 7,lengend_title_size = 6,leg_angle = 45,leg = FALSE,pos_leg = "none")
+
+plot4 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "2") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 45,vjust = 1,hjust = 1,lengend_text_size = 7,lengend_title_size = 6,leg_angle = 45,leg = FALSE,pos_leg = "none")
+
+#parcial1<- cowplot::plot_grid(plot1,labels = LETTERS[1])
+
+parcial2 <- cowplot::plot_grid(plot2,ncol = 1, nrow = 1,labels = LETTERS[1])
+parcial3 <- cowplot::plot_grid(plot3,plot4,ncol = 2, nrow = 1,labels = LETTERS[2:3])
+p_fim    <- cowplot::plot_grid(parcial2,parcial3,ncol = 1, nrow = 2)
+p_fim
+
+```
+
+____
+
+
+## Cenário 2 - Introdução
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+
+\begin{itemize}
+\item Valores de $X$ uma sequência de $0.1$ a $2$;
+
+\item  $y = f(x) + \varepsilon$, com $f(x) \sim Gamma(6,10)$;
+
+\item $\varepsilon \sim N(0,\sigma^2)$;
+
+\item Tamanos amostrais utilizados serão iguais a $150,250$ e $350$;
+
+\item Valores de desvio padrão, utilizado nos erros, $0.05,0.1$ e $0.15$.
+
+\end{itemize}
+
+
+
+\end{column}
+
+\begin{column}{0.5\textwidth}
+
+```{r,fig.height=2, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+rm(list=ls())
+source(file = "funcoes.R",encoding = "UTF-8")
+library(tidyverse)
+library(binsmooth)
+library(knitr)
+library(kableExtra)
+library(additive.models)
+
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message= FALSE,
+                      out.width = "100%",fig.align = "center",size ="large",fig.height = 3)
+
+library(additive.models)
+
+n <- 1e3
+set.seed(103159)
+n           <- 50
+x           <- seq(0.1,2,length.out = 250)
+norms       <- rnorm(length(x),0,0.05)
+dens_gamma  <- dgamma(x = x,shape = 6,rate = 10)
+y           <- dens_gamma + norms
+
+dados       <- data.frame(x=x,y=y,variable = "Gamma(6,10)",value = dens_gamma)
+
+
+df = cbind(dados$x, dados$y, dens_gamma) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+p1 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y")+
+    axis.theme(lengend_text_size = 16,lengend_title_size = 16,textsize = 18,leg = FALSE,pos_leg = "top")
+
+
+
+
+```
+
+
+```{r , include=FALSE}
+
+source(file = "funcoes.R",encoding = "UTF-8")
+library(tidyverse)
+library(binsmooth)
+library(knitr)
+library(kableExtra)
+library(additive.models)
+
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message= FALSE,
+                      out.width = "100%",fig.align = "center",size ="large",fig.height = 3)
+
+library(additive.models)
+
+n <- 1e3
+set.seed(103159)
+n           <- 50
+x           <- seq(0.1,2,length.out = 250)
+norms       <- rnorm(length(x),0,0.1)
+dens_gamma  <- dgamma(x = x,shape = 6,rate = 10)
+y           <- dens_gamma + norms
+
+dados       <- data.frame(x=x,y=y,variable = "Gamma(6,10)",value = dens_gamma)
+
+
+df = cbind(dados$x, dados$y, dens_gamma) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+p2 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y")+
+    axis.theme(lengend_text_size = 16,lengend_title_size = 16,textsize = 18,leg = FALSE,pos_leg = "none")
+
+```
+
+
+```{r , include=FALSE}
+
+source(file = "funcoes.R",encoding = "UTF-8")
+library(tidyverse)
+library(binsmooth)
+library(knitr)
+library(kableExtra)
+library(additive.models)
+
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message= FALSE,
+                      out.width = "100%",fig.align = "center",size ="large",fig.height = 3)
+
+library(additive.models)
+
+n <- 1e3
+set.seed(103159)
+n           <- 50
+x           <- seq(0.1,2,length.out = 250)
+norms       <- rnorm(length(x),0,0.15)
+dens_gamma  <- dgamma(x = x,shape = 6,rate = 10)
+y           <- dens_gamma + norms
+
+dados       <- data.frame(x=x,y=y,variable = "Gamma(6,10)",value = dens_gamma)
+
+
+df = cbind(dados$x, dados$y, dens_gamma) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+p3 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y")+
+    axis.theme(lengend_text_size = 16,lengend_title_size = 16,textsize = 18,leg = FALSE,pos_leg = "none") 
+
+```
+
+
+```{r,fig.cap="\\label{fig:sim_cenario2} Gráfico de dispersão dos dados gerados para o estudo de simulação.", fig.height=8.5}
+
+
+parcial <- cowplot::plot_grid(p1,p2,p3,ncol = 1, nrow = 3, labels = LETTERS[1:3])
+parcial
+
+
+```
+
+
+\end{column}
+\end{columns}
+
+
+
+
+## Cenário 2 - Leave One Out Cross-Validation
+
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+
+
+
+```{r,echo=FALSE}
+
+### Loess LOOCV
+df        <- cbind(x= dados$x,y = dados$y) %>% as.data.frame
+tr= 1:nrow(df)
+dftr= df[tr,]
+number_of_bins   = seq(0.05,0.4,0.01)
+number_of_bins_sp= 1:length(number_of_bins) 
+cv.errors.loess  = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
+cv.errors.kernel = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
+cv.errors.sp1 = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins_sp) )
+cv.errors.sp3 = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins_sp) ) 
+
+
+for( i in 1:length(number_of_bins)){ # for each number of knots to test
+  
+  for( j in tr ){ # for each fold
+    
+    
+    fit.loess              <- loess(y ~ x,degree=1, span = number_of_bins[i], data=df[tr!=j,])
+    loess.pred             = predict( fit.loess, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.loess[j,i]   = mean( ( df$y[tr==j] - loess.pred )^2,na.rm = TRUE ) 
+    
+    fit.kernel             <- locfit(y ~ x,deg=1, alpha = number_of_bins[i],kern="gauss", data=df[tr!=j,])
+    kernel.pred            <- predict( fit.kernel, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.kernel[j,i]  <- mean( ( df$y[tr==j] - kernel.pred )^2,na.rm = TRUE ) 
+    
+    
+    p              <-  seq(1,(i),1)/(i+1)
+    knots          <-  quantile(df$x[tr!=j]  , p = p)
+    fit.spg1       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data=df[tr!=j,])
+    spg1.pred    <- predict( fit.spg1, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.sp1[j,i] <- mean( ( df$y[tr==j] - spg1.pred )^2,na.rm = TRUE )
+    
+    #p              <-  seq(1,i-1,1)/i
+    knots          <-  quantile(df$x[tr!=j]  , p = p)
+    fit.spg3       <- lm(y ~ bs(x, knots = knots), data=df[tr!=j,] )
+    spg3.pred      <- predict( fit.spg3, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.sp3[j,i] <- mean( ( df$y[tr==j] - spg3.pred )^2,na.rm = TRUE )
+    
+  }}
+
+cv.errors.mean.sp1   = apply(cv.errors.sp1,2,mean,na.rm = TRUE)
+min.cv.index.sp1     = which.min( cv.errors.mean.sp1 )
+cv.min.sp1           = cv.errors.mean.sp1[min.cv.index.sp1]
+par.sp1              = number_of_bins_sp[min.cv.index.sp1]  
+
+cv.errors.mean.sp3   = apply(cv.errors.sp3,2,mean,na.rm = TRUE)
+min.cv.index.sp3     = which.min( cv.errors.mean.sp3 )
+cv.min.sp3           = cv.errors.mean.sp3[min.cv.index.sp3]
+par.sp3              = number_of_bins_sp[min.cv.index.sp3] 
+
+
+cv.errors.mean.loess   = apply(cv.errors.loess,2,mean,na.rm = TRUE)
+min.cv.index.loess     = which.min( cv.errors.mean.loess )
+cv.min.loess           = cv.errors.mean.loess[min.cv.index.loess]
+par.loess              = number_of_bins[min.cv.index.loess]
+### Kernel (Nadaraya-Watson) LOOCV
+
+cv.errors.mean.kernel  = apply(cv.errors.kernel,2,mean,na.rm = TRUE)
+min.cv.index.kernel    = which.min( cv.errors.mean.kernel )
+cv.min.kernel          = cv.errors.mean.kernel[min.cv.index.kernel]
+par.kernel              = number_of_bins[min.cv.index.kernel]
+
+
+mt <- c()
+mt <- rbind(mt,c(cv.min.kernel,cv.min.loess,cv.min.sp1,cv.min.sp3,par.loess,par.kernel,par.sp1,par.sp3))
+
+
+
+
+
+```
+
+
+
+
+```{r,echo=FALSE}
+
+
+
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins, y = cv.errors.mean.kernel,EQM = cv.errors.mean.kernel)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p4.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Bandwidth",y = "EQM") +
+  geom_vline(xintercept = par.kernel,color ="red")+
+  annotate("text",x = number_of_bins[min.cv.index.kernel]-0.05,y = max(cv.errors.mean.kernel)*0.97,label=paste0("Span:",number_of_bins[min.cv.index.kernel],"\nEQM:",round(cv.min.kernel,2))) +
+  axis.theme(textsize = 18)
+
+par4 = number_of_bins[min.cv.index.kernel]
+
+```
+
+
+```{r,echo=FALSE}
+
+### Kernel (Nadaraya-Watson) LOOCV
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins, y = cv.errors.mean.loess,EQM = cv.errors.mean.loess)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p5.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Span",y = "EQM") +
+  geom_vline(xintercept = par.loess,color ="red")+
+  annotate("text",x = number_of_bins[min.cv.index.loess]-0.05,y = max(cv.errors.mean.loess)*0.97,label=paste0("Span:",number_of_bins[min.cv.index.loess],"\nEQM:",round(cv.min.loess,2))) +
+  axis.theme(textsize = 18)
+
+par5 = number_of_bins[min.cv.index.loess]
+```
+
+
+```{r,echo=FALSE}
+df <- data.frame(x = dados$x, y = dados$y)
+df1 <- data.frame(x = number_of_bins_sp, y = cv.errors.mean.sp1,EQM = cv.errors.mean.sp1)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p6.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Nº de Nós",y = "EQM") +
+  geom_vline(xintercept = number_of_bins_sp[min.cv.index.sp1],color ="red")+
+  annotate("text",x = number_of_bins_sp[min.cv.index.sp1]+5,y = max(cv.errors.mean.sp1)*0.90,label=paste0("Nº Nós:",par.sp1,"\nEQM:",round(cv.min.sp1,2))) +
+  axis.theme(textsize = 18)
+
+par6 = number_of_bins[min.cv.index.sp1]
+```
+
+```{r,echo=FALSE}
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins_sp, y = cv.errors.mean.sp3,EQM = cv.errors.mean.sp3)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p7.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Nº de Nós",y = "EQM") +
+  geom_vline(xintercept = number_of_bins_sp[min.cv.index.sp3],color ="red")+
+  annotate("text",x = number_of_bins_sp[min.cv.index.sp3]+5,y = max(cv.errors.mean.sp3)*0.97,label=paste0("Nº Nós:",par.sp3,"\nEQM:",round(cv.min.sp3,2))) +
+  axis.theme(textsize = 18)
+
+par7 = number_of_bins[min.cv.index.sp3]
+
+```
+
+
+
+
+```{r,fig.cap="\\label{fig:smoothers_best_par_cenario1} Erro quadrático médio versus parâmetro de suavização pós aplicação do Leave One Out Cross-Validation. (A) Kernel, (B) Loess, (C) Splines de Regressão Grau 1 e (D) Splines de Regressão Grau 3.", fig.height=6}
+
+partial_plots <- cowplot::plot_grid(p4.cv,p5.cv,p6.cv,p7.cv,ncol=2,nrow = 2,labels=LETTERS[1:4])
+partial_plots
+
+```
+
+\end{column}
+
+\begin{column}{0.5\textwidth}
+
+```{r,  echo=F}
+
+fit4 <- loess(y ~ x, degree=1, span = par.loess, data=dados)
+
+
+
+# kernel - span = 6
+fit5 <-  locfit(y ~ x,deg=1, alpha = par.kernel,kern="gauss", data=dados)
+
+
+#Spline grau 1
+
+
+k = par.sp1
+
+p         <-  seq(1,k-1,1)/(k)
+knots     <-  quantile(dados$x  , p = p)
+fit6       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data = dados)
+
+# spline cubico
+require(splines)
+
+k = par.sp3 
+p         <-  seq(1,k-1,1)/(k)
+knots     <-  quantile(dados$x  , p = p)
+fit7 <- lm(y ~ bs(x, knots = knots),data = dados )
+
+
+spans = c(par4,par5,par6,par7)
+df = cbind(x= dados$x, y = dados$y, Loess = fit4$fitted,Kernel = fitted.values(fit5),`Spline Grau 1`= predict(fit6),`Spline Cubico`= fit7$fitted)
+df1 = df %>% as.data.frame
+colnames(df) = c("x", "y",
+                 paste0("A4\n", "Loess|Span: ", par.loess),
+                 paste0("A5\n", "Kernel|Width: ", par.kernel),
+                 paste0("A6\n", "Spline Grau 1|Nº Nós: ", par.sp1),
+                 paste0("A7\n", "Spline Grau 3|Nº Nós: ", par.sp3))
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+```
+
+
+\scriptsize
+
+```{r,echo=FALSE,warning=FALSE,include=TRUE}
+
+library(Metrics)
+df_metrics <- data.frame(Smoother = c("Kernel", "Loess","Splines Grau 1","Splines Grau 3"),
+                         EQM      =  c(
+                           round(cv.min.kernel,4),
+                           round(cv.min.loess,4),
+                           round(cv.min.sp1,4),
+                           round(cv.min.sp3,4)))
+
+
+kable_data(data = df_metrics,cap = "\\label{tab:tab_eqm_cenario2}Erro Quadrático Médio para os suavizadores Loess, Kernel, Splines de Regressão Linear e Splines de Regressão Cúbico",foot = NULL)
+
+```
+
+\normalsize
+
+```{r echo=F,fig.height=5, fig.cap="\\label{fig:smoothers_fit_bestloocv_cenario1}Comparação dos ajustes entre os métodos de suavização"}
+plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1.05,alpha.o = .99) +
+  axis.theme(textsize = 18)
+```
+
+\end{column}
+\end{columns}
+
+
+
+
+
+
+## Cenário 2 - Simulação MCMC
+
+
+```{r,echo=FALSE}
+
+dados_final <- read.csv("dados_sim_final_cen2.csv",header = TRUE) 
+
+# dados_final$var <- ifelse( (dados_final$var == 2 & dados_final$n == 300) ,1,dados_final$var)
+# dados_final$var <- ifelse( (dados_final$var == 3 & dados_final$n == 300) ,2,dados_final$var)
+
+
+table_comp <- tapply(X = dados_final$EQM_MIN,INDEX = dados_final$Tipo,FUN = table)
+
+table_mt <- matrix(data = 0,nrow = 9,ncol = 4)
+df_comp  <- as.data.frame(table_mt)
+colnames(df_comp) <- c(1,2,3,4)
+
+
+for(i in 1:9){
+  ind = colnames(df_comp)%in% names(table_comp[[i]])
+  pos = which(ind)
+  df_comp[i,pos] <- table_comp[[i]]
+  
+  
+}
+
+df_comp_prop <- df_comp %>% mutate(Kernel = paste0(round(((`1`)/1000)*100,2),"%"),
+                                   Loess = paste0(round(((`2` )/1000)*100,2),"%"),
+                                   `Sp. Reg. 1` = paste0(round(((`3` )/1000)*100,2),"%"),
+                                   `Sp. Reg. 3` = paste0(round(((`4` )/1000)*100,2),"%"))
+
+colnames(df_comp) <- c("Kernel","Loess","Sp. Reg. 1","Sp. Reg. 3")
+df_leg <- data.frame(TAMANHO = c(150,150,150,250,250,250,350,350,350),
+                     VAR = c(0.5,1,2,0.5,1,2,0.5,1,2))
+
+df_comp_prop <- cbind(df_leg,df_comp_prop)
+kable_data(data = df_comp_prop[,c(1,2,7,8,9,10)],cap = "\\label{tab:tab_simulacao_namostras_cenario1} Percentual do Erro quadrático mínimo para cada suavizador em relação a 1000 amostras.",foot = NULL)
+
+
+```
+
+
+## Cenário 2 - Comportamento dos EQM's
+
+
+
+```{r,echo=FALSE}
+
+dados_boxplot <- dados_final %>% select(V1,V2,V3,V4,n,var) %>%
+  gather(key = "variable", value = "value", -n, -var )
+
+dados_boxplot$n <- as.factor(dados_boxplot$n)
+dados_boxplot$var <- as.factor(dados_boxplot$var)
+dados_boxplot$variable <- factor(dados_boxplot$variable,levels = c("V1","V2","V3","V4"),labels = c("Kernel","Loess","Sp. Reg. 1","Sp. Reg. 3"))
+colnames(dados_boxplot) <- c("Tam. Amostra","Desvio Padrão","Legenda","EQM")
+
+
+```
+
+
+```{r, echo=FALSE, fig.height=3.8, fig.cap= "\\label{fig:comparacao_eqm_var_tam_cenario2} Comparação do erro quadrático para as 1000 amostras para cada suavizador por (A) DP = 0.05, (B) DP = 0.1 e (C) DP = 0.15 "}
+
+plot1 <- ggplot(data = as.data.frame(dados_boxplot),aes(x=`Desvio Padrão`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 45,vjust = 1,hjust = 1,lengend_text_size = 6,lengend_title_size = 6)
+
+
+
+plot2 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "0.05") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 45,vjust = 1,hjust = 1,lengend_text_size = 8,lengend_title_size = 6,leg = FALSE,pos_leg = "right")
+#plot2 %>% group_by(`Tam. Amostra`) %>% summarise(t=n())#
+
+
+plot3 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "0.1") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 45,vjust = 1,hjust = 1,lengend_text_size = 7,lengend_title_size = 6,leg_angle = 45,leg = FALSE,pos_leg = "none")
+
+plot4 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "0.15") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 45,vjust = 1,hjust = 1,lengend_text_size = 7,lengend_title_size = 6,leg_angle = 45,leg = FALSE,pos_leg = "none")
+
+#parcial1<- cowplot::plot_grid(plot1,labels = LETTERS[1])
+
+parcial2 <- cowplot::plot_grid(plot2,ncol = 1, nrow = 1,labels = LETTERS[1])
+parcial3 <- cowplot::plot_grid(plot3,plot4,ncol = 2, nrow = 1,labels = LETTERS[2:3])
+p_fim    <- cowplot::plot_grid(parcial2,parcial3,ncol = 1, nrow = 2)
+p_fim
+```
+
+
+# Considerações Finais
+
+## Referências
+
+\noindent BUJA, A., HASTIE, T. & TIBSHIRANI, R. (1989). **Linear smoothers and additive models**. The Annals of Statistics, 17, 453-510.
+
+\vspace{0.25cm}
+\noindent CLEVELAND, W. S. (1979). **Robust locally weighted regression and smoothing scatterplots**. Journal of the American Statistical Association, 74,
+829-836. 
+
+\vspace{0.25cm}
+\noindent DELICADO, P., 2008 **Curso de Modelos no Paramétricos** p. 200.
+
+\vspace{0.25cm}
+\noindent EUBANK, R. L. (1999)  **Nonparametric Regression and Spline Smoothing**. Marcel Dekker, 2o edição. Citado na pág. 1, 2, 29 
+
+\vspace{0.25cm}
+\noindent FAHRMEIR, L. & TUTZ, G. (2001) **Multivariate Statistical Modelling Based on Generalized Linear Models**. Springer, 2o edição. Citado na pág. 15
+
+## Referências
+
+\vspace{0.25cm}
+\noindent GREEN, P. J.  & YANDELL, B. S. (1985) **Semi-parametric generalized linear models**. Lecture Notes in Statistics, 32:4455. Citado na pág. 15
+
+\vspace{0.25cm}
+\noindent GREEN P. J. & SILVERMAN B. W. (1994). **Nonparametric regression and generalized linear models: a roughness penalty approach**. Chapman & Hall, London.
+
+\vspace{0.25cm}
+\noindent HASTIE, T. J. & TIBSHIRANI, R. J. (1990). **Generalized additive models**, volume 43. Chapman and Hall, Ltd., London. ISBN 0-412-34390-8.
+
+\vspace{0.25cm}
+\noindent MONTGOMERY, D. C. & PECK, E. A. & VINING, G. G. **Introduction to Linear Regression Analysis**. 5th Edition. John Wiley & Sons, 2012. 
+
+\vspace{0.25cm}
+\noindent IZBICK, r & SANTOS, T. M. **Aprendizado de máquina: uma abordagem estatística**. ISBN 978-65-00-02410-4.
+
+\vspace{0.25cm}
+\noindent TEAM, R. CORE. R: **A language and environment for statistical computing**. (2013). 
+
+
+
+
+
+## Fim
+
+
+
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\Huge
+
+Obrigado!
+
+
+\end{column}
+
+\begin{column}{0.6\textwidth}
+
+\small
+"Sem números, não há vantagem nem probabilidades; sem vantagens e probabilidades, o único meio de
+lidar com o Risco é apelar para os deuses e o destino. Sem números, o RISCO é uma questão de pura CORAGEM." (Peter L. Bernstein).
+
+
+\end{column}
+\end{columns}
+
+
+

@@ -236,6 +236,9 @@ knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message= FALSE,
 \clearpage
 \section{Introdução}
 
+
+**Verificar Introdução do TCC (Nathalia)**
+
 \hspace{1.25cm} Análise de regressão é uma técnica estatística para investigar e modelar a relação entre variáveis, sendo essa uma técnica amplamente utilizada na estatística. Usualmente, é de interesse apenas uma variável, chamada de variável resposta ou dependente, e desejamos estudar como esta variável depende de um conjunto de variáveis observáveis, chamadas de variáveis explicativas ou independentes. Nesse contexto, os modelos de regressão linear simples e múltipla podem ser utilizados.
 
 Nota-se, porém, que em muitos casos a relação existente entre a variável resposta (média) e cada uma das variáveis explicativas não é perfeitamente linear e determinar uma função que estima a relação correta existente nem sempre é fácil. Uma alternativa é flexibilizar o modelo de regressão linear, modelando a dependência da variável resposta com cada uma das variáveis explicativas em um contexto não paramétrico. Esta nova classe de modelos é dita modelos aditivos e mantêm a característica dos modelos de regressão lineares de serem aditivos nos efeitos preditivos.
