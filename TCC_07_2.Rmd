@@ -1,0 +1,2118 @@
+---
+output:
+  pdf_document: 
+    number_sections: yes
+    latex_engine: xelatex
+fontsize: 12pt 
+documentclass: article
+classoption: a4paper
+lang: pt-br
+mainfont: Times New Roman
+sansfont: Times New Roman
+monofont: Times New Roman
+indent: true
+nocite: '@*'
+header-includes:
+  - \usepackage{geometry}
+  - \geometry{headheight=30pt,left=3cm,bottom=2cm,top=3cm,right=2cm}
+  - \usepackage{graphicx}
+  - \usepackage[utf8]{inputenc}
+  - \usepackage[onehalfspacing]{setspace}
+  - \usepackage{fancyhdr}
+  - \usepackage{ stmaryrd }
+  - \usepackage{eqnarray,amsmath}
+  - \usepackage{float}
+  - \usepackage{fontspec}
+  - \usepackage{adjustbox,mdframed}
+---
+
+\pagestyle{fancy}
+\fancyhead[ROE]{\leftmark}
+\fancyhead[LO]{}
+\fancyfoot[C]{}
+\fancyfoot[E]{}
+\fancyfoot[RO]{\thepage}
+\setlength{\parindent}{1.25cm} 
+<!--\setlength{\parskip}{1.0em} -->
+
+ 
+\setmainfont{Times New Roman}
+
+\newcommand{\regterm}{\beta_0+{\beta_1}x+\varepsilon}
+\newcommand{\regest}{\beta_0+{\beta_1}x+\varepsilon}
+\newcommand{\regesti}{\beta_0+{\beta_1}x_i+\varepsilon_i}
+\newcommand{\regesp}{\beta_0+{\beta_1}x}
+\newcommand{\regespi}{\beta_0+{\beta_1}x_i}
+\newcommand{\regefiti}{\hat{\beta_0}+\hat{{\beta_1}x_i}}
+\newcommand{\bz}{\beta_0}
+\newcommand{\bzh}{\hat{\beta_0}}
+\newcommand{\bum}{\beta_1}
+\newcommand{\bumh}{\hat{\beta_1}}
+\newcommand{\somat}{\sum_{i=1}^{n}}
+\newcommand{\xbar}{\overline{x}}
+\newcommand{\ybar}{\overline{y}}
+\newcommand{\bh}{\hat{\beta}}
+
+
+\newtheorem{definition}{Procedimento}
+
+\newenvironment{defbox}{\begin{mdframed}[linecolor=gray!25,roundcorner=12pt,backgroundcolor=gray!10,linewidth=1pt,leftmargin=0cm,rightmargin=0cm,topline=true,bottomline=true,skipabove=12pt]
+\begin{definition}
+}
+{
+\end{definition}
+\end{mdframed}
+}
+
+
+
+
+\begin{titlepage} 
+\begin{center}
+{\normalsize \bf UNIVERSIDADE ESTADUAL DE MARINGÁ         \\
+        CENTRO DE CIÊNCIAS EXATAS                    \\
+        CURSO DE ESTATÍSTICA                          \\
+
+      
+
+ }
+ 
+\end{center} 
+
+\vfill
+\begin{center}
+{\bf \Large AVALIAÇÃO DE MÉTODOS NÃO PARAMÉTRICOS PARA PREDIÇÃO EM MODELOS ADITIVOS }\\[1cm]
+\end{center}
+
+\vfill
+
+\begin{center}
+{\bf  \Large Marco Aurelio Valles Leal    }\\[1cm]
+\end{center}
+
+ 
+
+\vfill
+ 
+   \hspace{.45\textwidth}
+   \begin{minipage}{.5\textwidth}
+     
+   \end{minipage}
+
+
+\vfill
+\begin{center}
+{\normalsize	 Maringá \\ 2022 }\\[0.2cm]
+\end{center}
+\end{titlepage}
+
+
+
+
+\begin{titlepage} 
+
+\begin{center}
+{\bf  \Large MARCO AURELIO VALLES LEAL    }\\[1cm]
+\end{center}
+
+\vfill
+
+\begin{center}
+{\bf \Large AVALIAÇÃO DE MÉTODOS NÃO PARAMÉTRICOS PARA PREDIÇÃO EM MODELOS ADITIVOS}\\[1cm]
+\end{center}
+
+
+ 
+
+\vfill
+ 
+   \hspace{.35\textwidth}
+   \begin{minipage}{.5\textwidth}
+    
+       Trabalho de conclusão de curso apresentado como requisito parcial para a obtenção do título de bacharel em Estatística pela Universidade Estadual de Maringá. \\
+
+
+\begin{tabular}{ll}
+Orientador:   &    Profº Drº George Lucas Moraes Pezzot   a  
+\end{tabular}
+
+
+
+
+     
+   \end{minipage}
+
+
+\vfill
+\begin{center}
+{\normalsize	 Maringá \\ 2022 }\\[0.2cm]
+\end{center}
+\end{titlepage}
+
+
+
+\begin{titlepage} 
+
+
+\begin{flushleft}
+{ AVALIAÇÃO DE MÉTODOS NÃO PARAMÉTRICOS PARA PREDIÇÃO EM MODELOS ADITIVOS}\\[1cm]
+\end{flushleft}
+
+
+\vfill
+
+
+\begin{flushleft}
+{MARCO AURELIO VALLES LEAL    }\\[1cm]
+\end{flushleft}
+
+ 
+
+\vfill
+ 
+   \hspace{.45\textwidth}
+   \begin{minipage}{.5\textwidth}
+    
+       Trabalho de conclusão de curso apresentado como requisito parcial para a obtenção do título de bacharel em Estatística pela Universidade Estadual de Maringá.
+
+     
+   \end{minipage} \\[1cm]
+
+\vfill
+
+\begin{flushleft}
+Aprovado em: \_\_\_\_\_\_\_\_/\_\_\_\_\_\_\_\_/\_\_\_\_\_\_\_\_. 
+\end{flushleft}
+
+\vfill
+
+\begin{center}
+\textbf {BANCA EXAMINADORA}\\[1cm] 
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ \\
+\textbf{ Orientador }\\
+ Profº Drº George Lucas Moraes Pezzot \\
+Universidade Estadual de Maringá
+\end{center}
+
+\vfill
+
+\begin{center}
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ \\
+\textbf{Membro da banca} \\
+Profº Drº Brian Alvarez Ribeiro de Melo \\
+Universidade Estadual de Maringá
+\end{center}
+
+\vfill
+
+\begin{center}
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ \\
+\textbf{Membro da banca} \\
+Profº Drº Willian  Luís de Oliveira \\
+Universidade Estadual de Maringá
+\end{center}
+   
+
+\end{titlepage}
+
+
+\begin{titlepage}
+
+\begin{center}
+\bf RESUMO
+\end{center}
+
+\noindent É comum, nas mais diversas áreas, investigar e modelar a relação entre variáveis. O modelo mais simples é denominado modelo de regressão linear simples e assume que a média da variável resposta é modelada como uma função linear das variáveis explicativas, supondo erros aleatórios com média zero, variância constante e não correlacionados. Entretanto, nem sempre a relação existente é perfeitamente linear. Neste contexto, é possível flexibilizar o modelo de regressão linear modelando a dependência da variável resposta com cada uma das variáveis explicativas em um contexto não paramétrico. Esta nova classe de modelos é dita modelos aditivos e mantêm a característica dos modelos de regressão lineares de serem aditivos nos efeitos preditivos. Portanto, este projeto visa apresentar os modelos aditivos, além de técnicas de suavização utilizadas para ajustar modelos no contexto não paramétrico. Por fim, a metodologia é aplicada em dados artificiais (simulados) e em dados reais, dando enfoque à qualidade das predições.
+
+\vspace{1.5cm}
+
+\noindent \textbf{Palavras-chave} : Regressão. Modelo aditivo. Suavizadores.
+
+\end{titlepage}
+
+
+```{r setup, include=FALSE}
+rm(list=ls())
+source(file = "funcoes.R",encoding = "UTF-8")
+library(tidyverse)
+library(binsmooth)
+library(knitr)
+library(kableExtra)
+library(additive.models)
+library(rms)
+library(locfit)
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message= FALSE,
+                      out.width = "100%",fig.align = "center",size ="large",fig.height = 2.5)
+```
+
+
+\clearpage
+
+\section{Resultados e Discussão}
+
+\subsection{Estudo de simulação}
+
+\hspace{1.25cm} Nesta seção, serão utilizadas simulações de dados para gerar situações nas quais possam ser aplicadas as técnicas estudadas, analisando suas respectivas performances. Para os resultados obtidos, quatro técnicas de suavização serão empregadas, sendo elas: o suavizador de *kernel*, *Loess*, *splines* de regressão de grau 1 e grau 3. Realizar-se-ão ajustes para o  primeiro cenário, considerando distintos parâmetros de suavização para avaliar, visualmente, os comportamentos das curvas em diagramas de dispersão. Em seguida, adotando o método de *data splitting*, *leave one out cross-validation*, encontrar-se-á um parâmetro de suavização que forneça a ocorrência do menor erro quadrático médio possível, desta forma, evitando  um super-ajuste do modelo. Ademais, ajustes serão executados considerando tais parâmetros e, em seguida, calcular-se-á os erros quadráticos médios para cada técnica suavizadora, entre os valores observados e estimativas do modelo. Portanto, será considerado o método mais aderente aquele que apresentar o menor erro quadrático possível.
+
+Posteriormente, este procedimento será repetido para cada cenário em mil amostras, contabilizando a quantidade de vezes em que cada técnica apresenta o menor erro quadrático médio. Por exemplo, para o primeiro cenário, será gerado mil amostras aleatórias de tamanho $n$. Para cada amostra será empregado o procedimento acima, salvando seus repectivos erros quadráticos médio. Ao final da simulação, será contabilizado se a ocorrência do erro quadrático médio em cada técnica foi mínima e, por fim, comparar e verificar qual técnica obtém o melhor resultado em uma simulação de mil amostras. Serão avaliados as duas visões, primeiramente analisando o comportamento para EQM's obtidos do processo de *LOOCV*, para escolha do melhor parâmetro de suavização concluindo qual melhor técnicas de suavização obtém um melhor desempenho de predição. A segunda comparar dentros dos mesmos cenários os EQM's, considerando os dados observados e preditos e concluir qual dos suavizadores são mais aderente aos dados.
+
+Vale ressaltar que serão empregados dois comportamentos, uma proveniente de uma função senoidal e outra de uma função Gamma: Cenário 1 e Cenário 2. Ainda, serão gerados nove sub-cenários, valendo-se da combinação de três tamanhos amostrais (150, 250 e 350), em três valores de desvio padrão distintos.
+
+
+\subsubsection{Cenário 1}
+
+
+\hspace{1.25cm} Para este cenário, será considerado $X$ uma sequência de 0 a 50 e $Y$, definido pela função
+$$ y = 10 + 5sen\pi \dfrac{x}{24} + \varepsilon,$$
+onde $\varepsilon$ é um termo aleatório, normalmente, distribuído com média zero e variância constante. Os tamanhos amostrais utilizados serão iguais a $150,250$ e $350$ e valores de desvio padrão $0.5,1$ e $2$. Na Figura \ref{fig:sim_cenario1}, tem-se o comportamento  dos dados para cada desvio padrão, considerando 350 observações com a curva : $10 + 5sen\pi \dfrac{x}{24}$.
+
+```{r,fig.height=2, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+#library(tidyverse)
+library(dslabs)
+library(zoo)
+library(igraph)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(wesanderson)
+library(RColorBrewer)
+
+
+###### DADOS  ########
+
+set.seed(102585)
+tam = 350
+normal = rnorm(tam,sd = 0.5)
+x = seq(0, 50, length.out = tam)
+y = 10 + (5*sin(pi*x/24)) + normal
+
+
+dados = data.frame(x,y)
+
+## plotando a curva real
+true = 10 + (5*sin(pi*x/24))
+
+df = cbind(dados$x, dados$y, true) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+p1 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",legend.pos = "none")
+
+```
+
+
+
+
+
+```{r,fig.height=2, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+#library(tidyverse)
+library(dslabs)
+library(zoo)
+library(igraph)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(wesanderson)
+library(RColorBrewer)
+
+
+###### DADOS  ########
+
+set.seed(102585)
+tam = 350
+normal = rnorm(tam,sd = 1)
+x = seq(0, 50, length.out = tam)
+y = 10 + (5*sin(pi*x/24)) + normal
+
+dados = data.frame(x,y)
+
+## plotando a curva real
+true = 10 + (5*sin(pi*x/24))
+
+df = cbind(dados$x, dados$y, true) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+p2 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",legend.pos = "none") 
+
+
+```
+
+
+
+```{r ,fig.height=2.2, echo = FALSE,fig.cap="\\label{fig:sim_cenario1} Gráfico de dispersão dos dados simulados e curva real, para o Cenário 1.  (A) DP = 0.5, (B) DP = 1 e (C) DP = 2 "}
+#library(tidyverse)
+library(dslabs)
+library(zoo)
+library(igraph)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(wesanderson)
+library(RColorBrewer)
+
+
+###### DADOS  ########
+
+set.seed(102585)
+tam = 350
+normal = rnorm(tam,sd = 2)
+x = seq(0, 50, length.out = tam)
+y = 10 + (5*sin(pi*x/24)) + normal
+
+dados = data.frame(x,y)
+
+## plotando a curva real
+true = 10 + (5*sin(pi*x/24))
+
+df = cbind(dados$x, dados$y, true) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+p3 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",legend.pos = "none") 
+
+legend_ <- cowplot::get_legend(p1 + axis.theme(pos_leg = "right"))
+
+prow <- cowplot::plot_grid(p1,p2,p3, ncol = 3 , nrow = 1, labels = LETTERS[1:3])
+parcial <- cowplot::plot_grid(legend_,prow,ncol = 1,nrow = 2,rel_heights = c(0.4,2))
+parcial
+
+ggsave(filename = "cenario1_sim.png",plot = parcial)
+```
+
+
+
+
+
+```{r , echo=F, fig.cap="Alguns ajustes utilizando a técnica Kernel."}
+
+
+spans = c(0.05,.15, 0.3,.6,.8)
+
+
+df        <- cbind(dados$x,dados$y)
+for(s in spans){
+  
+  fit     <-  locfit(y ~ x,deg=1, alpha = s,kern="gauss", data=dados)
+  df      <-  cbind(df,fitted(fit))
+}
+
+colnames(df) <- c("x","y",
+                  paste0("A1\n", "L1:",spans[1]),
+                  paste0("A2\n", "L2:",spans[2]),
+                  paste0("A3\n", "L3:",spans[3]),
+                  paste0("A4\n", "L4:",spans[4]),
+                  paste0("A5\n", "L5:",spans[5]))
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+p4 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1.05,alpha.o = .99)
+
+```
+
+
+
+```{r , echo = FALSE,fig.cap="Alguns ajustes utilizando a técnica Loess."}
+
+
+spans = c(0.05,.15, 0.3,.6,.8)
+
+
+df        <- cbind(dados$x,dados$y)
+for(s in spans){
+  
+  fit     <-  loess(y ~ x, degree=1, span = s, data=dados)$fitted
+  df      <-  cbind(df,fit)
+}
+
+colnames(df) <- c("x","y",
+                  paste0("A1\n", "S1:",spans[1]),
+                  paste0("A2\n", "S2:",spans[2]),
+                  paste0("A3\n", "S3:",spans[3]),
+                  paste0("A4\n", "S4:",spans[4]),
+                  paste0("A5\n", "S5:",spans[5]))
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+
+p5 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1.05,alpha.o = .99)
+```
+
+
+
+
+
+
+
+
+
+```{r , echo=F,fig.cap="Alguns ajustes utilizando a técnica Spliness de Regressão de Grau 1.",warning=FALSE}
+no <- function(x, no) ifelse(x < no, 0, x-no)  # funcao truncada, so pega os positivos
+
+library(segmented)
+#p_load(kirkegaard, rms)
+library(rms)
+library(pacman)
+library(igraph)
+library(zoo)
+library(splines)
+
+
+df        <- as.data.frame(cbind(dados$x,dados$y))
+nos       = c(2,3,5,11,21) 
+colnames(df)<-c("x","y")
+for(k in nos){
+  
+  p         <-  seq(1,k-1,1)/k
+  knots     <-  quantile(df$x  , p = p)
+  
+  
+  fit       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data = df)
+  df        <-  cbind(df,predict(fit))
+}
+
+colnames(df) <- c("x","y",
+                  paste("A1\n", "Nós:",nos[1]-1),
+                  paste("A2\n", "Nós:",nos[2]-1),
+                  paste("A3\n", "Nós:",nos[3]-1),
+                  paste("A4\n", "Nós:",nos[4]-1),
+                  paste("A5\n", "Nós:",nos[5]-1)
+)
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p6 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1.05,alpha.o = .99)
+
+```
+
+
+
+
+```{r, echo=F,fig.cap="Alguns ajustes utilizando a técnica  Spliness de Regressão."}
+library(igraph)
+library(zoo)
+library(splines)
+
+
+df        <- as.data.frame(cbind(dados$x,dados$y))
+nos       = c(2,3,5,11,21) 
+
+
+for(k in nos){
+  
+  
+  p         <-  seq(1,k-1,1)/k
+  knots     <-  quantile(dados$x, p = p)
+  fit       <-  additive.spline.cubic(x = dados$x, y = dados$y, k = k,knots = knots)$fitted.values
+  df        <-  cbind(df,fit)
+}
+
+colnames(df) <- c("x","y",
+                  paste("A1\n", "Nós:",nos[1]-1),
+                  paste("A2\n", "Nós:",nos[2]-1),
+                  paste("A3\n", "Nós:",nos[3]-1),
+                  paste("A4\n", "Nós:",nos[4]-1),
+                  paste("A5\n", "Nós:",nos[5]-1)
+)
+
+df <- as.tibble(df) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+
+
+
+
+p7 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1.05,alpha.o = .99)
+
+```
+
+
+Levando em conta a configuração do gráfico C (Figura \ref{fig:sim_cenario1}),  curvas distintas para cada método de suavização, foram ajustadas, adotando parâmetros de suavização arbitrários e são apresentados na Figura \ref{fig:smoothers_fit_cenario_1}.
+
+
+
+```{r,fig.cap="\\label{fig:smoothers_fit_cenario_1} Comparação entre diferentes ajustes (Cenário 1), com parâmetros de suavização distintos, considerando os suavizadores. (A) Kernel, (B) Loess, (C) Splines de Regressão Grau 1 e (D) Splines de Regressão Grau 3.", fig.height=3.5}
+
+partial_plots <- cowplot::plot_grid(p4,p5,p6,p7,ncol=2,nrow = 2,labels=LETTERS[1:4],vjust = 1,hjust = 0)
+partial_plots
+
+```
+
+Ao avaliar os ajustes dos gráficos A e B, verifica-se que, conforme o parâmetro de suavização aumenta, estes tendem a ser muito suaves. Ou seja, na medida em que o parâmetro se torna suficientemente grande, a curva tenderá a ser uma reta. Porém, quando este parâmetro tende a ser muito pequeno, o ajuste realizado interpolará os dados. Para os gráficos C e D, na proporção em que o parâmetro de suavização aumenta, a curva ajustada apresenta rugosidade em sua forma. Conforme este parâmetro se torna pequeno, a curva tenderá a ser uma reta.
+
+Os suavizadores em diagramas de dispersão remetem a uma ideia visual de como o ajuste está se comportando em relação aos dados. Na Figura \ref{fig:smoothers_best_par_cenario1}, são apresentados os gráficos contendo os resultados do erro quadrático médio mínimo obtidos, realizando o *leave one out cross-validation*. Neste gráfico, verifica-se o comportamento dos erros quadrático médio em relação a seus repectivos parâmetros de suavização. Ainda, nota-se para qual parâmetro de suavização haverá o melhor ajuste (evitando super-ajuste), levando em consideração  menor erro quadrático possível dentre todos os candidatos. Em outras palavras, ao realizar ajustes controlando o valor do parâmetro de suavização, obter-se-á um ajuste no qual o Erro Quadrático Médio (EQM) será o menor de todos, logo, este será o melhor candidato para representar os dados. Observa-se, então, os parâmetros que, supostamente, induzirão um melhor ajuste para cada suavizador.
+
+```{r,echo=FALSE}
+
+###  LOOCV
+df        <- cbind(x= dados$x,y = dados$y) %>% as.data.frame
+tr= 1:nrow(df)
+dftr= df[tr,]
+number_of_bins   = seq(0.05,0.4,0.01)
+number_of_bins_sp= 1:length(number_of_bins) 
+cv.errors.loess  = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
+cv.errors.kernel = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
+cv.errors.sp1 = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins_sp) )
+cv.errors.sp3 = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins_sp) ) 
+
+
+for( i in 1:length(number_of_bins)){ # for each number of knots to test
+  
+  for( j in tr ){ # for each fold
+    
+    
+    fit.loess              <- loess(y ~ x,degree=1, span = number_of_bins[i], data=df[tr!=j,])
+    loess.pred             = predict( fit.loess, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.loess[j,i]   = mean( ( df$y[tr==j] - loess.pred )^2,na.rm = TRUE ) 
+    
+    fit.kernel             <- locfit(y ~ x,deg=1, alpha = number_of_bins[i],kern="gauss", data=df[tr!=j,])
+    kernel.pred            <- predict( fit.kernel, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.kernel[j,i]  <- mean( ( df$y[tr==j] - kernel.pred )^2,na.rm = TRUE ) 
+    
+    
+    p              <-  seq(1,(i),1)/(i+1)
+    knots          <-  quantile(df$x[tr!=j]  , p = p)
+    fit.spg1       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data=df[tr!=j,])
+    spg1.pred    <- predict( fit.spg1, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.sp1[j,i] <- mean( ( df$y[tr==j] - spg1.pred )^2,na.rm = TRUE )
+    
+    #p              <-  seq(1,i-1,1)/i
+    knots          <-  quantile(df$x[tr!=j]  , p = p)
+    fit.spg3       <- lm(y ~ bs(x, knots = knots), data=df[tr!=j,] )
+    spg3.pred      <- predict( fit.spg3, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.sp3[j,i] <- mean( ( df$y[tr==j] - spg3.pred )^2,na.rm = TRUE )
+    
+  }}
+
+cv.errors.mean.sp1   = apply(cv.errors.sp1,2,mean,na.rm = TRUE)
+min.cv.index.sp1     = which.min( cv.errors.mean.sp1 )
+cv.min.sp1           = cv.errors.mean.sp1[min.cv.index.sp1]
+par.sp1              = number_of_bins_sp[min.cv.index.sp1]  
+
+cv.errors.mean.sp3   = apply(cv.errors.sp3,2,mean,na.rm = TRUE)
+min.cv.index.sp3     = which.min( cv.errors.mean.sp3 )
+cv.min.sp3           = cv.errors.mean.sp3[min.cv.index.sp3]
+par.sp3              = number_of_bins_sp[min.cv.index.sp3] 
+
+
+cv.errors.mean.loess   = apply(cv.errors.loess,2,mean,na.rm = TRUE)
+min.cv.index.loess     = which.min( cv.errors.mean.loess )
+cv.min.loess           = cv.errors.mean.loess[min.cv.index.loess]
+par.loess              = number_of_bins[min.cv.index.loess]
+### Kernel (Nadaraya-Watson) LOOCV
+
+cv.errors.mean.kernel  = apply(cv.errors.kernel,2,mean,na.rm = TRUE)
+min.cv.index.kernel    = which.min( cv.errors.mean.kernel )
+cv.min.kernel          = cv.errors.mean.kernel[min.cv.index.kernel]
+par.kernel              = number_of_bins[min.cv.index.kernel]
+
+
+mt <- c()
+mt <- rbind(mt,c(cv.min.kernel,cv.min.loess,cv.min.sp1,cv.min.sp3,par.loess,par.kernel,par.sp1,par.sp3))
+
+
+
+
+
+```
+
+
+
+
+```{r,echo=FALSE}
+
+
+
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins, y = cv.errors.mean.kernel,EQM = cv.errors.mean.kernel)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p4.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Bandwidth",y = "EQM") +
+  geom_vline(xintercept = par.kernel,color ="red")+
+  annotate("text",x = number_of_bins[min.cv.index.kernel]-0.06,y = max(cv.errors.mean.kernel)*0.985,label=paste0("Span:",number_of_bins[min.cv.index.kernel],"\nEQM:",round(cv.min.kernel,2))) +
+  axis.theme()
+
+par4 = number_of_bins[min.cv.index.kernel]
+
+```
+
+
+```{r,echo=FALSE}
+
+### Kernel (Nadaraya-Watson) LOOCV
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins, y = cv.errors.mean.loess,EQM = cv.errors.mean.loess)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p5.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Span",y = "EQM") +
+  geom_vline(xintercept = par.loess,color ="red")+
+  annotate("text",x = number_of_bins[min.cv.index.loess]-0.06,y = max(cv.errors.mean.loess)*0.985,label=paste0("Span:",number_of_bins[min.cv.index.loess],"\nEQM:",round(cv.min.loess,2))) +
+  axis.theme()
+
+par5 = number_of_bins[min.cv.index.loess]
+```
+
+
+```{r,echo=FALSE}
+df <- data.frame(x = dados$x, y = dados$y)
+df1 <- data.frame(x = number_of_bins_sp, y = cv.errors.mean.sp1,EQM = cv.errors.mean.sp1)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p6.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Nº de Nós",y = "EQM") +
+  geom_vline(xintercept = number_of_bins_sp[min.cv.index.sp1],color ="red")+
+  annotate("text",x = number_of_bins_sp[min.cv.index.sp1]+6,y = max(cv.errors.mean.sp1)*0.90,label=paste0("Nº Nós:",par.sp1,"\nEQM:",round(cv.min.sp1,2))) +
+  axis.theme()
+
+par6 = number_of_bins[min.cv.index.sp1]
+```
+
+```{r,echo=FALSE}
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins_sp, y = cv.errors.mean.sp3,EQM = cv.errors.mean.sp3)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p7.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Nº de Nós",y = "EQM") +
+  geom_vline(xintercept = number_of_bins_sp[min.cv.index.sp3],color ="red")+
+  annotate("text",x = number_of_bins_sp[min.cv.index.sp3]+6,y = max(cv.errors.mean.sp3)*0.97,label=paste0("Nº Nós:",par.sp3,"\nEQM:",round(cv.min.sp3,2))) +
+  axis.theme()
+
+par7 = number_of_bins[min.cv.index.sp3]
+
+```
+
+
+
+
+```{r,fig.cap="\\label{fig:smoothers_best_par_cenario1} Erro quadrático médio versus parâmetro de suavização (Cenário 1) pós aplicação do Leave One Out Cross-Validation. (A) Kernel, (B) Loess, (C) Splines de Regressão Grau 1 e (D) Splines de Regressão Grau 3.", fig.height=2.5}
+
+partial_plots <- cowplot::plot_grid(p4.cv,p5.cv,p6.cv,p7.cv,ncol=2,nrow = 2,labels=LETTERS[1:4])
+partial_plots
+
+```
+
+
+
+
+
+
+
+```{r,  echo=F}
+
+fit4 <- loess(y ~ x, degree=1, span = par.loess, data=dados)
+
+
+
+# kernel - span = 6
+fit5 <-  locfit(y ~ x,deg=1, alpha = par.kernel,kern="gauss", data=dados)
+
+
+#Spline grau 1
+
+
+k = par.sp1
+
+p         <-  seq(1,k-1,1)/(k)
+knots     <-  quantile(dados$x  , p = p)
+fit6       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data = dados)
+
+# spline cubico
+require(splines)
+
+k = par.sp3 
+p         <-  seq(1,k-1,1)/(k)
+knots     <-  quantile(dados$x  , p = p)
+fit7 <- lm(y ~ bs(x, knots = knots),data = dados )
+
+fit8 <- lm(y ~ poly(x = x,degree = 3),data = dados)
+
+
+spans = c(par4,par5,par6,par7)
+df = cbind(x= dados$x, y = dados$y,Kernel = fitted.values(fit5), Loess = fit4$fitted,`Spline Grau 1`= predict(fit6),`Spline Cubico`= fit7$fitted,`Pol. Cúbico` = fit8$fitted.values)
+df1 = df %>% as.data.frame
+colnames(df) = c("x", "y",
+                 paste0("A1 ", "Kernel|Width: ", par.kernel),
+                 paste0("A2 ", "Loess|Span: ", par.loess),
+                 paste0("A3 ", "Spline Grau 1|Nº Nós: ", par.sp1),
+                 paste0("A4 ", "Spline Grau 3|Nº Nós: ", par.sp3),
+                 paste0("A5 ", "Polinómio Cúbico"))
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+```
+
+
+
+
+Com o auxilio da Tabela \ref{tab:tab_eqm_cenario1}, concluir-se-á que o melhor método de suavização para predição, considerando o Cenário 1 com apenas uma amostra, é o *splines* de regressão cúbico por obter o menor erro quadrático possível. Porém, observando e analisando os resultados obtidos apenas em uma amostra, pode levar à decisões equivocadas.
+
+
+
+```{r,echo=FALSE,warning=FALSE}
+
+library(Metrics)
+df_metrics <- data.frame(Smoother = c("Kernel", "Loess","Splines Grau 1","Splines Grau 3"),
+                         `Parâm. Suavizador` = c(par.kernel,par.loess,par.sp1,par.sp3),
+                         EQM      =  c( round(cv.min.kernel,4),round(cv.min.loess,4),round(cv.min.sp1,4),round(cv.min.sp3,4))
+                         )
+
+colnames(df_metrics) <- c("Suavizador","Parâm. Suavizador","EQM")
+kable_data(data = df_metrics,cap = "\\label{tab:tab_eqm_cenario1}Erro Quadrático Médio para os suavizadores Loess, Kernel e Spline Cúbico",foot = NULL)
+
+
+```
+
+\newpage
+
+Na Figura \ref{fig:smoothers_fit_bestloocv_cenario1}, são demonstrados os ajustes, levando em consideração os melhores parâmetros obtidos por meio do processo de validação cruzada.
+
+
+```{r echo=F,fig.height=1.9, fig.cap="\\label{fig:smoothers_fit_bestloocv_cenario1} Comparação entre os ajustes, considerando parâmetros de suavização obtidos por meio da validação cruzada."}
+plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1.05,alpha.o = .99)
+```
+
+
+Na Tabela \ref{tab:tab_eqm_cenario1}, é mostrado os EQM's provenientes dos ajustes apresentados na Figura \ref{fig:smoothers_fit_bestloocv_cenario1}. Concluímos que a téncnica suavizadora que melhor se ajusta aos dados simulados (Cenário 1) é o *Loess*.
+
+
+```{r,echo=FALSE,warning=FALSE}
+
+library(Metrics)
+df_metrics <- data.frame(Smoother = c("Kernel", "Loess","Splines Grau 1","Splines Grau 3","Polinômio Cúbico"),
+                         `Parâm. Suavizador` = c(par.kernel,par.loess,par.sp1,par.sp3,""),
+                         EQM      =  c( round(rse(df$y,fitted.values(fit4)),4),
+                                         round(rse(df$y,fitted.values(fit5)),4),
+                                         round(rse(df$y,fitted.values(fit6)),4),
+                                         round(rse(df$y,fitted.values(fit7)),4),
+                                         round(rse(df$y,fitted.values(fit8)),4))
+                         )
+
+colnames(df_metrics) <- c("Suavizador","Parâm. Suavizador","EQM")
+kable_data(data = df_metrics,cap = "\\label{tab:tab_eqm_cenario1_geral}Erro Quadrático Médio para os suavizadores Loess, Kernel e Spline Cúbico",foot = NULL)
+
+```
+
+
+Neste momento, será reanalisado este procedimento em um processo de geração de amostras aleatórias. Serão considerados os cenários apresentados no começo deste capítulo: três tamanhos amostrais, para três variabilidades, totalizando nove cenários distintos. Para cada cenário serão geradas mil amostras aleatórias, aplicando o procedimento *leave one out cross-validation* para cada método de suavização. Em seguida, contabilizar-se-á a quantidade de vezes em que cada técnica obteve erro quadrático mínimo. Ainda, será avaliado qual suavizador apresenta o melhor ajuste para representar os dados simulados, por meio do cálculo dos EQM's, levando em conta o valores observados e ajustados de cada técnica. Por fim, avaliar-se-á qual técnica obteve o melhor desempenho de predição e ajuste.
+
+
+Na Tabela \ref{tab:tab_simulacao_namostras_cenario1}, estão esquematizados os resultados obtidos, por meio do *leave one out cross-validation* para cada cenário, considerando mil amostras simuladas para os suavizadores *Kernel*, *Loess*, *Splines* de regressão grau 1 e *Splines* de regressão grau 3.
+
+
+
+```{r,echo=FALSE}
+
+dados_final <- read.csv("dados_sim_final_cen1.csv",header = TRUE) 
+
+# dados_final$var <- ifelse( (dados_final$var == 2 & dados_final$n == 300) ,1,dados_final$var)
+# dados_final$var <- ifelse( (dados_final$var == 3 & dados_final$n == 300) ,2,dados_final$var)
+
+
+table_comp <- tapply(X = dados_final$EQM_MIN,INDEX = dados_final$Tipo,FUN = table)
+
+table_mt <- matrix(data = 0,nrow = 9,ncol = 4)
+df_comp  <- as.data.frame(table_mt)
+colnames(df_comp) <- c(1,2,3,4)
+
+
+for(i in 1:9){
+  ind = colnames(df_comp)%in% names(table_comp[[i]])
+  pos = which(ind)
+  df_comp[i,pos] <- table_comp[[i]]
+  
+  
+}
+
+df_comp_prop <- df_comp %>% mutate(Kernel = paste0(round(((`1`)/1000)*100,2),"%"),
+                                   Loess = paste0(round(((`2` )/1000)*100,2),"%"),
+                                   `Sp. Reg. 1` = paste0(round(((`3` )/1000)*100,2),"%"),
+                                   `Sp. Reg. 3` = paste0(round(((`4` )/1000)*100,2),"%"))
+
+
+df_leg <- data.frame(
+    `Sub-Cenário` = c(1:9),
+    Tamanho = c(150,150,150,250,250,250,350,350,350),
+    `Desvio Padrão` = c(0.5,1,2,0.5,1,2,0.5,1,2))
+
+df_comp_prop <- cbind(df_leg,df_comp_prop)
+df_tb <- df_comp_prop[,c(1,2,3,8,9,10,11)]
+colnames(df_tb) <- c("Sub-Cenário","Tamanho","Desvio Padrão", "Kernel","Loess","Sp. Reg. 1","Sp. Reg. 3")
+kable_data(data = df_tb ,cap = "\\label{tab:tab_simulacao_namostras_cenario1} Percentual do Erro quadrático mínimo, obtidos por meio de aplicação do Procedimento 1, para seleção do melhor parâmetro de suavização,  considerando cada suavizador em 1000 amostras.",foot = NULL) %>%
+  kable_styling(latex_options = "scale_down")
+
+
+
+```
+
+\newpage
+
+Destaca-se o suavizador *splines* cúbico por obter o melhor desempenho em quase todos os cenários, exceto o terceiro (Sub-Cenário 3), no qual o *splines* de grau 1 obteve erro quadrático médio mínimo em cerca de 48% das amostras simuladas. Ainda quando fixamos o valor do tamanho amostral, constata-se que, conforme a variabilidade dos dados aumenta, há indicios de que os resultados obtidos para a técnica *splines* cúbico estejam se dispersando para as demais técnicas. Observa-se ainda que conforme o tamanho amostral aumenta, há indícios de que os percentuais estejam convergindo e estabilizando, envidenciando que os *splines* cúbico tendem a obter um desempenho melhor em relação aos demais métodos. Além disso, ressalta-se que os percentuais para o suavizador de *kernel* foram os piores, obtendo EQM's mínimo, de até no máximo 1,8% das amostras em relação aos cenários simulados.
+
+Na Figura \ref{fig:comparacao_eqm_var_tam_cenario1}, são apresentados os comportamentos dos erros quadráticos médios obtidos do processo de simulação das amostras. De forma sucinta, verifica-se uma tendência decrescente conforme o tamanho amostral aumenta, assim como a sua aplitude tende a ficar menor. Ademais, visualmente, não é observada diferença significativa entre as técnicas *Kernel* e *Loess*. Ainda, percebe-se que os *splines* (grau 1 e grau 3) apresentam um comportamento mediano relativamente inferior quando comparado aos demais.
+
+\newpage
+
+Portanto, levando em consideração a Tabela  \ref{tab:tab_simulacao_namostras_cenario1} e a Figura \ref{fig:comparacao_eqm_var_tam_cenario1} pode-se concluir que, para o Cenário 1, o suavizador *splines* de regressão cúbico tende apresentar um melhor desempenho de predição em relação às demais técnicas.
+
+
+```{r,echo=FALSE}
+
+dados_boxplot <- dados_final %>% select(V1,V2,V3,V4,n,var) %>%
+  gather(key = "variable", value = "value", -n, -var )
+
+dados_boxplot$n <- as.factor(dados_boxplot$n)
+dados_boxplot$var <- as.factor(dados_boxplot$var)
+dados_boxplot$variable <- factor(dados_boxplot$variable,levels = c("V1","V2","V3","V4"),labels = c("Kernel","Loess","Sp. Reg. 1","Sp. Reg. 3"))
+colnames(dados_boxplot) <- c("Tam. Amostra","Desvio Padrão","Legenda","EQM")
+
+
+```
+
+
+
+```{r, echo=FALSE, fig.height=4.5, fig.cap= "\\label{fig:comparacao_eqm_var_tam_cenario1} Comparação do erro quadrático para as 1000 amostras para cada suavizador. (A) DP = 0.5, (B) DP = 1 e (C) DP = 2 "}
+
+plot1 <- ggplot(data = as.data.frame(dados_boxplot),aes(x=`Desvio Padrão`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 45,vjust = 1,hjust = 1,lengend_text_size = 6,lengend_title_size = 6)
+
+
+
+plot2 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "0.5") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+  labs(x = NULL) + 
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 0,lengend_text_size = 8,lengend_title_size = 6,leg = FALSE,pos_leg = "none")
+#plot2 %>% group_by(`Tam. Amostra`) %>% summarise(t=n())#
+
+
+plot3 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "1") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+  labs(x = NULL) +
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 0,lengend_text_size = 7,lengend_title_size = 6,leg_angle = 45,leg = FALSE,pos_leg = "none")
+
+plot4 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "2") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 0,lengend_text_size = 7,lengend_title_size = 6,leg_angle = 45,leg = FALSE,pos_leg = "none")
+
+legend_ <- cowplot::get_legend(
+  
+  plot1 + axis.theme(pos_leg = "right")
+  
+)
+
+#parcial1<- cowplot::plot_grid(plot1,labels = LETTERS[1])
+
+# parcial2 <- cowplot::plot_grid(plot2,ncol = 1, nrow = 1,labels = LETTERS[1])
+# parcial3 <- cowplot::plot_grid(plot3,plot4,ncol = 2, nrow = 1,labels = LETTERS[2:3])
+pcol    <- cowplot::plot_grid(plot2,plot3,plot4,align = "hv",ncol = 1, nrow = 3,labels = LETTERS[1:3])
+p_fim   <- cowplot::plot_grid(pcol,legend_,rel_widths = c(3,0.5))
+p_fim
+ggsave(filename = "pb2.svg",plot = p_fim,units = "px",width = 1280,height = 720,device = "svg",limitsize = FALSE)
+```
+
+
+
+
+Na Tabela \ref{tab:tab_simulacao_namostras_cenario1_2} é apresentado os percentuais, resultantes da contabilização do menor erro quadrático médio completo levando em conta os melhores ajustes obtidos por meio da seleção do melhor parâmetro suavizador.
+
+
+
+```{r,echo=FALSE}
+
+dados_final <- read.csv("dados_sim_final_cen1_2.csv",header = TRUE) 
+
+# dados_final$var <- ifelse( (dados_final$var == 2 & dados_final$n == 300) ,1,dados_final$var)
+# dados_final$var <- ifelse( (dados_final$var == 3 & dados_final$n == 300) ,2,dados_final$var)
+
+
+table_comp <- tapply(X = dados_final$EQM_MIN2,INDEX = dados_final$Tipo,FUN = table)
+
+table_mt <- matrix(data = 0,nrow = 9,ncol = 5)
+df_comp  <- as.data.frame(table_mt)
+colnames(df_comp) <- c(1,2,3,4,5)
+
+
+for(i in 1:9){
+  ind = colnames(df_comp)%in% names(table_comp[[i]])
+  pos = which(ind)
+  df_comp[i,pos] <- table_comp[[i]]
+  
+  
+}
+
+df_comp_prop <- df_comp %>% mutate(Kernel = paste0(round(((`1`)/1000)*100,2),"%"),
+                                   Loess = paste0(round(((`2` )/1000)*100,2),"%"),
+                                   `Sp. Reg. 1` = paste0(round(((`3` )/1000)*100,2),"%"),
+                                   `Sp. Reg. 3` = paste0(round(((`4` )/1000)*100,2),"%"),
+                                   `Pol. Cúbico` = paste0(round(((`5` )/1000)*100,2),"%"))
+
+df_leg <- data.frame(
+    `Sub-Cenário` = c(1:9),
+    Tamanho = c(150,150,150,250,250,250,350,350,350),
+    `Desvio Padrão` = c(0.5,1,2,0.5,1,2,0.5,1,2))
+
+df_comp_prop <- cbind(df_leg,df_comp_prop)
+df_tb <- df_comp_prop[,c(1,2,3,9,10,11,12,13)]
+colnames(df_tb) <- c("Sub-Cenário","Tamanho","Desvio Padrão", "Kernel","Loess","Sp. Reg. 1","Sp. Reg. 3","Pol. Cúbico")
+kable_data(data = df_tb ,cap = "\\label{tab:tab_simulacao_namostras_cenario1_2} Percentual do erro quadrático mínimo completo, levando em conta o ajuste com o melhor parâmetro de suavizador, para todas a técnicas em relação à 1000 amostras.",foot = NULL) %>%
+  kable_styling(latex_options = "scale_down")
+
+
+
+
+
+```
+
+Observa-se que o suavizador com *kernel* gaussiano obteve o melhor desempenho de ajuste em todos os cenários propostos, sendo considerado a melhor técnica em no mínimo 56,2% (Sub-Cenário 6 e 9) das amostras simuladas. Em seguida o suavizador *Loess* apresenta um melhor desempenho em quatro sub-cenários, em relação as técnicas restantes, seguido do *splines* de regressão linear e por fim o *splines* o cúbico. A Figura \ref{fig:comparacao_eqm_var_tam_cenario1_2} apresenta o comportamento para os $EQM_c$. Quando comparado  as técnicas *kernel* e *Loess*, em relação ao seus comportamento mediano, visualmente não aparentam ser significativamente diferentes, porém em alguns dos cenários, a mediana dos $EQM_c's$ para suavizador *kernel* apresenta ser relativamente inferior. Ao comparar os $EQM_c's$ medianos das técnicas, splines de regressão linear e cúbico estes aparesentam ser relativamente maiores em relação ao *kernel* e *loess*, e não apresentando diferença significativa entre si. Ressalta-se o ajuste paramétrico, regressão cúbico, apresentando o apresentando o pior comportamento para os $EQM_c's$, por apresentar um comportamento mediano significativo quando comparada com as demais técnicas.
+
+
+
+```{r,echo=FALSE}
+
+dados_boxplot <- dados_final %>% select(X1,X2,X3,X4,X5,n,var) %>%
+  gather(key = "variable", value = "value", -n, -var )
+
+dados_boxplot$n <- as.factor(dados_boxplot$n)
+dados_boxplot$var <- as.factor(dados_boxplot$var)
+dados_boxplot$variable <- factor(dados_boxplot$variable,levels = c("X1","X2","X3","X4","X5"),labels = c("Kernel","Loess","Sp. Reg. 1","Sp. Reg. 3","Pol. Cúbico"))
+colnames(dados_boxplot) <- c("Tam. Amostra","Desvio Padrão","Legenda","EQM")
+
+
+```
+
+```{r, echo=FALSE, fig.height=4.5, fig.cap= "\\label{fig:comparacao_eqm_var_tam_cenario1_2} Comparação do erro quadrático para as 1000 amostras para cada suavizador. (A) DP = 0.5, (B) DP = 1 e (C) DP = 2 "}
+
+plot1 <- ggplot(data = as.data.frame(dados_boxplot),aes(x=`Desvio Padrão`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 45,vjust = 1,hjust = 1,lengend_text_size = 6,lengend_title_size = 6)
+
+
+
+plot2 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "0.5") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+  labs(x = NULL,title = NULL) +
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 0,lengend_text_size = 8,lengend_title_size = 6,leg = FALSE,pos_leg = "none")
+#plot2 %>% group_by(`Tam. Amostra`) %>% summarise(t=n())#
+
+
+plot3 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "1") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    labs(x = NULL,title = NULL) +
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 0,lengend_text_size = 7,lengend_title_size = 6,leg_angle = 45,leg = FALSE,pos_leg = "none")
+
+plot4 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "2") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 0,lengend_text_size = 7,lengend_title_size = 6,leg_angle = 45,leg = FALSE,pos_leg = "none")
+
+legend_ <- cowplot::get_legend(
+  
+  plot1 + axis.theme(pos_leg = "right")
+  
+)
+
+#parcial1<- cowplot::plot_grid(plot1,labels = LETTERS[1])
+
+# parcial2 <- cowplot::plot_grid(plot2,ncol = 1, nrow = 1,labels = LETTERS[1])
+# parcial3 <- cowplot::plot_grid(plot3,plot4,ncol = 2, nrow = 1,labels = LETTERS[2:3])
+pcol    <- cowplot::plot_grid(plot2,plot3,plot4,align = "hv",ncol = 1, nrow = 3,labels = LETTERS[1:3])
+p_fim   <- cowplot::plot_grid(pcol,legend_,rel_widths = c(3,0.5))
+p_fim
+ggsave(filename = "pb2.svg",plot = p_fim,units = "px",width = 1280,height = 720,device = "svg",limitsize = FALSE)
+```
+
+
+
+\clearpage
+
+\subsubsection{Cenário 2}
+
+```{r , include=FALSE}
+rm(list=ls())
+source(file = "funcoes.R",encoding = "UTF-8")
+library(tidyverse)
+library(binsmooth)
+library(knitr)
+library(kableExtra)
+library(additive.models)
+
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message= FALSE,
+                      out.width = "100%",fig.align = "center",size ="large",fig.height = 3)
+
+library(additive.models)
+
+n <- 1e3
+set.seed(103159)
+n           <- 50
+x           <- seq(0.1,2,length.out = 250)
+norms       <- rnorm(length(x),0,0.05)
+dens_gamma  <- dgamma(x = x,shape = 6,rate = 10)
+y           <- dens_gamma + norms
+
+dados       <- data.frame(x=x,y=y,variable = "Gamma(6,10)",value = dens_gamma)
+
+
+df = cbind(dados$x, dados$y, dens_gamma) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+p1 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",legend.pos = "none") 
+
+
+
+
+```
+
+
+```{r , include=FALSE}
+
+source(file = "funcoes.R",encoding = "UTF-8")
+library(tidyverse)
+library(binsmooth)
+library(knitr)
+library(kableExtra)
+library(additive.models)
+
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message= FALSE,
+                      out.width = "100%",fig.align = "center",size ="large",fig.height = 3)
+
+library(additive.models)
+
+n <- 1e3
+set.seed(103159)
+n           <- 50
+x           <- seq(0.1,2,length.out = 250)
+norms       <- rnorm(length(x),0,0.1)
+dens_gamma  <- dgamma(x = x,shape = 6,rate = 10)
+y           <- dens_gamma + norms
+
+dados       <- data.frame(x=x,y=y,variable = "Gamma(6,10)",value = dens_gamma)
+
+
+df = cbind(dados$x, dados$y, dens_gamma) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+p2 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",legend.pos = "none") 
+
+```
+
+
+```{r , include=FALSE}
+
+source(file = "funcoes.R",encoding = "UTF-8")
+library(tidyverse)
+library(binsmooth)
+library(knitr)
+library(kableExtra)
+library(additive.models)
+
+knitr::opts_chunk$set(echo = FALSE,warning= FALSE, message= FALSE,
+                      out.width = "100%",fig.align = "center",size ="large",fig.height = 3)
+
+library(additive.models)
+
+n <- 1e3
+set.seed(103159)
+n           <- 50
+x           <- seq(0.1,2,length.out = 250)
+norms       <- rnorm(length(x),0,0.15)
+dens_gamma  <- dgamma(x = x,shape = 6,rate = 10)
+y           <- dens_gamma + norms
+
+dados       <- data.frame(x=x,y=y,variable = "Gamma(6,10)",value = dens_gamma)
+
+
+df = cbind(dados$x, dados$y, dens_gamma) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+p3 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",legend.pos = "none") 
+
+```
+
+\hspace{1.25cm} Para este cenário, os valores de $x$ serão uma sequência de `r min(x)` à `r max(x)`. Ainda, temos que $y = f(x) + \varepsilon$, com $f(x) \sim Gamma(6,10)$ e $\varepsilon \sim N(0,\sigma^2)$. Serão considerados tamanhos amostrais iguais a $150,250$ e $350$ e valores de desvio padrão $0.05,0.1$ e $0.15$. Na Figura \ref{fig:sim_cenario2}, tem-se o comportamento dos dados para cada desvio padrão, considerando 350 observações.
+
+
+```{r,fig.cap="\\label{fig:sim_cenario2} Gráfico de dispersão dos dados gerados para o estudo de simulação.", fig.height=2}
+
+legend_ <- cowplot::get_legend(p1 + axis.theme(pos_leg = "right"))
+
+prow <- cowplot::plot_grid(p1,p2,p3, ncol = 3 , nrow = 1, labels = LETTERS[1:3])
+parcial <- cowplot::plot_grid(legend_,prow,ncol = 1,nrow = 2,rel_heights = c(0.4,2))
+parcial
+ggsave(filename = "cenario2_sim.png",plot = parcial)
+
+```
+
+
+Quando realizamos a análise aplicando o procedimento de simulação de amostras, que se encontra sumarizado na Tabela \ref{tab:tab_simulacao_namostras_cenario2}, observa-se que o suavizador *splines* de regressão cúbico apresentou o melhor desempenho em todos cenários, obtendo o $EQM_{LOOCV}$ mínimo, de aproximadamente 70% à 92% das amostras entre os cenários simulados. Ainda, ressalta-se que, conforme o tamanho amostral aumenta, o percentual apresenta uma têndencia de aumento e indícios de estabilização. Quando fixado um tamanho amostral, o desempenho entre as amostras simuladas com variabilidade distinta apresenta uma tendência decrescente.
+
+```{r,echo=FALSE}
+
+dados_final <- read.csv("dados_sim_final_cen2.csv",header = TRUE) 
+
+table_comp <- tapply(X = dados_final$EQM_MIN,INDEX = dados_final$Tipo,FUN = table)
+
+table_mt <- matrix(data = 0,nrow = 9,ncol = 4)
+df_comp  <- as.data.frame(table_mt)
+colnames(df_comp) <- c(1,2,3,4)
+
+
+for(i in 1:9){
+  ind = colnames(df_comp)%in% names(table_comp[[i]])
+  pos = which(ind)
+  df_comp[i,pos] <- table_comp[[i]]
+  
+  
+}
+
+df_comp_prop <- df_comp %>% mutate(Kernel = paste0(round(((`1`)/1000)*100,2),"%"),
+                                   Loess = paste0(round(((`2` )/1000)*100,2),"%"),
+                                   `Sp. Reg. 1` = paste0(round(((`3` )/1000)*100,2),"%"),
+                                   `Sp. Reg. 3` = paste0(round(((`4` )/1000)*100,2),"%"))
+
+
+df_leg <- data.frame(
+    `Sub-Cenário` = c(1:9),
+    Tamanho = c(150,150,150,250,250,250,350,350,350),
+    `Desvio Padrão` = c(0.05,0.1,0.15,0.05,0.1,0.15,0.05,0.1,0.15))
+
+df_comp_prop <- cbind(df_leg,df_comp_prop)
+df_tb <- df_comp_prop[,c(1,2,3,8,9,10,11)]
+colnames(df_tb) <- c("Sub-Cenário","Tamanho","Desvio Padrão", "Kernel","Loess","Sp. Reg. 1","Sp. Reg. 3")
+kable_data(data = df_tb ,cap = "\\label{tab:tab_simulacao_namostras_cenario2} Percentual do Erro quadrático mínimo, obtidos por meio de aplicação do Procedimento 1, para seleção do melhor parâmetro de suavização,  considerando cada suavizador em 1000 amostras.",foot = NULL) %>%
+  kable_styling(latex_options = "scale_down")
+
+
+
+```
+
+
+\newpage
+
+De forma análoga ao Cenário 1, o comportamento para os $EQM_{LOOCV}'s$ (vide Figura \ref{fig:comparacao_eqm_var_tam_cenario2}), apresenta uma tendência decrescente conforme o tamanho amostral aumenta, e, percebe-se que a amplitude tende a ficar menor. Ainda, percebe-se que não há diferença signficativa entre os suavizadores *kernel* e *loess*. Os *splines* apresentam ter um comportamento mediano inferior, com destaque ao *splines* cúbico que, visualmente, aparenta ser menor quando comparados com as demais técnicas. Sendo assim, baseado na Tabela \ref{tab:tab_simulacao_namostras_cenario2} e na Figura \ref{fig:comparacao_eqm_var_tam_cenario2}, os dados evidenciam que o suavizador *splines* cúbico possui o melhor desempenho de predição  em relação aos outros suavizadores.
+
+
+```{r,echo=FALSE}
+
+dados_boxplot <- dados_final %>% select(V1,V2,V3,V4,n,var) %>%
+  gather(key = "variable", value = "value", -n, -var )
+
+dados_boxplot$n <- as.factor(dados_boxplot$n)
+dados_boxplot$var <- as.factor(dados_boxplot$var)
+dados_boxplot$variable <- factor(dados_boxplot$variable,levels = c("V1","V2","V3","V4"),labels = c("Kernel","Loess","Sp. Reg. 1","Sp. Reg. 3"))
+colnames(dados_boxplot) <- c("Tam. Amostra","Desvio Padrão","Legenda","EQM")
+
+
+```
+
+
+```{r, echo=FALSE, fig.height=4.5, fig.cap= "\\label{fig:comparacao_eqm_var_tam_cenario2} Comparação do erro quadrático para as 1000 amostras para cada suavizador por (A) DP = 0.05, (B) DP = 0.1 e (C) DP = 0.15 "}
+
+plot1 <- ggplot(data = as.data.frame(dados_boxplot),aes(x=`Desvio Padrão`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+    axis.theme(x.angle = 0,vjust = 1,hjust = 1,lengend_text_size = 6,lengend_title_size = 6)
+
+
+
+plot2 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "0.05") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+  labs(x = NULL,title=NULL) + 
+    axis.theme(x.angle = 0,lengend_text_size = 8,lengend_title_size = 6,leg = FALSE,pos_leg = "none")
+#plot2 %>% group_by(`Tam. Amostra`) %>% summarise(t=n())#
+
+
+plot3 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "0.1") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+  labs(x = NULL,title=NULL) + 
+    axis.theme(x.angle = 0,lengend_text_size = 7,lengend_title_size = 6,leg_angle = 45,leg = FALSE,pos_leg = "none")
+
+plot4 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "0.15") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+  labs(x = NULL,title=NULL) + 
+    axis.theme(x.angle = 0,lengend_text_size = 7,lengend_title_size = 6,leg_angle = 45,leg = FALSE,pos_leg = "none")
+
+legend_ <- cowplot::get_legend(
+  
+  plot1 + axis.theme(pos_leg = "right")
+  
+)
+
+#parcial1<- cowplot::plot_grid(plot1,labels = LETTERS[1])
+
+# parcial2 <- cowplot::plot_grid(plot2,ncol = 1, nrow = 1,labels = LETTERS[1])
+# parcial3 <- cowplot::plot_grid(plot3,plot4,ncol = 2, nrow = 1,labels = LETTERS[2:3])
+pcol    <- cowplot::plot_grid(plot2,plot3,plot4,align = "hv",ncol = 1, nrow = 3,labels = LETTERS[1:3])
+p_fim   <- cowplot::plot_grid(pcol,legend_,rel_widths = c(3,0.5))
+p_fim
+ggsave(filename = "pb1.svg",plot = p_fim,units = "px",width = 1280,height = 720,device = "svg",limitsize = FALSE)
+```
+
+
+
+
+
+Em relação ao desempenho do melhor ajuste, pode ser observado na Tabela \ref{tab:comparacao_eqm_var_tam_cenario2_2}. Novamente, destaca-se o suavizador *kernel*, por obter o melhor desempenho em todos os sub-cenários, de no mímino 49,1% das amosntras simuladas. Em seguida, comparado as técnicas restantes destaca-se o método de splines de regressão linear por obter melhor desempenho em quatro sub-cenários, seguidos do *loess* e por último o *splines* de regressão cúbico.
+
+
+
+\newpage
+
+```{r,echo=FALSE}
+
+dados_final <- read.csv("dados_sim_final_cen2_2.csv",header = TRUE) 
+
+table_comp <- tapply(X = dados_final$EQM_MIN2,INDEX = dados_final$Tipo,FUN = table)
+
+table_mt <- matrix(data = 0,nrow = 9,ncol = 5)
+df_comp  <- as.data.frame(table_mt)
+colnames(df_comp) <- c(1,2,3,4,5)
+
+
+for(i in 1:9){
+  ind = colnames(df_comp)%in% names(table_comp[[i]])
+  pos = which(ind)
+  df_comp[i,pos] <- table_comp[[i]]
+  
+  
+}
+
+df_comp_prop <- df_comp %>% mutate(Kernel = paste0(round(((`1`)/1000)*100,2),"%"),
+                                   Loess = paste0(round(((`2` )/1000)*100,2),"%"),
+                                   `Sp. Reg. 1` = paste0(round(((`3` )/1000)*100,2),"%"),
+                                   `Sp. Reg. 3` = paste0(round(((`4` )/1000)*100,2),"%"),
+                                   `Pol. Cúbico` = paste0(round(((`5` )/1000)*100,2),"%"))
+
+df_leg <- data.frame(
+    `Sub-Cenário` = c(1:9),
+    Tamanho = c(150,150,150,250,250,250,350,350,350),
+    `Desvio Padrão` = c(0.05,0.1,0.15,0.05,0.1,0.15,0.05,0.1,0.15))
+
+df_comp_prop <- cbind(df_leg,df_comp_prop)
+df_tb <- df_comp_prop[,c(1,2,3,9,10,11,12,13)]
+colnames(df_tb) <- c("Sub-Cenário","Tamanho","Desvio Padrão", "Kernel","Loess","Sp. Reg. 1","Sp. Reg. 3","Pol. Cúbico")
+kable_data(data = df_tb ,cap = "\\label{tab:tab_simulacao_namostras_cenario2_2} Percentual do erro quadrático mínimo completo, levando em conta o ajuste com o melhor parâmetro de suavizador, para todas a técnicas em relação à 1000 amostras.",foot = NULL) %>%
+  kable_styling(latex_options = "scale_down")
+
+
+
+```
+
+
+
+```{r,echo=FALSE}
+
+
+dados_boxplot <- dados_final %>% select(X1,X2,X3,X4,X5,n,var) %>%
+  gather(key = "variable", value = "value", -n, -var )
+
+dados_boxplot$n <- as.factor(dados_boxplot$n)
+dados_boxplot$var <- as.factor(dados_boxplot$var)
+dados_boxplot$variable <- factor(dados_boxplot$variable,levels = c("X1","X2","X3","X4","X5"),labels = c("Kernel","Loess","Sp. Reg. 1","Sp. Reg. 3","Pol. Cúbico"))
+colnames(dados_boxplot) <- c("Tam. Amostra","Desvio Padrão","Legenda","EQM")
+
+
+
+```
+
+Na Figura \ref{fig:comparacao_eqm_var_tam_cenario2_2}, observa-se que o suavizador *kernel* apresenta um comportaemnto mediano relativamente inferior aos demais suavizadores. Seguidos do *loess*, *splines* de regressão linear e por último o *splines* cúbico. Portanto, levando em conta a Tabela \ref{tab:tab_simulacao_namostras_cenario2_2} e  Figura \ref{fig:comparacao_eqm_var_tam_cenario2_2}, há indícios de que o suavizador com *kernel* gaussiano apresenta o melhor desempenho para ajustar os dados.
+
+```{r, echo=FALSE, fig.height=4, fig.cap= "\\label{fig:comparacao_eqm_var_tam_cenario2_2} Comparação do erro quadrático para as 1000 amostras para cada suavizador por (A) DP = 0.05, (B) DP = 0.1 e (C) DP = 0.15 "}
+
+plot1 <- ggplot(data = as.data.frame(dados_boxplot),aes(x=`Desvio Padrão`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+  labs(x = NULL,title = NULL)+
+    axis.theme(x.angle = 0,lengend_text_size = 6,lengend_title_size = 6)
+
+
+
+plot2 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "0.05") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+   labs(x = NULL,title = NULL)+
+    axis.theme(x.angle = 0,lengend_text_size = 8,lengend_title_size = 6,leg = FALSE,pos_leg = "none")
+#plot2 %>% group_by(`Tam. Amostra`) %>% summarise(t=n())#
+
+
+plot3 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "0.1") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+   labs(x = NULL,title = NULL)+
+    axis.theme(x.angle = 0,lengend_text_size = 7,lengend_title_size = 6,leg_angle = 45,leg = FALSE,pos_leg = "none")
+
+plot4 <- as.data.frame(dados_boxplot) %>% filter(`Desvio Padrão` == "0.15") %>% ggplot(aes(x=`Tam. Amostra`, y=EQM,color = Legenda))+
+    geom_boxplot(outlier.colour="black",alpha=0.8, outlier.shape=16,outlier.size=2, notch=FALSE)+
+   labs(x = NULL,title = NULL)+
+    axis.theme(x.angle = 0,lengend_text_size = 7,lengend_title_size = 6,leg_angle = 45,leg = FALSE,pos_leg = "none")
+
+legend_ <- cowplot::get_legend(
+  
+  plot1 + axis.theme(pos_leg = "right")
+  
+)
+
+#parcial1<- cowplot::plot_grid(plot1,labels = LETTERS[1])
+
+# parcial2 <- cowplot::plot_grid(plot2,ncol = 1, nrow = 1,labels = LETTERS[1])
+# parcial3 <- cowplot::plot_grid(plot3,plot4,ncol = 2, nrow = 1,labels = LETTERS[2:3])
+pcol    <- cowplot::plot_grid(plot2,plot3,plot4,align = "hv",ncol = 1, nrow = 3,labels = LETTERS[1:3])
+p_fim   <- cowplot::plot_grid(pcol,legend_,rel_widths = c(3,0.5))
+p_fim
+```
+
+\newpage
+
+\subsubsection{Considerações finais do estudo de simulação}
+
+\hspace{1.25cm} Pode-se comparar as técnicas de suavização apresentadas neste trabalho em diversos cenários mostrando quais delas apresentam o melhor poder preditivo e quais delas ajustam melhor os dados. Segundo IZBICKI (2020), nem sempre o modelo que se adequa melhor aos dados, necessariamente irá obter o melhor pode preditivo. Verificou-se dentro das simulações que o suavizador *splines* de regressão cúbico apresentou o melhor desempenho de predição, avaliando-se por meio da métrica $EQM_{LOOCV}$, em ambos os cenários propostos (Cenário 1 e Cenário 2). Em contrapartida, ao avaliar os cenários por meio da métrica $EQM_c$, pode-se verificar que o suavizador com *kernel* gaussiano obteve o melhor desempenho.
+
+
+\clearpage
+
+\section{Aplicação}
+
+\hspace{1.25cm} Para esta aplicação serão empregadas as técnicas de suavização em dados reais. Os dados foram retirados do site NIST Standard Reference Database 140 \footnote{https://www.itl.nist.gov/div898/strd/index.html} . É um estudo referente a expansão térmica de cobre. A variável resposta é o coeficiente de expansão térmica e a variável preditora é a temperatura em graus kelvin. Neste trabalho sera abordado um modelo com apenas uma covariável neste caso, sendo o modelo aditivo da seguinte forma
+
+\begin{equation*}
+ y = \alpha + f(X) + \epsilon,
+\end{equation*}
+onde os erros $\epsilon$ são independentes, com $E(\epsilon) = 0$ e $var(\epsilon) = \sigma^2$. A $f(X)$ é uma função univariada arbitrária, que será suavizada pelos métodos vistos até o momento.
+
+```{r,echo=FALSE}
+source(file = "funcoes.R",encoding = "UTF-8")
+library(locfit)
+library(splines)
+library(segmented)
+library(rms)
+library(pacman)
+library(igraph)
+library(zoo)
+
+dados <- read.table(textConnection(
+  "
+        .591E0         24.41E0  
+       1.547E0         34.82E0  
+       2.902E0         44.09E0  
+       2.894E0         45.07E0  
+       4.703E0         54.98E0  
+       6.307E0         65.51E0  
+       7.03E0          70.53E0  
+       7.898E0         75.70E0  
+       9.470E0         89.57E0  
+       9.484E0         91.14E0  
+      10.072E0         96.40E0  
+      10.163E0         97.19E0  
+      11.615E0        114.26E0  
+      12.005E0        120.25E0  
+      12.478E0        127.08E0  
+      12.982E0        133.55E0  
+      12.970E0        133.61E0  
+      13.926E0        158.67E0  
+      14.452E0        172.74E0  
+      14.404E0        171.31E0  
+      15.190E0        202.14E0  
+      15.550E0        220.55E0  
+      15.528E0        221.05E0  
+      15.499E0        221.39E0  
+      16.131E0        250.99E0  
+      16.438E0        268.99E0  
+      16.387E0        271.80E0  
+      16.549E0        271.97E0  
+      16.872E0        321.31E0  
+      16.830E0        321.69E0  
+      16.926E0        330.14E0  
+      16.907E0        333.03E0  
+      16.966E0        333.47E0  
+      17.060E0        340.77E0  
+      17.122E0        345.65E0  
+      17.311E0        373.11E0  
+      17.355E0        373.79E0  
+      17.668E0        411.82E0  
+      17.767E0        419.51E0  
+      17.803E0        421.59E0  
+      17.765E0        422.02E0  
+      17.768E0        422.47E0  
+      17.736E0        422.61E0  
+      17.858E0        441.75E0  
+      17.877E0        447.41E0  
+      17.912E0        448.7E0   
+      18.046E0        472.89E0  
+      18.085E0        476.69E0  
+      18.291E0        522.47E0  
+      18.357E0        522.62E0  
+      18.426E0        524.43E0  
+      18.584E0        546.75E0  
+      18.610E0        549.53E0  
+      18.870E0        575.29E0  
+      18.795E0        576.00E0  
+      19.111E0        625.55E0  
+        .367E0         20.15E0  
+        .796E0         28.78E0  
+       0.892E0         29.57E0  
+       1.903E0         37.41E0  
+       2.150E0         39.12E0  
+       3.697E0         50.24E0  
+       5.870E0         61.38E0  
+       6.421E0         66.25E0  
+       7.422E0         73.42E0  
+       9.944E0         95.52E0  
+      11.023E0        107.32E0  
+      11.87E0         122.04E0  
+      12.786E0        134.03E0  
+      14.067E0        163.19E0  
+      13.974E0        163.48E0  
+      14.462E0        175.70E0  
+      14.464E0        179.86E0  
+      15.381E0        211.27E0  
+      15.483E0        217.78E0  
+      15.59E0         219.14E0  
+      16.075E0        262.52E0  
+      16.347E0        268.01E0  
+      16.181E0        268.62E0  
+      16.915E0        336.25E0  
+      17.003E0        337.23E0  
+      16.978E0        339.33E0  
+      17.756E0        427.38E0  
+      17.808E0        428.58E0  
+      17.868E0        432.68E0  
+      18.481E0        528.99E0  
+      18.486E0        531.08E0  
+      19.090E0        628.34E0  
+      16.062E0        253.24E0  
+      16.337E0        273.13E0  
+      16.345E0        273.66E0  
+      16.388E0        282.10E0  
+      17.159E0        346.62E0  
+      17.116E0        347.19E0  
+      17.164E0        348.78E0  
+      17.123E0        351.18E0  
+      17.979E0        450.10E0  
+      17.974E0        450.35E0  
+      18.007E0        451.92E0  
+      17.993E0        455.56E0  
+      18.523E0        552.22E0  
+      18.669E0        553.56E0  
+      18.617E0        555.74E0  
+      19.371E0        652.59E0  
+      19.330E0        656.20E0  
+       0.080E0         14.13E0  
+       0.248E0         20.41E0  
+       1.089E0         31.30E0  
+       1.418E0         33.84E0  
+       2.278E0         39.70E0  
+       3.624E0         48.83E0  
+       4.574E0         54.50E0  
+       5.556E0         60.41E0  
+       7.267E0         72.77E0  
+       7.695E0         75.25E0  
+       9.136E0         86.84E0  
+       9.959E0         94.88E0  
+       9.957E0         96.40E0  
+      11.600E0        117.37E0  
+      13.138E0        139.08E0  
+      13.564E0        147.73E0  
+      13.871E0        158.63E0  
+      13.994E0        161.84E0  
+      14.947E0        192.11E0  
+      15.473E0        206.76E0  
+      15.379E0        209.07E0  
+      15.455E0        213.32E0  
+      15.908E0        226.44E0  
+      16.114E0        237.12E0  
+      17.071E0        330.90E0  
+      17.135E0        358.72E0  
+      17.282E0        370.77E0  
+      17.368E0        372.72E0  
+      17.483E0        396.24E0  
+      17.764E0        416.59E0  
+      18.185E0        484.02E0  
+      18.271E0        495.47E0  
+      18.236E0        514.78E0  
+      18.237E0        515.65E0  
+      18.523E0        519.47E0  
+      18.627E0        544.47E0  
+      18.665E0        560.11E0  
+      19.086E0        620.77E0  
+       0.214E0         18.97E0  
+       0.943E0         28.93E0  
+       1.429E0         33.91E0  
+       2.241E0         40.03E0  
+       2.951E0         44.66E0  
+       3.782E0         49.87E0  
+       4.757E0         55.16E0  
+       5.602E0         60.90E0  
+       7.169E0         72.08E0  
+       8.920E0         85.15E0  
+      10.055E0         97.06E0  
+      12.035E0        119.63E0  
+      12.861E0        133.27E0  
+      13.436E0        143.84E0  
+      14.167E0        161.91E0  
+      14.755E0        180.67E0  
+      15.168E0        198.44E0  
+      15.651E0        226.86E0  
+      15.746E0        229.65E0  
+      16.216E0        258.27E0  
+      16.445E0        273.77E0  
+      16.965E0        339.15E0  
+      17.121E0        350.13E0  
+      17.206E0        362.75E0  
+      17.250E0        371.03E0  
+      17.339E0        393.32E0  
+      17.793E0        448.53E0  
+      18.123E0        473.78E0  
+      18.49E0         511.12E0  
+      18.566E0        524.70E0  
+      18.645E0        548.75E0  
+      18.706E0        551.64E0  
+      18.924E0        574.02E0  
+      19.1E0          623.86E0  
+       0.375E0         21.46E0  
+       0.471E0         24.33E0  
+       1.504E0         33.43E0  
+       2.204E0         39.22E0  
+       2.813E0         44.18E0  
+       4.765E0         55.02E0  
+       9.835E0         94.33E0  
+      10.040E0         96.44E0  
+      11.946E0        118.82E0  
+      12.596E0        128.48E0  
+      13.303E0        141.94E0  
+      13.922E0        156.92E0  
+      14.440E0        171.65E0  
+      14.951E0        190.00E0  
+      15.627E0        223.26E0  
+      15.639E0        223.88E0  
+      15.814E0        231.50E0  
+      16.315E0        265.05E0  
+      16.334E0        269.44E0  
+      16.430E0        271.78E0  
+      16.423E0        273.46E0  
+      17.024E0        334.61E0  
+      17.009E0        339.79E0  
+      17.165E0        349.52E0  
+      17.134E0        358.18E0  
+      17.349E0        377.98E0  
+      17.576E0        394.77E0  
+      17.848E0        429.66E0  
+      18.090E0        468.22E0  
+      18.276E0        487.27E0  
+      18.404E0        519.54E0  
+      18.519E0        523.03E0  
+      19.133E0        612.99E0  
+      19.074E0        638.59E0  
+      19.239E0        641.36E0  
+      19.280E0        622.05E0  
+      19.101E0        631.50E0  
+      19.398E0        663.97E0  
+      19.252E0        646.9E0   
+      19.89E0         748.29E0  
+      20.007E0        749.21E0  
+      19.929E0        750.14E0  
+      19.268E0        647.04E0  
+      19.324E0        646.89E0  
+      20.049E0        746.9E0   
+      20.107E0        748.43E0  
+      20.062E0        747.35E0  
+      20.065E0        749.27E0  
+      19.286E0        647.61E0  
+      19.972E0        747.78E0  
+      20.088E0        750.51E0  
+      20.743E0        851.37E0  
+      20.83E0         845.97E0  
+      20.935E0        847.54E0  
+      21.035E0        849.93E0  
+      20.93E0         851.61E0  
+      21.074E0        849.75E0  
+      21.085E0        850.98E0  
+      20.935E0        848.23E0
+  
+  
+  
+  
+  "
+  
+  
+  
+))
+
+x1            <- dados$V2
+y             <- dados$V1
+dados         <- data.frame(x = x1,  y = y)
+x = dados$x
+y = dados$y
+```
+
+
+
+
+```{r,fig.cap="\\label{fig:dispersao_aplicacao1}Gráfico de dispersão referente ao estudo de espansão térmica do cobre versus a temperatura em graus Kelvin.", fig.height=2.25}
+
+#plot.curves(x = x1,y = y)
+plot.curves(x = dados$x,y = dados$y,labelx = "Temperatura (ºKelvin)",labely = "Coeficiente de Exp. Térmica",title = NULL)
+#plot.curves(x = x3,y = y)
+```
+
+
+
+```{r,echo=FALSE}
+
+###  LOOCV
+df        <- cbind(x= dados$x,y = dados$y) %>% as.data.frame
+tr= 1:nrow(df)
+dftr= df[tr,]
+number_of_bins   = seq(0.1,0.29,0.01)
+number_of_bins_sp= 1:length(number_of_bins) 
+cv.errors.loess  = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
+cv.errors.kernel = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins) )
+cv.errors.sp1 = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins_sp) )
+cv.errors.sp3 = matrix( NA,nrow =  nrow(df), ncol = length(number_of_bins_sp) ) 
+
+
+for( i in 1:length(number_of_bins)){ # for each number of knots to test
+  
+  for( j in tr ){ # for each fold
+    
+    
+    fit.loess              <- loess(y ~ x,degree=1, span = number_of_bins[i], data=df[tr!=j,])
+    loess.pred             = predict( fit.loess, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.loess[j,i]   = mean( ( df$y[tr==j] - loess.pred )^2,na.rm = TRUE ) 
+    
+    fit.kernel             <- locfit(y ~ x,deg=1, alpha = number_of_bins[i],kern="gauss", data=df[tr!=j,])
+    kernel.pred            <- predict( fit.kernel, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.kernel[j,i]  <- mean( ( df$y[tr==j] - kernel.pred )^2,na.rm = TRUE ) 
+    
+    
+    p              <-  seq(1,(i),1)/(i+1)
+    knots          <-  quantile(df$x[tr!=j]  , p = p)
+    fit.spg1       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data=df[tr!=j,])
+    spg1.pred    <- predict( fit.spg1, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.sp1[j,i] <- mean( ( df$y[tr==j] - spg1.pred )^2,na.rm = TRUE )
+    
+    #p              <-  seq(1,i-1,1)/i
+    knots          <-  quantile(df$x[tr!=j]  , p = p)
+    fit.spg3       <- lm(y ~ bs(x, knots = knots), data=df[tr!=j,] )
+    spg3.pred      <- predict( fit.spg3, newdata=data.frame(x = df$x[tr==j]) )
+    cv.errors.sp3[j,i] <- mean( ( df$y[tr==j] - spg3.pred )^2,na.rm = TRUE )
+    
+  }}
+
+cv.errors.mean.sp1   = apply(cv.errors.sp1,2,mean,na.rm = TRUE)
+min.cv.index.sp1     = which.min( cv.errors.mean.sp1 )
+cv.min.sp1           = cv.errors.mean.sp1[min.cv.index.sp1]
+par.sp1              = number_of_bins_sp[min.cv.index.sp1]  
+
+cv.errors.mean.sp3   = apply(cv.errors.sp3,2,mean,na.rm = TRUE)
+min.cv.index.sp3     = which.min( cv.errors.mean.sp3 )
+cv.min.sp3           = cv.errors.mean.sp3[min.cv.index.sp3]
+par.sp3              = number_of_bins_sp[min.cv.index.sp3] 
+
+
+cv.errors.mean.loess   = apply(cv.errors.loess,2,mean,na.rm = TRUE)
+min.cv.index.loess     = which.min( cv.errors.mean.loess )
+cv.min.loess           = cv.errors.mean.loess[min.cv.index.loess]
+par.loess              = number_of_bins[min.cv.index.loess]
+### Kernel (Nadaraya-Watson) LOOCV
+
+cv.errors.mean.kernel  = apply(cv.errors.kernel,2,mean,na.rm = TRUE)
+min.cv.index.kernel    = which.min( cv.errors.mean.kernel )
+cv.min.kernel          = cv.errors.mean.kernel[min.cv.index.kernel]
+par.kernel              = number_of_bins[min.cv.index.kernel]
+
+
+mt <- c()
+mt <- rbind(mt,c(cv.min.kernel,cv.min.loess,cv.min.sp1,cv.min.sp3,par.loess,par.kernel,par.sp1,par.sp3))
+
+
+
+
+
+```
+
+
+
+
+```{r,echo=FALSE}
+
+
+
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins, y = cv.errors.mean.kernel,EQM = cv.errors.mean.kernel)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p4.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Bandwidth",y = "EQM") +
+  geom_vline(xintercept = par.kernel,color ="red")+
+  annotate("text",x = number_of_bins[min.cv.index.kernel]-0.06,y = max(cv.errors.mean.kernel)*0.985,label=paste0("Span:",number_of_bins[min.cv.index.kernel],"\nEQM:",round(cv.min.kernel,2))) +
+  axis.theme()
+
+par4 = number_of_bins[min.cv.index.kernel]
+
+```
+
+
+```{r,echo=FALSE}
+
+### Kernel (Nadaraya-Watson) LOOCV
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins, y = cv.errors.mean.loess,EQM = cv.errors.mean.loess)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p5.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Span",y = "EQM") +
+  geom_vline(xintercept = par.loess,color ="red")+
+  annotate("text",x = number_of_bins[min.cv.index.loess]-0.06,y = max(cv.errors.mean.loess)*0.985,label=paste0("Span:",number_of_bins[min.cv.index.loess],"\nEQM:",round(cv.min.loess,2))) +
+  axis.theme()
+
+par5 = number_of_bins[min.cv.index.loess]
+```
+
+
+```{r,echo=FALSE}
+df <- data.frame(x = dados$x, y = dados$y)
+df1 <- data.frame(x = number_of_bins_sp, y = cv.errors.mean.sp1,EQM = cv.errors.mean.sp1)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p6.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Nº de Nós",y = "EQM") +
+  geom_vline(xintercept = number_of_bins_sp[min.cv.index.sp1],color ="red")+
+  annotate("text",x = number_of_bins_sp[min.cv.index.sp1]+6,y = max(cv.errors.mean.sp1)*0.90,label=paste0("Nº Nós:",par.sp1,"\nEQM:",round(cv.min.sp1,2))) +
+  axis.theme()
+
+par6 = number_of_bins[min.cv.index.sp1]
+```
+
+```{r,echo=FALSE}
+df <- data.frame(x = x, y = y)
+df1 <- data.frame(x = number_of_bins_sp, y = cv.errors.mean.sp3,EQM = cv.errors.mean.sp3)
+
+
+
+colnames(df1) <- c("x","y",
+                   paste("EQM"))
+
+df1 <- as.tibble(df1) %>%
+  gather(key = "variable", value = "value",-x,-y)
+
+p7.cv <-ggplot(df1,aes(x = x,y=y))+
+  geom_line()+
+  geom_point()+
+  labs(x = "Nº de Nós",y = "EQM") +
+  geom_vline(xintercept = number_of_bins_sp[min.cv.index.sp3],color ="red")+
+  annotate("text",x = number_of_bins_sp[min.cv.index.sp3]+6,y = max(cv.errors.mean.sp3)*0.97,label=paste0("Nº Nós:",par.sp3,"\nEQM:",round(cv.min.sp3,2))) +
+  axis.theme()
+
+par7 = number_of_bins[min.cv.index.sp3]
+
+```
+
+
+
+
+```{r,fig.cap="\\label{fig:smoothers_best_par_aplicacao1} Erro quadrático médio versus parâmetro de suavização (Cenário 1) pós aplicação do Leave One Out Cross-Validation. (A) Kernel, (B) Loess, (C) Splines de Regressão Grau 1 e (D) Splines de Regressão Grau 3.", fig.height=2.5,include=FALSE,echo=FALSE}
+
+partial_plots <- cowplot::plot_grid(p4.cv,p5.cv,p6.cv,p7.cv,ncol=2,nrow = 2,labels=LETTERS[1:4])
+partial_plots
+
+```
+
+
+
+
+
+
+
+```{r,  echo=F}
+
+fit4 <- loess(y ~ x, degree=1, span = par.loess, data=dados)
+
+
+
+# kernel - span = 6
+fit5 <-  locfit(y ~ x,deg=1, alpha = par.kernel,kern="gauss", data=dados)
+
+
+#Spline grau 1
+
+
+k = par.sp1
+
+p         <-  seq(1,k-1,1)/(k)
+knots     <-  quantile(dados$x  , p = p)
+fit6       <-  ols(as.formula(glue::glue("y ~ lsp(x, knots)")), data = dados)
+
+# spline cubico
+require(splines)
+
+k = par.sp3 
+p         <-  seq(1,k-1,1)/(k)
+knots     <-  quantile(dados$x  , p = p)
+fit7 <- lm(y ~ bs(x, knots = knots),data = dados )
+
+fit8 <- lm(y ~ poly(x = x,degree = 3),data = dados)
+
+
+spans = c(par4,par5,par6,par7)
+df = cbind(x= dados$x, y = dados$y,Kernel = fitted.values(fit5), Loess = fit4$fitted,`Spline Grau 1`= predict(fit6),`Spline Cubico`= fit7$fitted,`Pol. Cúbico` = fit8$fitted.values)
+df1 = df %>% as.data.frame
+colnames(df) = c("x", "y",
+                 paste0("A1 ", "Kernel|Width: ", par.kernel),
+                 paste0("A2 ", "Loess|Span: ", par.loess),
+                 paste0("A3 ", "Spline Grau 1|Nº Nós: ", par.sp1),
+                 paste0("A4 ", "Spline Grau 3|Nº Nós: ", par.sp3),
+                 paste0("A5 ", "Polinómio Cúbico"))
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+
+```
+
+
+
+
+Na Tabela \ref{tab:tab_eqm_aplicacao1}, é apresentado o processo de seleção do melhor parâmetro, com seus repectivos parâmetros selcionados por meio da métrica $EQM_{LOOCV}$. 
+
+
+```{r,echo=FALSE,warning=FALSE}
+
+library(Metrics)
+df_metrics <- data.frame(Smoother = c("Kernel", "Loess","Splines Grau 1","Splines Grau 3"),
+                         `Parâm. Suavizador` = c(par.kernel,par.loess,par.sp1,par.sp3),
+                         EQM      =  c( round(cv.min.kernel,4),round(cv.min.loess,4),round(cv.min.sp1,4),round(cv.min.sp3,4))
+                         )
+
+colnames(df_metrics) <- c("Suavizador","Parâm. Suavizador","EQM")
+kable_data(data = df_metrics,cap = "\\label{tab:tab_eqm_aplicacao1}Erro Quadrático Médio para os suavizadores Loess, Kernel e Spline Cúbico",foot = NULL)
+
+
+```
+
+Ressalta-se que o *splines* de regressão cúbico apresenta o menor $EQM_{LOOCV}$. Na Figura \ref{fig:smoothers_fit_bestloocv_aplicacao1}, são demonstrados os ajustes, levando em consideração os melhores parâmetros obtidos por meio do processo de validação cruzada. Visualmente, observa-se que as técnicas suavizadoras apresentam um bom ajuste, para captar a tendência de expansão térmica em relação a temperatura. Como pode-se observar o ajuste paramétrico não consegue descrever o comportamento de forma adequada para estes dados.
+
+
+```{r echo=F,fig.height=1.9,include=FALSE, fig.cap="\\label{fig:smoothers_fit_bestloocv_aplicacao1} Comparação entre os ajustes, considerando parâmetros de suavização obtidos por meio da validação cruzada."}
+plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",line.s = 1.05,alpha.o = .99)
+```
+
+
+```{r,fig.height=5, echo=FALSE, message=FALSE, warning=FALSE, include=TRUE, fig.cap="\\label{fig:smoothers_fit_bestloocv_aplicacao1} Comparação entre os ajustes, considerando parâmetros de suavização obtidos por meio da validação cruzada."}
+#library(tidyverse)
+
+dados = data.frame(x,y)
+true = fit4$fitted
+
+df = cbind(dados$x, dados$y, true) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+p1 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",legend.pos = "none")
+
+true = fitted(fit5)
+
+df = cbind(dados$x, dados$y, true) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+p2 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",legend.pos = "none")
+
+
+
+true = fit6$fitted.values
+
+df = cbind(dados$x, dados$y, true) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+p3 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",legend.pos = "none")
+
+true = fit7$fitted.values
+
+df = cbind(dados$x, dados$y, true) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+p4 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",legend.pos = "none")
+
+
+true = fit8$fitted.values
+
+df = cbind(dados$x, dados$y, true) %>% as.data.frame
+colnames(df) = c("x", "y","Curva real")
+
+df = as_tibble(df) %>%
+  gather(key = "variable", value = "value", -x, -y )
+p5 <- plot.mult.curves(df = dados,df_fit = df,title = NULL,labelx = "X",labely = "Y",legend.pos = "none")
+
+pcol    <- cowplot::plot_grid(p1,p2,p3,p4,p5, align = "hv",ncol = 2, nrow = 3,labels = LETTERS[1:6])
+#p_fim   <- cowplot::plot_grid(pcol,legend_,rel_widths = c(3,0.5))
+pcol
+
+```
+
+Ao comparar os $EQM_c's$, na Tabela \ref{tab:tab_eqm_aplicacao1_geral}, ressalta-se que a regressão polinomial obteve o pior resultado para esta métrica. Para as técnicas *kernel*, *loess* e *splines* de regressão linear apresentaram valore bem próximos entre si. Destaca-se o *splines* de regressão por obter o menor erro quadrático completo.
+
+```{r,echo=FALSE,warning=FALSE}
+
+library(Metrics)
+df_metrics <- data.frame(Smoother = c("Kernel", "Loess","Splines Grau 1","Splines Grau 3","Polinômio Cúbico"),
+                         `Parâm. Suavizador` = c(par.kernel,par.loess,par.sp1,par.sp3,""),
+                         EQM      =  c( round(rse(df$y,fitted.values(fit4)),6),
+                                         round(rse(df$y,fitted.values(fit5)),6),
+                                         round(rse(df$y,fitted.values(fit6)),6),
+                                         round(rse(df$y,fitted.values(fit7)),6),
+                                         round(rse(df$y,fitted.values(fit8)),6))
+                         )
+
+colnames(df_metrics) <- c("Suavizador","Parâm. Suavizador","EQM")
+kable_data(data = df_metrics,cap = "\\label{tab:tab_eqm_aplicacao1_geral}Erro Quadrático Médio para os suavizadores Loess, Kernel e Spline Cúbico",foot = NULL)
+
+```
+
+Portanto, levando em consideração os resultado obtido, suavizador em *splines* de regressão cúbico, apresenta o melhor desempenho tanto em relação ao poder de predição quanto melhor técnica para  ajustar, o comportamento de expansão térmica em relação a temperatura. 
+
+
+\clearpage
+
+\section{Conclusão}
+
+\hspace{1.25cm} Para investigar e modelar relações entre variáveis o modelo de regressão linear pode ser utilizado, porém quando essa relação não possui forma linear, uma alternativa é o uso de ferramentas que não impõem suposições paramétricas. Nesse contexto, existem técnicas de suavização que podem ser utilizadas, inclusive na estimação das funções do componente sistemático dos modelos aditivos.
+
+As técnicas de suavização *kernel*, *loess* e splines de regressão, em particular os de grau um e grau três foram aprsentados, que são utilizadas para estimar as funções presentes em modelos aditivos. Fora introduzido um método para obtenção no melhor parâmetro suaviador, a fim de evitar sub ou super-ajuste, realizado por meio de método de validação cruzada. Duas métrias foram abordadas uma para verificar a qualiadade de predição dos ajustes ($EQM_{LOOCV}$) e a outra para verificar a qualiade do ajuste ($EQM_c$).
+
+Para validar a metodologia estudada, foram realizadas análises em dados simulados e dados reais. Em dados simulados em diferentes cenários, foram observados os resultados em relação ao comportamento de técnicas de suavização, comparando os modelos obtidos, por meio das métricas introduzidas anteriormente. Ainda, verificou-se que o ajuste mais adequado para descrever o comportamento dos dados não obtém necessariamente o melhor poder preditivo.
+
+Por fim, os métodos discutidos fora aplicados em dados reais, onde mais uma vez os suavizadores foram avaliados e verificou-se qual apresentou o melhor poder preditivo e qual representa de forma mais adequada os dados.
+
+
+\clearpage
+
+\section{Referências}
+
+
+
+
+\noindent BUJA, A., HASTIE, T. & TIBSHIRANI, R. (1989). **Linear smoothers and additive models**. The Annals of Statistics, 17, 453-510.
+
+\vspace{0.25cm}
+\noindent CLEVELAND, W. S. (1979). **Robust locally weighted regression and smoothing scatterplots**. Journal of the American Statistical Association, 74,
+829-836. 
+
+\vspace{0.25cm}
+\noindent DELICADO, P., 2008 **Curso de Modelos no Paramétricos** p. 200.
+
+\vspace{0.25cm}
+\noindent EUBANK, R. L(1999)  **Nonparametric Regression and Spline Smoothing**. Marcel Dekker, 2o edição. Citado na pág. 1, 2, 29 
+
+\vspace{0.25cm}
+\noindent FAHRMEIR, L. & TUTZ, G. (2001) **Multivariate Statistical Modelling Based on Generalized Linear Models**. Springer, 2o edição. Citado na pág. 15
+
+\vspace{0.25cm}
+\noindent GREEN, P. J.  & YANDELL, B. S. (1985) **Semi-parametric generalized linear models**. Lecture Notes in Statistics, 32:4455. Citado na pág. 15
+
+\vspace{0.25cm}
+\noindent GREEN P. J. & SILVERMAN B. W. (1994). **Nonparametric regression and generalized linear models: a roughness penalty approach**. Chapman & Hall, London.
+
+\vspace{0.25cm}
+\noindent HASTIE, T. J. & TIBSHIRANI, R. J. (1990). **Generalized additive models**, volume 43. Chapman and Hall, Ltd., London. ISBN 0-412-34390-8.
+
+\vspace{0.25cm}
+\noindent MONTGOMERY, D. C. & PECK, E. A. & VINING, G. G. **Introduction to Linear Regression Analysis**. 5th Edition. John Wiley & Sons, 2012. 
+
+\vspace{0.25cm}
+\noindent IZBICK, R. & SANTOS, T. M. **Aprendizado de máquina: uma abordagem estatística**. ISBN 978-65-00-02410-4.
+
+\vspace{0.25cm}
+\noindent TEAM, R. CORE. R: **A language and environment for statistical computing**. (2013). 
+
+
+
+
+
+
+
+
+
+
+

@@ -190,6 +190,9 @@ dados_final <- rbind(dados1,dados2,dados3,dados4)
 dados_final$Tipo <- paste0(dados_final$n,dados_final$var)
 
 dados_final$EQM_MIN <- apply(X = dados_final[,1:4],MARGIN = 1,FUN = which.min) 
+
+
+
 write.csv(x = dados_final,file = "dados_sim_final_cen1.csv",row.names = FALSE)
 
 
