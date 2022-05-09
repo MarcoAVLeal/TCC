@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.10) (preloaded format=xelatex 2022.4.23)  7 MAY 2022 11:28
+This is XeTeX, Version 3.141592653-2.6-0.999993 (MiKTeX 21.10) (preloaded format=xelatex 2022.4.23)  8 MAY 2022 23:50
 entering extended mode
 **./TCC_08.tex
 (TCC_08.tex
@@ -1526,7 +1526,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 193--194
  []
 
 
-Overfull \hbox (47.51076pt too wide) in paragraph at lines 196--199
+Overfull \hbox (42.51857pt too wide) in paragraph at lines 196--199
 [][] 
  []
 
@@ -1542,7 +1542,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 232--239
 
 [1] [1]
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 17.28pt on input line 292.
+(Font)              scaled to size 17.28pt on input line 294.
 (TCC_08.toc
 \l@brazil = a dialect from \language\l@portuges 
 Package polyglossia Info: Option: portuguese, variant=brazilian.
@@ -1564,19 +1564,21 @@ Package polyglossia Info: Option: portuguese, variant=brazilian.
 ] [2
 
 ]
-LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 387.
-LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
-(Font)              scaled to size 14.4pt on input line 387.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/it' will be
-(Font)              scaled to size 12.0pt on input line 393.
-[3] [4] [5] [6] [7]
+(Font)              scaled to size 12.0pt on input line 370.
+LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
+(Font)              scaled to size 14.4pt on input line 389.
+LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 389.
+[3] [4] [5
+
+] [6] [7]
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 664.
+(Font)              scaled to size 12.0pt on input line 672.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(1)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 664.
+(Font)              scaled to size 8.4pt on input line 672.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 664.
+(Font)              scaled to size 6.0pt on input line 672.
 [8] [9] [10] [11] [12
 
 ]
@@ -1587,16 +1589,16 @@ File: TCC_08_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
 [13]
 File: TCC_08_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file (type pdf)
 <use TCC_08_files/figure-latex/unnamed-chunk-14-1.pdf>
-[14]
-File: TCC_08_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
-<use TCC_08_files/figure-latex/unnamed-chunk-17-1.pdf>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[15] [16]
+[14]
+File: TCC_08_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
+<use TCC_08_files/figure-latex/unnamed-chunk-17-1.pdf>
+[15]
 File: TCC_08_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file (type pdf)
 <use TCC_08_files/figure-latex/unnamed-chunk-21-1.pdf>
-[17]
+[16] [17]
 File: TCC_08_files/figure-latex/unnamed-chunk-24-1.pdf Graphic file (type pdf)
 <use TCC_08_files/figure-latex/unnamed-chunk-24-1.pdf>
 [18]
@@ -1607,44 +1609,40 @@ File: TCC_08_files/figure-latex/unnamed-chunk-28-1.pdf Graphic file (type pdf)
 ]
 File: TCC_08_files/figure-latex/unnamed-chunk-31-1.pdf Graphic file (type pdf)
 <use TCC_08_files/figure-latex/unnamed-chunk-31-1.pdf>
-
-LaTeX Warning: Reference `tab:comparacao_eqm_var_tam_cenario2_2' on page 20 und
-efined on input line 1207.
-
 [20]
 File: TCC_08_files/figure-latex/unnamed-chunk-34-1.pdf Graphic file (type pdf)
 <use TCC_08_files/figure-latex/unnamed-chunk-34-1.pdf>
 [21] [22]
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 8.4pt on input line 1285.
+(Font)              scaled to size 8.4pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1285.
+(Font)              scaled to size 10.0pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.37735pt on input line 1285.
+(Font)              scaled to size 10.37735pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.26414pt on input line 1285.
+(Font)              scaled to size 7.26414pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.18867pt on input line 1285.
+(Font)              scaled to size 5.18867pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 1285.
+(Font)              scaled to size 10.0pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 1285.
+(Font)              scaled to size 7.0pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1285.
+(Font)              scaled to size 5.0pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.37842pt on input line 1285.
+(Font)              scaled to size 10.37842pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.2649pt on input line 1285.
+(Font)              scaled to size 7.2649pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.18921pt on input line 1285.
+(Font)              scaled to size 5.18921pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.37628pt on input line 1285.
+(Font)              scaled to size 10.37628pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.2634pt on input line 1285.
+(Font)              scaled to size 7.2634pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.18814pt on input line 1285.
+(Font)              scaled to size 5.18814pt on input line 1300.
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 1285.
+(Font)              scaled to size 7.0pt on input line 1300.
 File: TCC_08_files/figure-latex/unnamed-chunk-36-1.pdf Graphic file (type pdf)
 <use TCC_08_files/figure-latex/unnamed-chunk-36-1.pdf>
 [23
@@ -1652,9 +1650,24 @@ File: TCC_08_files/figure-latex/unnamed-chunk-36-1.pdf Graphic file (type pdf)
 ]
 File: TCC_08_files/figure-latex/unnamed-chunk-46-1.pdf Graphic file (type pdf)
 <use TCC_08_files/figure-latex/unnamed-chunk-46-1.pdf>
-[24] [25] [26
 
-]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[24]
+File: TCC_08_files/figure-latex/unnamed-chunk-49-1.pdf Graphic file (type pdf)
+<use TCC_08_files/figure-latex/unnamed-chunk-49-1.pdf>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[25]
+File: TCC_08_files/figure-latex/unnamed-chunk-59-1.pdf Graphic file (type pdf)
+<use TCC_08_files/figure-latex/unnamed-chunk-59-1.pdf>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[26] [27] [28
+
+] [29]
 The property list \polyglossia@langsetup contains the pairs (without outer
 braces):
 >  {latex/script}  =>  {latin}
@@ -1689,7 +1702,7 @@ braces):
 >  {portuguese/babelname}  =>  {brazil}
 >  {portuguese/localnumeral}  =>  {polyglossia@C@localnumeral}
 >  {portuguese/Localnumeral}  =>  {polyglossia@C@localnumeral}.
-[27
+[30
 
 ] (TCC_08.aux
 \l@brazil = a dialect from \language\l@portuges 
@@ -1703,18 +1716,14 @@ LaTeX Info: Redefining \ttfamily on input line 21.
 Package polyglossia Info: Option: portuguese, variant=brazilian.
 \l@brazil = a dialect from \language\l@portuges 
 Package polyglossia Info: Option: portuguese, variant=brazilian.
-)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+) ) 
 Here is how much of TeX's memory you used:
- 22324 strings out of 411259
- 395385 string characters out of 2830746
- 926363 words of memory out of 3000000
- 42399 multiletter control sequences out of 15000+600000
+ 22354 strings out of 411259
+ 396595 string characters out of 2830746
+ 930905 words of memory out of 3000000
+ 42427 multiletter control sequences out of 15000+600000
  411339 words of font info for 103 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 87i,12n,122p,1068b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 87i,12n,122p,1666b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on TCC_08.pdf (31 pages).
+Output written on TCC_08.pdf (34 pages).

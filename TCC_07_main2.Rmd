@@ -499,6 +499,8 @@ Destacar-se-á   a melhor técnica de suavização aquela obter o menor $EQM_{c}
 \end{enumerate}
 
 De fato,  o menor  $EQM_{c}$ apresentará a técnica com melhor ajuste aos dados e o menor  $EQM_{loocv}$ escolherá aquela de maior poder preditivo.
+
+
 \clearpage
 
 \section{Resultados e Discussão}
