@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.23)  3 MAY 2022 00:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.23)  9 MAY 2022 17:41
 entering extended mode
 **./apresentacao.tex
 (apresentacao.tex
@@ -1389,16 +1389,7 @@ LaTeX Font Info:    Trying to load font information for T1+aer on input line 12
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
 ) (apresentacao.aux
 
-LaTeX Warning: Label `fig:smoothers_best_par_cenario1' multiply defined.
-
-
-LaTeX Warning: Label `tab:tab_eqm_cenario2' multiply defined.
-
-
-LaTeX Warning: Label `fig:smoothers_fit_bestloocv_cenario1' multiply defined.
-
-
-LaTeX Warning: Label `tab:tab_simulacao_namostras_cenario1' multiply defined.
+LaTeX Warning: Label `tab:tab_eqm_aplicacao1' multiply defined.
 
 )
 \openout1 = `apresentacao.aux'.
@@ -1571,7 +1562,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (apresentacao.nav)
 LaTeX Font Info:    Trying to load font information for T1+aess on input line 2
-28.
+27.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/ae\t1aess.fd
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 )
@@ -1582,42 +1573,42 @@ Package microtype Info: Loading generic protrusion settings for font family
 <logo.png, id=12, 449.68pt x 303.1325pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 228.
+Package pdftex.def Info: logo.png  used on input line 227.
 (pdftex.def)             Requested size: 71.13188pt x 47.94713pt.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
-28.
+27.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-28.
+27.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-228.
+227.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-228.
+227.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 228.
+(Font)              <10> on input line 227.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 228.
+(Font)              <7> on input line 227.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 228.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 228
+(Font)              <5> on input line 227.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 227
 .
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 228
+LaTeX Font Info:    Trying to load font information for U+msb on input line 227
 .
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1625,27 +1616,27 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 2
-28.
+27.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
 
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 228.
+(Font)              using `U/stmry/m/n' instead on input line 227.
 
 LaTeX Font Info:    Trying to load font information for U+lasy on input line 22
-8.
+7.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Trying to load font information for TS1+aer on input line 2
-28.
-LaTeX Font Info:    No file TS1aer.fd. on input line 228.
+27.
+LaTeX Font Info:    No file TS1aer.fd. on input line 227.
 
 LaTeX Font Warning: Font shape `TS1/aer/m/n' undefined
 (Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textordfeminine' on input line 228.
+(Font)              for symbol `textordfeminine' on input line 227.
 
 
-Overfull \hbox (143.20795pt too wide) in paragraph at lines 228--228
+Overfull \hbox (134.30779pt too wide) in paragraph at lines 227--227
 []  
  []
 
@@ -1656,7 +1647,12 @@ presentacao.toc) [2
 
 ] [3
 
-] [4
+]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 284.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 284.
+[4
 
 ] [5
 
@@ -1668,142 +1664,204 @@ presentacao.toc) [2
 
 ] [9
 
+] [10
+
+] [11
+
+] [12
+
+] [13
+
+] [14
+
 ]
-<apresentacao_files/figure-beamer/unnamed-chunk-4-1.pdf, id=86, 722.7pt x 614.2
-95pt>
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 560.
+[15
+
+] [16
+
+] [17
+
+] [18
+
+]
+<apresentacao_files/figure-beamer/unnamed-chunk-4-1.pdf, id=163, 722.7pt x 614.
+295pt>
 File: apresentacao_files/figure-beamer/unnamed-chunk-4-1.pdf Graphic file (type
  pdf)
 <use apresentacao_files/figure-beamer/unnamed-chunk-4-1.pdf>
 Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-4-1.pdf
-  used on input line 307.
+  used on input line 672.
 (pdftex.def)             Requested size: 199.1693pt x 169.29251pt.
-[10
+[19
 
  <./apresentacao_files/figure-beamer/unnamed-chunk-4-1.pdf>]
-<apresentacao_files/figure-beamer/unnamed-chunk-9-1.pdf, id=108, 722.7pt x 289.
+<apresentacao_files/figure-beamer/unnamed-chunk-9-1.pdf, id=182, 722.7pt x 289.
 08pt>
 File: apresentacao_files/figure-beamer/unnamed-chunk-9-1.pdf Graphic file (type
  pdf)
 <use apresentacao_files/figure-beamer/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-9-1.pdf
-  used on input line 319.
+  used on input line 684.
 (pdftex.def)             Requested size: 398.3386pt x 159.33412pt.
-[11
+[20
 
  <./apresentacao_files/figure-beamer/unnamed-chunk-9-1.pdf>]
-<apresentacao_files/figure-beamer/unnamed-chunk-15-1.pdf, id=127, 722.7pt x 433
-.62pt>
+<apresentacao_files/figure-beamer/unnamed-chunk-15-1.pdf, id=201, 722.7pt x 505
+.89pt>
 File: apresentacao_files/figure-beamer/unnamed-chunk-15-1.pdf Graphic file (typ
 e pdf)
 <use apresentacao_files/figure-beamer/unnamed-chunk-15-1.pdf>
 Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-15-1.pd
-f  used on input line 392.
-(pdftex.def)             Requested size: 199.1693pt x 119.5006pt.
-<apresentacao_files/figure-beamer/unnamed-chunk-18-1.pdf, id=128, 722.7pt x 361
-.35pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-18-1.pdf Graphic file (typ
-e pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-18-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-18-1.pd
-f  used on input line 392.
-(pdftex.def)             Requested size: 199.1693pt x 99.58383pt.
+f  used on input line 772.
+(pdftex.def)             Requested size: 199.1693pt x 139.41736pt.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 772.
 
-Overfull \vbox (35.40268pt too high) detected at line 392
+Overfull \vbox (9.6603pt too high) detected at line 772
  []
 
-[12
+[21
 
- <./apresentacao_files/figure-beamer/unnamed-chunk-15-1.pdf> <./apresentacao_fi
-les/figure-beamer/unnamed-chunk-18-1.pdf>] [13
+ <./apresentacao_files/figure-beamer/unnamed-chunk-15-1.pdf>] [22
 
 ]
-<apresentacao_files/figure-beamer/unnamed-chunk-21-1.pdf, id=167, 722.7pt x 289
-.08pt>
+<apresentacao_files/figure-beamer/unnamed-chunk-21-1.pdf, id=230, 722.7pt x 325
+.215pt>
 File: apresentacao_files/figure-beamer/unnamed-chunk-21-1.pdf Graphic file (typ
 e pdf)
 <use apresentacao_files/figure-beamer/unnamed-chunk-21-1.pdf>
 Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-21-1.pd
-f  used on input line 429.
-(pdftex.def)             Requested size: 398.3386pt x 159.33412pt.
-[14
+f  used on input line 811.
+(pdftex.def)             Requested size: 398.3386pt x 179.2509pt.
+[23
 
- <./apresentacao_files/figure-beamer/unnamed-chunk-21-1.pdf>]
-<apresentacao_files/figure-beamer/unnamed-chunk-25-1.pdf, id=184, 722.7pt x 614
-.295pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-25-1.pdf Graphic file (typ
+ <./apresentacao_files/figure-beamer/unnamed-chunk-21-1.pdf>] [24
+
+]
+<apresentacao_files/figure-beamer/unnamed-chunk-24-1.pdf, id=255, 722.7pt x 274
+.02374pt>
+File: apresentacao_files/figure-beamer/unnamed-chunk-24-1.pdf Graphic file (typ
 e pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-25-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-25-1.pd
-f  used on input line 476.
-(pdftex.def)             Requested size: 199.1693pt x 169.29251pt.
-[15
+<use apresentacao_files/figure-beamer/unnamed-chunk-24-1.pdf>
+Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-24-1.pd
+f  used on input line 850.
+(pdftex.def)             Requested size: 398.3386pt x 151.03548pt.
+[25
 
- <./apresentacao_files/figure-beamer/unnamed-chunk-25-1.pdf>]
-<apresentacao_files/figure-beamer/unnamed-chunk-31-1.pdf, id=204, 722.7pt x 433
-.62pt>
+ <./apresentacao_files/figure-beamer/unnamed-chunk-24-1.pdf>]
+<apresentacao_files/figure-beamer/unnamed-chunk-28-1.pdf, id=273, 722.7pt x 614
+.295pt>
+File: apresentacao_files/figure-beamer/unnamed-chunk-28-1.pdf Graphic file (typ
+e pdf)
+<use apresentacao_files/figure-beamer/unnamed-chunk-28-1.pdf>
+Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-28-1.pd
+f  used on input line 900.
+(pdftex.def)             Requested size: 199.1693pt x 169.29251pt.
+[26
+
+ <./apresentacao_files/figure-beamer/unnamed-chunk-28-1.pdf>] [27
+
+]
+<apresentacao_files/figure-beamer/unnamed-chunk-31-1.pdf, id=299, 722.7pt x 325
+.215pt>
 File: apresentacao_files/figure-beamer/unnamed-chunk-31-1.pdf Graphic file (typ
 e pdf)
 <use apresentacao_files/figure-beamer/unnamed-chunk-31-1.pdf>
 Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-31-1.pd
-f  used on input line 550.
-(pdftex.def)             Requested size: 199.1693pt x 119.5006pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:smoothers
-_best_par_cenario1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.550 \end{frame}
-                 pdfTeX warning (ext4): destination with the same identifier (n
-ame{tab:tab_eqm_cenario2}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.550 \end{frame}
-                 
-<apresentacao_files/figure-beamer/unnamed-chunk-34-1.pdf, id=205, 722.7pt x 361
-.35pt>
+f  used on input line 938.
+(pdftex.def)             Requested size: 398.3386pt x 179.2509pt.
+[28
+
+ <./apresentacao_files/figure-beamer/unnamed-chunk-31-1.pdf>] [29
+
+]
+<apresentacao_files/figure-beamer/unnamed-chunk-34-1.pdf, id=324, 722.7pt x 266
+.9975pt>
 File: apresentacao_files/figure-beamer/unnamed-chunk-34-1.pdf Graphic file (typ
 e pdf)
 <use apresentacao_files/figure-beamer/unnamed-chunk-34-1.pdf>
 Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-34-1.pd
-f  used on input line 550.
-(pdftex.def)             Requested size: 199.1693pt x 99.58383pt.
-pdfTeX warning (ext4): destination with the same identifier (name{fig:smoothers
-_fit_bestloocv_cenario1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.550 \end{frame}
-                 
-Overfull \vbox (35.40268pt too high) detected at line 550
- []
+f  used on input line 977.
+(pdftex.def)             Requested size: 398.3386pt x 147.16277pt.
+[30
 
-[16
-
- <./apresentacao_files/figure-beamer/unnamed-chunk-31-1.pdf> <./apresentacao_fi
-les/figure-beamer/unnamed-chunk-34-1.pdf>]pdfTeX warning (ext4): destination wi
-th the same identifier (name{tab:tab_simulacao_namostras_cenario1}) has been al
-ready used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.575 \end{frame}
-                  [17
+ <./apresentacao_files/figure-beamer/unnamed-chunk-34-1.pdf>] [31
 
 ]
-<apresentacao_files/figure-beamer/unnamed-chunk-37-1.pdf, id=238, 722.7pt x 274
-.02374pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-37-1.pdf Graphic file (typ
+<apresentacao_files/figure-beamer/unnamed-chunk-36-1.pdf, id=348, 722.7pt x 289
+.08pt>
+File: apresentacao_files/figure-beamer/unnamed-chunk-36-1.pdf Graphic file (typ
 e pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-37-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-37-1.pd
-f  used on input line 587.
-(pdftex.def)             Requested size: 398.3386pt x 151.03548pt.
-[18
+<use apresentacao_files/figure-beamer/unnamed-chunk-36-1.pdf>
+Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-36-1.pd
+f  used on input line 1028.
+(pdftex.def)             Requested size: 199.1693pt x 79.66705pt.
+[32
 
- <./apresentacao_files/figure-beamer/unnamed-chunk-37-1.pdf>] [19
+ <./apresentacao_files/figure-beamer/unnamed-chunk-36-1.pdf>] [33
 
-] [20
+]
+<apresentacao_files/figure-beamer/unnamed-chunk-45-1.pdf, id=376, 722.7pt x 325
+.215pt>
+File: apresentacao_files/figure-beamer/unnamed-chunk-45-1.pdf Graphic file (typ
+e pdf)
+<use apresentacao_files/figure-beamer/unnamed-chunk-45-1.pdf>
+Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-45-1.pd
+f  used on input line 1121.
+(pdftex.def)             Requested size: 398.3386pt x 179.2509pt.
 
-] [21
+Overfull \vbox (17.2283pt too high) detected at line 1121
+ []
 
-] [22
+[34
+
+ <./apresentacao_files/figure-beamer/unnamed-chunk-45-1.pdf>]
+<apresentacao_files/figure-beamer/unnamed-chunk-47-1.pdf, id=394, 722.7pt x 289
+.08pt>
+File: apresentacao_files/figure-beamer/unnamed-chunk-47-1.pdf Graphic file (typ
+e pdf)
+<use apresentacao_files/figure-beamer/unnamed-chunk-47-1.pdf>
+Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-47-1.pd
+f  used on input line 1171.
+(pdftex.def)             Requested size: 199.1693pt x 79.66705pt.
+[35
+
+ <./apresentacao_files/figure-beamer/unnamed-chunk-47-1.pdf>]pdfTeX warning (ex
+t4): destination with the same identifier (name{tab:tab_eqm_aplicacao1}) has be
+en already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1251 \end{frame}
+                   [36
+
+]
+<apresentacao_files/figure-beamer/unnamed-chunk-57-1.pdf, id=421, 722.7pt x 325
+.215pt>
+File: apresentacao_files/figure-beamer/unnamed-chunk-57-1.pdf Graphic file (typ
+e pdf)
+<use apresentacao_files/figure-beamer/unnamed-chunk-57-1.pdf>
+Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-57-1.pd
+f  used on input line 1263.
+(pdftex.def)             Requested size: 398.3386pt x 179.2509pt.
+
+Overfull \vbox (6.2283pt too high) detected at line 1263
+ []
+
+[37
+
+ <./apresentacao_files/figure-beamer/unnamed-chunk-57-1.pdf>] [38
+
+] [39
+
+] [40
+
+] [41
+
+] [42
+
+] [43
 
 ]
 \tf@nav=\write5
@@ -1824,16 +1882,17 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33346 strings out of 478889
- 639411 string characters out of 2850833
- 1047234 words of memory out of 3000000
- 50015 multiletter control sequences out of 15000+600000
- 472891 words of font info for 258 fonts, out of 8000000 for 9000
+ 33874 strings out of 478889
+ 649445 string characters out of 2850833
+ 1054386 words of memory out of 3000000
+ 50282 multiletter control sequences out of 15000+600000
+ 522541 words of font info for 415 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,11n,124p,440b,920s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C
-:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C
-:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C
+ 128i,11n,124p,454b,922s stack positions out of 5000i,500n,10000p,200000b,80000s
+{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.en
+c}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.en
+c}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C
+:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}{C
 :/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-t
 s1.enc}<C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmb10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public
@@ -1841,19 +1900,36 @@ s/cm/cmb10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public
 1/public/amsfonts/cm/cmr12.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fo
 nts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/marco/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/marco/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/marco/AppData/Lo
-cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/marco/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users
-/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users
-/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/
-marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/ma
-rco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/ma
-rco/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pf
-b><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfr
-m1000.pfb>
-Output written on apresentacao.pdf (22 pages, 651633 bytes).
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/marco/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/marco/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/m
+arco/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C
+:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti
+10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmti9.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/lm/lmex10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/lm/lmmi10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/lm/lmmi12.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/lm/lmmi5.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/
+lm/lmmi6.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
+m/lmmi7.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm
+/lmmi8.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/
+lmmi9.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
+mr10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lm
+r5.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6
+.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.p
+fb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb
+><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><
+C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><
+C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C
+:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:
+/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy9.pfb><C:/
+Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/m
+sam10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-s
+uper/sfrm1000.pfb>
+Output written on apresentacao.pdf (43 pages, 1164440 bytes).
 PDF statistics:
- 379 PDF objects out of 1000 (max. 8388607)
- 88 named destinations out of 1000 (max. 500000)
- 96389 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 663 PDF objects out of 1000 (max. 8388607)
+ 172 named destinations out of 1000 (max. 500000)
+ 120980 words of extra memory for PDF output out of 128383 (max. 10000000)
 

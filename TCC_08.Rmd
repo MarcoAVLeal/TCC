@@ -271,7 +271,7 @@ onde os erros $\varepsilon$ são independentes com média zero e variância cons
 
 Os modelos aditivos mantêm muitas das boas propriedades dos modelos lineares. A título de exemplo, uma das vantagens de modelos lineares é sua simplicidade na interpretação: caso o interesse seja saber como a previsão muda conforme mudanças em $x_j$,  é necessário saber apenas o valor de $\beta_j$. Nota-se que a função de resposta parcial $f_j$ desempenha esse mesmo papel em um modelo aditivo, mas não  precisa ter necessariamente um comportamento linear. De certa forma, os modelos aditivos podem ser vistos como uma flexibilização do modelo de regressão linear.
 
-As funções $f_j$ devem ser estimadas por meio de suavizadores, que estimam uma tendênica menos variável e descreve sua dependência em relação à variável resposta. Algumas das técnicas mais conhecidas  para obter as estimativas suavizadas são: suavizador *bin*, média móvel, linha móvel, suavizador, *Loess* ou *Lowess*, de *Kernel* e  *Splines* de regressão (HASTIE E TIBSHIRANI,1990). De fato, a "suavização" de cada técnica supracitada depende da escolha (estimativa) do seu respectivo "parâmetro de suavização". Em algumas técnicas, por exemplo, dependendo do valor do parâmetro de suavização, pode-se ter uma reta estimada ou até uma interpolação dos dados. Em termos gerais, pode-se dizer que a variância e o viés na estimação/predição do modelo suavizado dependem do parâmetro suavizador. Este
+As funções $f_j$ devem ser estimadas por meio de suavizadores, que estimam uma tendência menos variável e descreve sua dependência em relação à variável resposta. Algumas das técnicas mais conhecidas  para obter as estimativas suavizadas são: suavizador *bin*, média móvel, linha móvel, suavizador, *Loess* ou *Lowess*, de *Kernel* e  *Splines* de regressão (HASTIE E TIBSHIRANI,1990). De fato, a "suavização" de cada técnica supracitada depende da escolha (estimativa) do seu respectivo "parâmetro de suavização". Em algumas técnicas, por exemplo, dependendo do valor do parâmetro de suavização, pode-se ter uma reta estimada ou até uma interpolação dos dados. Em termos gerais, pode-se dizer que a variância e o viés na estimação/predição do modelo suavizado dependem do parâmetro suavizador. Este
 problema é, de certa forma, análogo à questão de quantas variáveis preditoras colocar em uma equação de regressão.
 Logo, torna-se de suma importância, além do estudo comparativo das técnicas de suavização  no  ajuste em modelos aditivos no contexto não paramétrico, também a estimação do parâmetro suavizador de cada técnica. Adicionalmente, o estudo do desempenho na predição dessas técnicas também é pertinente partindo da hipótese prévia que nem sempre o melhor ajuste resulta em melhor poder preditivo.
 Dito isto, descreve-se a seguir os objetivos de estudo deste trabalho nesta direção.
@@ -2406,7 +2406,7 @@ y = dados$y
 
 
 
-```{r,fig.cap="\\label{fig:dispersao_aplicacao2}Gráfico de dispersão referente ao estudo de espansão térmica do cobre versus a temperatura em graus Kelvin.", fig.height=2.25}
+```{r,fig.cap="\\label{fig:dispersao_aplicacao2}Gráfico de dispersão referente ao preço mediano de casas versus o percentual de status baixos na população.", fig.height=2.25}
 
 #plot.curves(x = x1,y = y)
 plot.curves(x = dados$x,y = dados$y,labelx = "% de Status Baixo da População",labely = "Preço Mediano de Casas",title = NULL)
