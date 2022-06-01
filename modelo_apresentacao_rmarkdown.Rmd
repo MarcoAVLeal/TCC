@@ -1,0 +1,298 @@
+---
+output:
+  beamer_presentation:
+    toc: false
+keep_tex: no
+number_sections: false
+classoption: "aspectratio=169"
+fontsize: 10pt 
+lang: pt-br
+mainfont: Times New Roman
+sansfont: Times New Roman
+monofont: Times New Roman
+indent: true
+nocite: '@*'
+header-includes:
+  - \usepackage{geometry}
+  - \usepackage{graphicx}
+  - \usepackage[utf8]{inputenc}
+  - \usepackage{fancyhdr}
+  - \usepackage{ stmaryrd }
+  - \usepackage{eqnarray,amsmath}
+  - \usepackage{float}
+  - \usepackage{bm}
+  - \usepackage{amssymb,geometry,verbatim,graphics,subfigure,epsfig,setspace,amsmath,ae,float,multirow,latexsym,verbatim,float, pdflscape }
+  - \usepackage{scalefnt,longtable,setspace,multirow,amsfonts,amsthm} 
+  - \usepackage[singlelinecheck=off]{caption}
+  - \usepackage{color,array}
+  - \usepackage{hyperref,adjustbox}
+  - \usepackage[square,numbers]{natbib}
+  - \usepackage{bm}
+  - \usepackage{bm}
+  - \usepackage{tikz}
+  - \usepackage{booktabs}
+  - \usepackage{mdframed}
+  - \usepackage{stackrel}
+  - \usepackage{ragged2e}
+  - \usepackage{etoolbox}
+  - \usepackage{lipsum}
+  - \usepackage{multirow}
+  - \usepackage{multicol}
+  - \usepackage{booktabs}
+  - \usepackage{mdframed}
+  - \usepackage{bm}
+  - \usepackage{stackrel}
+---
+
+
+
+\definecolor{cor1}{RGB}{0,100,166}
+\definecolor{cor2}{RGB}{100,195,213}
+\definecolor{cor5}{RGB}{150,203,226}
+\definecolor{cor3}{RGB}{30,130,186}
+\definecolor{cor4}{RGB}{40,185,218}
+\definecolor{preto}{RGB}{0,0,0}
+\definecolor{branco}{RGB}{255,255,255}
+
+\setbeamercolor{paleta1}{fg=cor1,bg=white}
+\setbeamercolor{paleta2}{fg=cor1,bg=white}
+\setbeamercolor{estrutura}{fg=cor1,bg=white}
+\setbeamercolor{titulo_rodape}{fg=black,bg=white}
+\setbeamercolor{data_rodape}{fg=gray,bg=white}
+\setbeamercolor{frametitle}{fg=cor1,bg=branco}
+
+
+
+
+
+\defbeamertemplate*{title page}{mytheme}
+{
+  \begin{tikzpicture}[remember picture,overlay]
+    \filldraw[cor1]
+    (current page.north west) --
+    ([yshift=-12cm]current page.north west) --
+    ([xshift=-4cm,yshift=-12cm]current page.north east) {[rounded corners=15pt]--
+    ([xshift=-4cm,yshift=5cm]current page.south east)} --
+    ([yshift=5cm]current page.south west) --
+    (current page.south west) --
+    (current page.south east) --
+    (current page.north east) -- cycle
+    ;
+  \filldraw[branco]
+    (current page.north west) --
+    ([yshift=-2cm]current page.north west) --
+    ([xshift=-3cm,yshift=-2cm]current page.north east) {[rounded corners=15pt]--
+    ([xshift=-3cm,yshift=4.5cm]current page.south east)} --
+    ([yshift=4.5cm]current page.south west) --
+    (current page.south west) --
+    (current page.south east) --
+    (current page.north east) -- cycle
+    ;
+   
+    
+  
+  
+  \node[text=cor1,anchor=south west,font=\sffamily\small,text width=.75\paperwidth] 
+  at ([xshift=10pt,yshift=3.0cm]current page.west)
+  (title)
+  {\raggedright  Universidade Estadual de Maringá                     \\
+                 Departamento de Estatística                          \\
+                 Trabalho de Conclusão de Curso                         };  
+  
+  \node[anchor=east]
+  at ([xshift=-0.15cm,yshift=-0.75cm]current page.north east)
+  {\includegraphics[width=2.5cm]{logo.png}};
+  
+ 
+  \end{tikzpicture}
+
+
+
+
+\begin{titlepage} 
+
+\begin{flushleft}
+{ \vspace{0cm} \bf \Large Avaliação de métodos não paramétricos  para}\\[0.25cm]
+{\bf \Large  predição em modelos aditivos}\\[1.25cm]
+\end{flushleft}
+
+
+   \hspace{.0\textwidth} 
+   \begin{minipage}{.5\textwidth}
+    
+\begin{flushleft}
+\normalsize
+\begin{tabular}{lll}
+Orientador(ª): & \hspace{0.5em}  Profº Drº George Lucas Moraes Pezzott         &                \\ 
+Aluno(ª)    : & \hspace{0.6em}  Marco Aurelio Valles Leal   &  RA: 103159        
+               
+\end{tabular}
+\end{flushleft} 
+\end{minipage}
+
+
+\vfill
+\begin{center}
+{\normalsize	 Maringá, \today}\\[0.2cm]
+\end{center}
+\end{titlepage}
+
+\newpage
+
+
+```{r setup, include=FALSE}
+rm(list=ls())
+library(knitr)
+library(kableExtra)
+
+knitr::opts_chunk$set(echo       = FALSE,
+                      warning    = FALSE,
+                      message    = FALSE,
+                      out.width  = "100%",
+                      fig.align  = "center",
+                      size       = "large",
+                      fig.height = 2.5)
+```
+
+
+## Tabelas com R
+
+
+```{r,echo=FALSE}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+dados_final <- read.csv("dados_sim_final_cen1.csv",header = TRUE) 
+
+table_comp  <- tapply(X = dados_final$EQM_MIN,INDEX = dados_final$Tipo,FUN = table)
+
+table_mt          <- matrix(data = 0,nrow = 9,ncol = 4)
+df_comp           <- as.data.frame(table_mt)
+colnames(df_comp) <- c(1,2,3,4)
+
+
+for(i in 1:9){
+  ind = colnames(df_comp)%in% names(table_comp[[i]])
+  pos = which(ind)
+  df_comp[i,pos] <- table_comp[[i]]
+}
+
+df_comp_prop <- df_comp %>% 
+  mutate(
+    Kernel       = paste0(format(round(((`1`)/1000)*100,2),decimal.mark = ","),"%"),
+    Loess        = paste0(format(round(((`2`)/1000)*100,2),decimal.mark = ","),"%"),
+    `Sp. Reg. 1` = paste0(format(round(((`3`)/1000)*100,2),decimal.mark = ","),"%"),
+    `Sp. Reg. 3` = paste0(format(round(((`4`)/1000)*100,2),decimal.mark = ","),"%")
+    )
+
+
+df_leg <- data.frame(
+    `Sub-Cenário` = c(1:9),
+    Tamanho = c(150,150,150,250,250,250,350,350,350),
+    `Desvio Padrão` = c(0.5,1,2,0.5,1,2,0.5,1,2)
+    )
+
+df_comp_prop <- cbind(df_leg,df_comp_prop)
+df_tb        <- df_comp_prop[,c(1,2,3,8,9,10,11)]
+
+c_names         <- c("Sub-Cenário","Tamanho","Desvio Padrão", "Kernel","Loess","Sp. Reg. Linear","Sp. Reg. Cúbico")
+colnames(df_tb) <- c_names
+
+knitr::kable(x = df_tb,caption = "\\label{tab:tab_simulacao_namostras_cenario1} Percentual do Erro quadrático médio $EQM_{loocv}$ mínimo, obtidos por meio de aplicação do Procedimento 1, para seleção do melhor parâmetro de suavização,  considerando cada suavizador em 1000 amostras.",col.names = c_names)  %>%
+   kable_styling(latex_options = "scale_down")
+
+
+
+```
+
+
+
+## Exemplo de tabela utilizando um função personalizada da *kable*
+
+A função personalizado se encontra no próximo slide.
+
+```{r,echo=FALSE}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+kable_data <- function(data,cap,foot=" ",align="c",label=NULL,c_names = ""){
+library(kableExtra)
+
+data %>%
+kable(booktabs=T,caption = cap,col.names = c_names, align = align,label = label,format.args = list(decimal.mark = ',', big.mark = ".")) %>%
+add_footnote(foot) %>%
+kable_styling(full_width = F, latex_options = "hold_position") %>%
+row_spec(0, align = align ) %>%
+column_spec(1)
+
+}
+
+
+
+dados_final <- read.csv("dados_sim_final_cen1.csv",header = TRUE) 
+
+table_comp  <- tapply(X = dados_final$EQM_MIN,INDEX = dados_final$Tipo,FUN = table)
+
+table_mt          <- matrix(data = 0,nrow = 9,ncol = 4)
+df_comp           <- as.data.frame(table_mt)
+colnames(df_comp) <- c(1,2,3,4)
+
+
+for(i in 1:9){
+  ind = colnames(df_comp)%in% names(table_comp[[i]])
+  pos = which(ind)
+  df_comp[i,pos] <- table_comp[[i]]
+}
+
+df_comp_prop <- df_comp %>% 
+  mutate(
+    Kernel       = paste0(format(round(((`1`)/1000)*100,2),decimal.mark = ","),"%"),
+    Loess        = paste0(format(round(((`2`)/1000)*100,2),decimal.mark = ","),"%"),
+    `Sp. Reg. 1` = paste0(format(round(((`3`)/1000)*100,2),decimal.mark = ","),"%"),
+    `Sp. Reg. 3` = paste0(format(round(((`4`)/1000)*100,2),decimal.mark = ","),"%")
+    )
+
+
+df_leg <- data.frame(
+    `Sub-Cenário` = c(1:9),
+    Tamanho = c(150,150,150,250,250,250,350,350,350),
+    `Desvio Padrão` = c(0.5,1,2,0.5,1,2,0.5,1,2)
+    )
+
+df_comp_prop <- cbind(df_leg,df_comp_prop)
+df_tb        <- df_comp_prop[,c(1,2,3,8,9,10,11)]
+
+c_names         <- c("Sub-Cenário","Tamanho","Desvio Padrão", "Kernel","Loess","Sp. Reg. Linear","Sp. Reg. Cúbico")
+colnames(df_tb) <- c_names
+
+kable_data(data = df_tb ,cap = "\\label{tab:tab_simulacao_namostras_cenario1} Percentual do Erro quadrático médio $EQM_{loocv}$ mínimo, obtidos por meio de aplicação do Procedimento 1, para seleção do melhor parâmetro de suavização,  considerando cada suavizador em 1000 amostras.",foot = NULL,c_names = c_names)  %>%
+   kable_styling(latex_options = "scale_down")
+
+
+```
+
+
+
+## Função personalizada 
+
+
+```{r,echo=TRUE}
+
+kable_data <- function(data,cap,foot=" ",align="c",label=NULL,c_names = ""){
+library(kableExtra)
+
+data %>%
+kable(
+  booktabs=T,caption = cap,
+  col.names = c_names,
+  align = align,label = label,
+  format.args = list(decimal.mark = ',', big.mark = ".")) %>%
+add_footnote(foot) %>%
+kable_styling(full_width = F, latex_options = "hold_position") %>%
+row_spec(0, align = align ) %>%
+column_spec(1)
+
+}
+
+```

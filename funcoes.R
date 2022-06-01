@@ -514,15 +514,39 @@ plot_resvfit <- function(x,y,labelx="Eixo X",labely="Eixo Y", title="Gráfico de
 #   
 # }
 
-kable_data <- function(data,cap,foot=" ",align="c",label=NULL,c_names = ""){
+kable_data <- function(data,cap,foot=" ",align="c",escp = TRUE,label=NULL,c_names = "", row.spc = FALSE,line.spec = 0, col.spc = FALSE,colum.spec = 0){
   library(kableExtra)
+ if(isTRUE(row.spc)){
+   data %>%
+     kable(booktabs=T,caption = cap,escape = escp,col.names = c_names, align = align,label = label,format.args = list(decimal.mark = ',', big.mark = ".")) %>%
+     add_footnote(foot) %>%
+     kable_styling(full_width = F, latex_options = "hold_position") %>%
+     row_spec(0, align = align ) %>%
+     row_spec(row = line.spec,bold = T) %>%
+     column_spec(1)
+   
+   
+ }else if(isTRUE(col.spc)){
+   
+   data %>%
+     kable(booktabs=T,caption = cap,escape = escp,col.names = c_names, align = align,label = label,format.args = list(decimal.mark = ',', big.mark = ".")) %>%
+     add_footnote(foot) %>%
+     kable_styling(full_width = F, latex_options = "hold_position") %>%
+     row_spec(0, align = align ) %>%
+     column_spec(column = colum.spec,bold = T) %>%
+     column_spec(1)
+   
+ }else{
+   
+   data %>%
+     kable(booktabs=T,caption = cap,escape = escp,col.names = c_names, align = align,label = label,format.args = list(decimal.mark = ',', big.mark = ".")) %>%
+     add_footnote(foot) %>%
+     kable_styling(full_width = F, latex_options = "hold_position") %>%
+     row_spec(0, align = align ) %>%
+     column_spec(1)
+   
+ }
   
-  data %>%
-    kable(booktabs=T,caption = cap,col.names = c_names, align = align,label = label,format.args = list(decimal.mark = ',', big.mark = ".")) %>%
-    add_footnote(foot) %>%
-    kable_styling(full_width = F, latex_options = "hold_position") %>%
-    row_spec(0, align = align ) %>%
-    column_spec(1)
   
 }
 

@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.23)  10 MAY 2022 08:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.23)  10 MAY 2022 14:17
 entering extended mode
-**./apresentacao.tex
-(apresentacao.tex
+**./modelo_apresentacao_rmarkdown.tex
+(modelo_apresentacao_rmarkdown.tex
 LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-10-12> (C:\Users\marco\AppData\Local\Programs\MiKTeX
 \tex/latex/beamer\beamer.cls
@@ -824,19 +824,34 @@ Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-pdftex.def
 File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
 \BKM@id=\count337
-)) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.st
+)) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.st
 y
+Package: fancyvrb 2021/08/12 v3.8 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count338
+\FV@InFile=\read3
+\FV@TabBox=\box76
+\c@FancyVerbLine=\count339
+\FV@StepNumber=\count340
+\FV@OutFile=\write5
+) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip68
+\fb@frw=\dimen289
+\fb@frh=\dimen290
+\FrameRule=\dimen291
+\FrameSep=\dimen292
+) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
 rs
-\f@nch@headwidth=\skip68
-\f@nch@O@elh=\skip69
-\f@nch@O@erh=\skip70
-\f@nch@O@olh=\skip71
-\f@nch@O@orh=\skip72
-\f@nch@O@elf=\skip73
-\f@nch@O@erf=\skip74
-\f@nch@O@olf=\skip75
-\f@nch@O@orf=\skip76
+\f@nch@headwidth=\skip69
+\f@nch@O@elh=\skip70
+\f@nch@O@erh=\skip71
+\f@nch@O@olh=\skip72
+\f@nch@O@orh=\skip73
+\f@nch@O@elf=\skip74
+\f@nch@O@erf=\skip75
+\f@nch@O@olf=\skip76
+\f@nch@O@orf=\skip77
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\stmaryrd.sty
 Package: stmaryrd 1994/03/03 St Mary's Road symbol package
 \symstmry=\mathgroup6
@@ -847,22 +862,22 @@ equationarray 1.3 <December 1, 2010>
 Package: eqnarray 
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
-\col@sep=\dimen289
-\ar@mcellbox=\box76
-\extrarowheight=\dimen290
+\col@sep=\dimen293
+\ar@mcellbox=\box77
+\extrarowheight=\dimen294
 \NC@list=\toks48
-\extratabsurround=\skip77
-\backup@length=\skip78
-\ar@cellbox=\box77
+\extratabsurround=\skip78
+\backup@length=\skip79
+\ar@cellbox=\box78
 )
-\@eqargcnt=\count338
+\@eqargcnt=\count341
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count339
+\c@float@type=\count342
 \float@exts=\toks49
-\float@box=\box78
+\float@box=\box79
 \@float@everytoks=\toks50
-\@floatcapt=\box79
+\@floatcapt=\box80
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/tools\bm.sty
 Package: bm 2021/04/25 v1.2e Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup7
@@ -877,32 +892,32 @@ LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks51
 \verbatim@line=\toks52
-\verbatim@in@stream=\read3
+\verbatim@in@stream=\read4
 )
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/subfigure\subfigure.sty
 Package: subfigure 2002/07/30 v2.1.4 subfigure package
-\subfigtopskip=\skip79
-\subfigcapskip=\skip80
-\subfigcaptopadj=\dimen291
-\subfigbottomskip=\skip81
-\subfigcapmargin=\dimen292
-\subfiglabelskip=\skip82
-\c@subfigure=\count340
-\c@lofdepth=\count341
-\c@subtable=\count342
-\c@lotdepth=\count343
+\subfigtopskip=\skip80
+\subfigcapskip=\skip81
+\subfigcaptopadj=\dimen295
+\subfigbottomskip=\skip82
+\subfigcapmargin=\dimen296
+\subfiglabelskip=\skip83
+\c@subfigure=\count343
+\c@lofdepth=\count344
+\c@subtable=\count345
+\c@lotdepth=\count346
 ****************************************
 * Local config file subfigure.cfg used *
 ****************************************
 
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/subfigure\subfigure.cfg
 )
-\subfig@top=\skip83
-\subfig@bottom=\skip84
+\subfig@top=\skip84
+\subfig@bottom=\skip85
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/graphics\epsfig.sty
 Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
-\epsfxsize=\dimen293
-\epsfysize=\dimen294
+\epsfxsize=\dimen297
+\epsfysize=\dimen298
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/ae\ae.sty
@@ -916,10 +931,10 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.s
 ty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip85
-\multirow@cntb=\count344
-\multirow@dima=\skip86
-\bigstrutjot=\dimen295
+\multirow@colwidth=\skip86
+\multirow@cntb=\count347
+\multirow@dima=\skip87
+\bigstrutjot=\dimen299
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/base\latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup11
@@ -935,33 +950,33 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/tools\longtable.sty
 Package: longtable 2021-05-07 v4.16 Multi-page Table package (DPC)
-\LTleft=\skip87
-\LTright=\skip88
-\LTpre=\skip89
-\LTpost=\skip90
-\LTchunksize=\count345
-\LTcapwidth=\dimen296
-\LT@head=\box80
-\LT@firsthead=\box81
-\LT@foot=\box82
-\LT@lastfoot=\box83
-\LT@gbox=\box84
-\LT@cols=\count346
-\LT@rows=\count347
-\c@LT@tables=\count348
-\c@LT@chunks=\count349
+\LTleft=\skip88
+\LTright=\skip89
+\LTpre=\skip90
+\LTpost=\skip91
+\LTchunksize=\count348
+\LTcapwidth=\dimen300
+\LT@head=\box81
+\LT@firsthead=\box82
+\LT@foot=\box83
+\LT@lastfoot=\box84
+\LT@gbox=\box85
+\LT@cols=\count349
+\LT@rows=\count350
+\c@LT@tables=\count351
+\c@LT@chunks=\count352
 \LT@p@ftn=\toks53
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
-\captionmargin=\dimen297
-\captionmargin@=\dimen298
-\captionwidth=\dimen299
-\caption@tempdima=\dimen300
-\caption@indent=\dimen301
-\caption@parindent=\dimen302
-\caption@hangindent=\dimen303
+\captionmargin=\dimen301
+\captionmargin@=\dimen302
+\captionwidth=\dimen303
+\caption@tempdima=\dimen304
+\caption@indent=\dimen305
+\caption@parindent=\dimen306
+\caption@hangindent=\dimen307
 Package caption Info: beamer document class detected.
 
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption-beamer.
@@ -969,8 +984,8 @@ sto
 File: caption-beamer.sto 2020/08/22 v2.0 Adaption of the caption package to the
  beamer document classes (AR)
 ))
-\c@caption@flags=\count350
-\c@continuedfloat=\count351
+\c@caption@flags=\count353
+\c@continuedfloat=\count354
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: Hyperref support is turned off
@@ -990,7 +1005,7 @@ C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
 \XKV@toks=\toks54
 \XKV@tempa@toks=\toks55
 )
-\XKV@depth=\count352
+\XKV@depth=\count355
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjcalc.st
 y
@@ -1003,41 +1018,41 @@ Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\collectbox.s
 ty
 Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
-\collectedbox=\box85
+\collectedbox=\box86
 )
-\tc@llx=\dimen304
-\tc@lly=\dimen305
-\tc@urx=\dimen306
-\tc@ury=\dimen307
+\tc@llx=\dimen308
+\tc@lly=\dimen309
+\tc@urx=\dimen310
+\tc@ury=\dimen311
 Package trimclip Info: Using driver 'tc-pdftex.def'.
 
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-pdftex.def
 File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
 ))
-\adjbox@Width=\dimen308
-\adjbox@Height=\dimen309
-\adjbox@Depth=\dimen310
-\adjbox@Totalheight=\dimen311
-\adjbox@pwidth=\dimen312
-\adjbox@pheight=\dimen313
-\adjbox@pdepth=\dimen314
-\adjbox@ptotalheight=\dimen315
+\adjbox@Width=\dimen312
+\adjbox@Height=\dimen313
+\adjbox@Depth=\dimen314
+\adjbox@Totalheight=\dimen315
+\adjbox@pwidth=\dimen316
+\adjbox@pheight=\dimen317
+\adjbox@pdepth=\dimen318
+\adjbox@ptotalheight=\dimen319
 
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count353
+\c@checkoddpage=\count356
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box86
-\sift@deathcycles=\count354
-\@vwid@loff=\dimen316
-\@vwid@roff=\dimen317
+\@vwid@box=\box87
+\sift@deathcycles=\count357
+\@vwid@loff=\dimen320
+\@vwid@roff=\dimen321
 )) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip91
-\bibsep=\skip92
+\bibhang=\skip92
+\bibsep=\skip93
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count355
+\c@NAT@ctr=\count358
 )
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
 sty (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.
@@ -1047,7 +1062,7 @@ Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 shapes.code.tex
 File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfnodeparttextbox=\box87
+\pgfnodeparttextbox=\box88
 )
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 plot.code.tex
@@ -1056,8 +1071,8 @@ File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
 mp-version-0-65.sty
 Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@nodesepstart=\dimen318
-\pgf@nodesepend=\dimen319
+\pgf@nodesepstart=\dimen322
+\pgf@nodesepend=\dimen323
 )
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
 mp-version-1-18.sty
@@ -1078,8 +1093,8 @@ Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
 
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
 .tex)
-\pgffor@iter=\dimen320
-\pgffor@skip=\dimen321
+\pgffor@iter=\dimen324
+\pgffor@skip=\dimen325
 \pgffor@stack=\toks56
 \pgffor@toks=\toks57
 ))
@@ -1090,34 +1105,34 @@ Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
 aryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count356
-\pgfplotmarksize=\dimen322
+\pgf@plot@mark@count=\count359
+\pgfplotmarksize=\dimen326
 )
-\tikz@lastx=\dimen323
-\tikz@lasty=\dimen324
-\tikz@lastxsaved=\dimen325
-\tikz@lastysaved=\dimen326
-\tikz@lastmovetox=\dimen327
-\tikz@lastmovetoy=\dimen328
-\tikzleveldistance=\dimen329
-\tikzsiblingdistance=\dimen330
-\tikz@figbox=\box88
-\tikz@figbox@bg=\box89
-\tikz@tempbox=\box90
-\tikz@tempbox@bg=\box91
-\tikztreelevel=\count357
-\tikznumberofchildren=\count358
-\tikznumberofcurrentchild=\count359
-\tikz@fig@count=\count360
+\tikz@lastx=\dimen327
+\tikz@lasty=\dimen328
+\tikz@lastxsaved=\dimen329
+\tikz@lastysaved=\dimen330
+\tikz@lastmovetox=\dimen331
+\tikz@lastmovetoy=\dimen332
+\tikzleveldistance=\dimen333
+\tikzsiblingdistance=\dimen334
+\tikz@figbox=\box89
+\tikz@figbox@bg=\box90
+\tikz@tempbox=\box91
+\tikz@tempbox@bg=\box92
+\tikztreelevel=\count360
+\tikznumberofchildren=\count361
+\tikznumberofcurrentchild=\count362
+\tikz@fig@count=\count363
 
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
 matrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count361
-\pgfmatrixcurrentcolumn=\count362
-\pgf@matrix@numberofcolumns=\count363
+\pgfmatrixcurrentrow=\count364
+\pgfmatrixcurrentcolumn=\count365
+\pgf@matrix@numberofcolumns=\count366
 )
-\tikz@expandcount=\count364
+\tikz@expandcount=\count367
 
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
 z/libraries\tikzlibrarytopaths.code.tex
@@ -1125,23 +1140,23 @@ File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ))) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.s
 ty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen331
-\lightrulewidth=\dimen332
-\cmidrulewidth=\dimen333
-\belowrulesep=\dimen334
-\belowbottomsep=\dimen335
-\aboverulesep=\dimen336
-\abovetopsep=\dimen337
-\cmidrulesep=\dimen338
-\cmidrulekern=\dimen339
-\defaultaddspace=\dimen340
-\@cmidla=\count365
-\@cmidlb=\count366
-\@aboverulesep=\dimen341
-\@belowrulesep=\dimen342
-\@thisruleclass=\count367
-\@lastruleclass=\count368
-\@thisrulewidth=\dimen343
+\heavyrulewidth=\dimen335
+\lightrulewidth=\dimen336
+\cmidrulewidth=\dimen337
+\belowrulesep=\dimen338
+\belowbottomsep=\dimen339
+\aboverulesep=\dimen340
+\abovetopsep=\dimen341
+\cmidrulesep=\dimen342
+\cmidrulekern=\dimen343
+\defaultaddspace=\dimen344
+\@cmidla=\count368
+\@cmidlb=\count369
+\@aboverulesep=\dimen345
+\@belowrulesep=\dimen346
+\@thisruleclass=\count370
+\@lastruleclass=\count371
+\@thisrulewidth=\dimen347
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/mdframed\mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
 
@@ -1153,8 +1168,8 @@ Package: expl3 2021-10-12 L3 programming layer (loader)
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2021-10-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count369
-\l__pdf_internal_box=\box92
+\l__color_backend_stack_int=\count372
+\l__pdf_internal_box=\box93
 ))
 Package: xparse 2021-08-27 L3 Experimental document command parser
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/zref\zref-abspage.sty
@@ -1165,152 +1180,151 @@ Package zref Info: New property list: main on input line 764.
 Package zref Info: New property: default on input line 765.
 Package zref Info: New property: page on input line 766.
 )
-\c@abspage=\count370
+\c@abspage=\count373
 Package zref Info: New property: abspage on input line 66.
 )
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/needspace\needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
-\mdf@templength=\skip93
-\c@mdf@globalstyle@cnt=\count371
-\mdf@skipabove@length=\skip94
-\mdf@skipbelow@length=\skip95
-\mdf@leftmargin@length=\skip96
-\mdf@rightmargin@length=\skip97
-\mdf@innerleftmargin@length=\skip98
-\mdf@innerrightmargin@length=\skip99
-\mdf@innertopmargin@length=\skip100
-\mdf@innerbottommargin@length=\skip101
-\mdf@splittopskip@length=\skip102
-\mdf@splitbottomskip@length=\skip103
-\mdf@outermargin@length=\skip104
-\mdf@innermargin@length=\skip105
-\mdf@linewidth@length=\skip106
-\mdf@innerlinewidth@length=\skip107
-\mdf@middlelinewidth@length=\skip108
-\mdf@outerlinewidth@length=\skip109
-\mdf@roundcorner@length=\skip110
-\mdf@footenotedistance@length=\skip111
-\mdf@userdefinedwidth@length=\skip112
-\mdf@needspace@length=\skip113
-\mdf@frametitleaboveskip@length=\skip114
-\mdf@frametitlebelowskip@length=\skip115
-\mdf@frametitlerulewidth@length=\skip116
-\mdf@frametitleleftmargin@length=\skip117
-\mdf@frametitlerightmargin@length=\skip118
-\mdf@shadowsize@length=\skip119
-\mdf@extratopheight@length=\skip120
-\mdf@subtitleabovelinewidth@length=\skip121
-\mdf@subtitlebelowlinewidth@length=\skip122
-\mdf@subtitleaboveskip@length=\skip123
-\mdf@subtitlebelowskip@length=\skip124
-\mdf@subtitleinneraboveskip@length=\skip125
-\mdf@subtitleinnerbelowskip@length=\skip126
-\mdf@subsubtitleabovelinewidth@length=\skip127
-\mdf@subsubtitlebelowlinewidth@length=\skip128
-\mdf@subsubtitleaboveskip@length=\skip129
-\mdf@subsubtitlebelowskip@length=\skip130
-\mdf@subsubtitleinneraboveskip@length=\skip131
-\mdf@subsubtitleinnerbelowskip@length=\skip132
+\mdf@templength=\skip94
+\c@mdf@globalstyle@cnt=\count374
+\mdf@skipabove@length=\skip95
+\mdf@skipbelow@length=\skip96
+\mdf@leftmargin@length=\skip97
+\mdf@rightmargin@length=\skip98
+\mdf@innerleftmargin@length=\skip99
+\mdf@innerrightmargin@length=\skip100
+\mdf@innertopmargin@length=\skip101
+\mdf@innerbottommargin@length=\skip102
+\mdf@splittopskip@length=\skip103
+\mdf@splitbottomskip@length=\skip104
+\mdf@outermargin@length=\skip105
+\mdf@innermargin@length=\skip106
+\mdf@linewidth@length=\skip107
+\mdf@innerlinewidth@length=\skip108
+\mdf@middlelinewidth@length=\skip109
+\mdf@outerlinewidth@length=\skip110
+\mdf@roundcorner@length=\skip111
+\mdf@footenotedistance@length=\skip112
+\mdf@userdefinedwidth@length=\skip113
+\mdf@needspace@length=\skip114
+\mdf@frametitleaboveskip@length=\skip115
+\mdf@frametitlebelowskip@length=\skip116
+\mdf@frametitlerulewidth@length=\skip117
+\mdf@frametitleleftmargin@length=\skip118
+\mdf@frametitlerightmargin@length=\skip119
+\mdf@shadowsize@length=\skip120
+\mdf@extratopheight@length=\skip121
+\mdf@subtitleabovelinewidth@length=\skip122
+\mdf@subtitlebelowlinewidth@length=\skip123
+\mdf@subtitleaboveskip@length=\skip124
+\mdf@subtitlebelowskip@length=\skip125
+\mdf@subtitleinneraboveskip@length=\skip126
+\mdf@subtitleinnerbelowskip@length=\skip127
+\mdf@subsubtitleabovelinewidth@length=\skip128
+\mdf@subsubtitlebelowlinewidth@length=\skip129
+\mdf@subsubtitleaboveskip@length=\skip130
+\mdf@subsubtitlebelowskip@length=\skip131
+\mdf@subsubtitleinneraboveskip@length=\skip132
+\mdf@subsubtitleinnerbelowskip@length=\skip133
 
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/mdframed\md-frame-0.mdf
 File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 )
-\mdf@frametitlebox=\box93
-\mdf@footnotebox=\box94
-\mdf@splitbox@one=\box95
-\mdf@splitbox@two=\box96
-\mdf@splitbox@save=\box97
-\mdfsplitboxwidth=\skip133
-\mdfsplitboxtotalwidth=\skip134
-\mdfsplitboxheight=\skip135
-\mdfsplitboxdepth=\skip136
-\mdfsplitboxtotalheight=\skip137
-\mdfframetitleboxwidth=\skip138
-\mdfframetitleboxtotalwidth=\skip139
-\mdfframetitleboxheight=\skip140
-\mdfframetitleboxdepth=\skip141
-\mdfframetitleboxtotalheight=\skip142
-\mdffootnoteboxwidth=\skip143
-\mdffootnoteboxtotalwidth=\skip144
-\mdffootnoteboxheight=\skip145
-\mdffootnoteboxdepth=\skip146
-\mdffootnoteboxtotalheight=\skip147
-\mdftotallinewidth=\skip148
-\mdfboundingboxwidth=\skip149
-\mdfboundingboxtotalwidth=\skip150
-\mdfboundingboxheight=\skip151
-\mdfboundingboxdepth=\skip152
-\mdfboundingboxtotalheight=\skip153
-\mdf@freevspace@length=\skip154
-\mdf@horizontalwidthofbox@length=\skip155
-\mdf@verticalmarginwhole@length=\skip156
-\mdf@horizontalspaceofbox=\skip157
-\mdfsubtitleheight=\skip158
-\mdfsubsubtitleheight=\skip159
-\c@mdfcountframes=\count372
+\mdf@frametitlebox=\box94
+\mdf@footnotebox=\box95
+\mdf@splitbox@one=\box96
+\mdf@splitbox@two=\box97
+\mdf@splitbox@save=\box98
+\mdfsplitboxwidth=\skip134
+\mdfsplitboxtotalwidth=\skip135
+\mdfsplitboxheight=\skip136
+\mdfsplitboxdepth=\skip137
+\mdfsplitboxtotalheight=\skip138
+\mdfframetitleboxwidth=\skip139
+\mdfframetitleboxtotalwidth=\skip140
+\mdfframetitleboxheight=\skip141
+\mdfframetitleboxdepth=\skip142
+\mdfframetitleboxtotalheight=\skip143
+\mdffootnoteboxwidth=\skip144
+\mdffootnoteboxtotalwidth=\skip145
+\mdffootnoteboxheight=\skip146
+\mdffootnoteboxdepth=\skip147
+\mdffootnoteboxtotalheight=\skip148
+\mdftotallinewidth=\skip149
+\mdfboundingboxwidth=\skip150
+\mdfboundingboxtotalwidth=\skip151
+\mdfboundingboxheight=\skip152
+\mdfboundingboxdepth=\skip153
+\mdfboundingboxtotalheight=\skip154
+\mdf@freevspace@length=\skip155
+\mdf@horizontalwidthofbox@length=\skip156
+\mdf@verticalmarginwhole@length=\skip157
+\mdf@horizontalspaceofbox=\skip158
+\mdfsubtitleheight=\skip159
+\mdfsubsubtitleheight=\skip160
+\c@mdfcountframes=\count375
 
 ****** mdframed patching \endmdf@trivlist
 
 ****** -- failed******
 
-\mdf@envdepth=\count373
-\c@mdf@env@i=\count374
-\c@mdf@env@ii=\count375
-\c@mdf@zref@counter=\count376
+\mdf@envdepth=\count376
+\c@mdf@env@i=\count377
+\c@mdf@env@ii=\count378
+\c@mdf@zref@counter=\count379
 Package zref Info: New property: mdf@pagevalue on input line 895.
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/oberdiek\stackrel.sty
 Package: stackrel 2016/05/16 v1.3 Adding subscript option to stackrel (HO)
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
 Package: ragged2e 2021/02/05 v3.0 ragged2e Package
-\CenteringLeftskip=\skip160
-\RaggedLeftLeftskip=\skip161
-\RaggedRightLeftskip=\skip162
-\CenteringRightskip=\skip163
-\RaggedLeftRightskip=\skip164
-\RaggedRightRightskip=\skip165
-\CenteringParfillskip=\skip166
-\RaggedLeftParfillskip=\skip167
-\RaggedRightParfillskip=\skip168
-\JustifyingParfillskip=\skip169
-\CenteringParindent=\skip170
-\RaggedLeftParindent=\skip171
-\RaggedRightParindent=\skip172
-\JustifyingParindent=\skip173
+\CenteringLeftskip=\skip161
+\RaggedLeftLeftskip=\skip162
+\RaggedRightLeftskip=\skip163
+\CenteringRightskip=\skip164
+\RaggedLeftRightskip=\skip165
+\RaggedRightRightskip=\skip166
+\CenteringParfillskip=\skip167
+\RaggedLeftParfillskip=\skip168
+\RaggedRightParfillskip=\skip169
+\JustifyingParfillskip=\skip170
+\CenteringParindent=\skip171
+\RaggedLeftParindent=\skip172
+\RaggedRightParindent=\skip173
+\JustifyingParindent=\skip174
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3k
 eys2e.sty
 Package: l3keys2e 2021-08-27 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count377
-\l__lipsum_a_int=\count378
-\l__lipsum_b_int=\count379
+\g__lipsum_par_int=\count380
+\l__lipsum_a_int=\count381
+\l__lipsum_b_int=\count382
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex))
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
 Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
-\c@tracingmulticols=\count380
-\mult@box=\box98
-\multicol@leftmargin=\dimen344
-\c@unbalance=\count381
-\c@collectmore=\count382
-\doublecol@number=\count383
-\multicoltolerance=\count384
-\multicolpretolerance=\count385
-\full@width=\dimen345
-\page@free=\dimen346
-\premulticols=\dimen347
-\postmulticols=\dimen348
-\multicolsep=\skip174
-\multicolbaselineskip=\skip175
-\partial@page=\box99
-\last@line=\box100
-\maxbalancingoverflow=\dimen349
-\mult@rightbox=\box101
-\mult@grightbox=\box102
-\mult@gfirstbox=\box103
-\mult@firstbox=\box104
-\@tempa=\box105
+\c@tracingmulticols=\count383
+\mult@box=\box99
+\multicol@leftmargin=\dimen348
+\c@unbalance=\count384
+\c@collectmore=\count385
+\doublecol@number=\count386
+\multicoltolerance=\count387
+\multicolpretolerance=\count388
+\full@width=\dimen349
+\page@free=\dimen350
+\premulticols=\dimen351
+\postmulticols=\dimen352
+\multicolsep=\skip175
+\multicolbaselineskip=\skip176
+\partial@page=\box100
+\last@line=\box101
+\maxbalancingoverflow=\dimen353
+\mult@rightbox=\box102
+\mult@grightbox=\box103
+\mult@gfirstbox=\box104
+\mult@firstbox=\box105
 \@tempa=\box106
 \@tempa=\box107
 \@tempa=\box108
@@ -1347,24 +1361,25 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \@tempa=\box139
 \@tempa=\box140
 \@tempa=\box141
-\c@minrows=\count386
-\c@columnbadness=\count387
-\c@finalcolumnbadness=\count388
-\last@try=\dimen350
-\multicolovershoot=\dimen351
-\multicolundershoot=\dimen352
-\mult@nat@firstbox=\box142
-\colbreak@box=\box143
-\mc@col@check@num=\count389
+\@tempa=\box142
+\c@minrows=\count389
+\c@columnbadness=\count390
+\c@finalcolumnbadness=\count391
+\last@try=\dimen354
+\multicolovershoot=\dimen355
+\multicolundershoot=\dimen356
+\mult@nat@firstbox=\box143
+\colbreak@box=\box144
+\mc@col@check@num=\count392
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
 Package: babel 2021/10/13 3.64 The Babel package
-\babel@savecnt=\count390
-\U@D=\dimen353
+\babel@savecnt=\count393
+\U@D=\dimen357
 \l@unhyphenated=\language84
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
-\bbl@readstream=\read4
+\bbl@readstream=\read5
 LaTeX Info: Redefining \textlatin on input line 3944.
-\bbl@dirlevel=\count391
+\bbl@dirlevel=\count394
 *************************************
 * Local config file bblopts.cfg used
 *
@@ -1383,35 +1398,35 @@ Package babel Info: Making " an active character on input line 143.
 n.ldf
 Language: portuges 2021/07/09 v1.2t Portuguese support from the babel system
 ))
-LaTeX Font Info:    Trying to load font information for T1+aer on input line 12
+LaTeX Font Info:    Trying to load font information for T1+aer on input line 16
 9.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/ae\t1aer.fd
 File: t1aer.fd 1997/11/16 Font definitions for T1/aer.
-) (apresentacao.aux
+) (modelo_apresentacao_rmarkdown.aux
 
-LaTeX Warning: Label `tab:tab_eqm_aplicacao1' multiply defined.
+LaTeX Warning: Label `tab:tab_simulacao_namostras_cenario1' multiply defined.
 
 )
-\openout1 = `apresentacao.aux'.
+\openout1 = `modelo_apresentacao_rmarkdown.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 169.
+LaTeX Font Info:    ... okay on input line 169.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1450,16 +1465,16 @@ LaTeX Font Info:    ... okay on input line 129.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count392
-\scratchdimen=\dimen354
-\scratchbox=\box144
-\nofMPsegments=\count393
-\nofMParguments=\count394
+\scratchcounter=\count395
+\scratchdimen=\dimen358
+\scratchbox=\box145
+\nofMPsegments=\count396
+\nofMParguments=\count397
 \everyMPshowfont=\toks58
-\MPscratchCnt=\count395
-\MPscratchDim=\dimen355
-\MPnumerator=\count396
-\makeMPintoPDFobject=\count397
+\MPscratchCnt=\count398
+\MPscratchDim=\dimen359
+\MPnumerator=\count399
+\makeMPintoPDFobject=\count400
 \everyMPtoPDFconversion=\toks59
 )
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -1479,7 +1494,7 @@ G,.JBIG2,.JB2,.eps]
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 129.
+Package hyperref Info: Link coloring OFF on input line 169.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
@@ -1489,11 +1504,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 lestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count398
+\c@section@level=\count401
 )
-LaTeX Info: Redefining \ref on input line 129.
-LaTeX Info: Redefining \pageref on input line 129.
-LaTeX Info: Redefining \nameref on input line 129.
+LaTeX Info: Redefining \ref on input line 169.
+LaTeX Info: Redefining \pageref on input line 169.
+LaTeX Info: Redefining \nameref on input line 169.
 
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator-b
 asic-dictionary-English.dict
@@ -1543,14 +1558,14 @@ Dictionary: translator-theorem-dictionary, Language: English
 heorem-dictionary-Portuguese.dict
 Dictionary: translator-theorem-dictionary, Language: portuguese 
 )
-LaTeX Info: Redefining \microtypecontext on input line 129.
+LaTeX Info: Redefining \microtypecontext on input line 169.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 129.
+LaTeX Info: Redefining \showhyphens on input line 169.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1560,9 +1575,9 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-(apresentacao.nav)
+(modelo_apresentacao_rmarkdown.nav)
 LaTeX Font Info:    Trying to load font information for T1+aess on input line 2
-27.
+59.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/ae\t1aess.fd
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 )
@@ -1573,42 +1588,42 @@ Package microtype Info: Loading generic protrusion settings for font family
 <logo.png, id=12, 449.68pt x 303.1325pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
-Package pdftex.def Info: logo.png  used on input line 227.
+Package pdftex.def Info: logo.png  used on input line 259.
 (pdftex.def)             Requested size: 71.13188pt x 47.94713pt.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
-27.
+59.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-27.
+59.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-227.
+259.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-227.
+259.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 227.
+(Font)              <10> on input line 259.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 227.
+(Font)              <7> on input line 259.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 227.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 227
+(Font)              <5> on input line 259.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 259
 .
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 227
+LaTeX Font Info:    Trying to load font information for U+msb on input line 259
 .
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1616,263 +1631,80 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 2
-27.
+59.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
 
 LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
-(Font)              using `U/stmry/m/n' instead on input line 227.
+(Font)              using `U/stmry/m/n' instead on input line 259.
 
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 22
-7.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 25
+9.
 (C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 LaTeX Font Info:    Trying to load font information for TS1+aer on input line 2
-27.
-LaTeX Font Info:    No file TS1aer.fd. on input line 227.
+59.
+LaTeX Font Info:    No file TS1aer.fd. on input line 259.
 
 LaTeX Font Warning: Font shape `TS1/aer/m/n' undefined
 (Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textordfeminine' on input line 227.
+(Font)              for symbol `textordfeminine' on input line 259.
 
 
-Overfull \hbox (134.30779pt too wide) in paragraph at lines 227--227
+Overfull \hbox (134.30779pt too wide) in paragraph at lines 259--259
 []  
  []
 
 [1
 
-{C:/Users/marco/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./logo.png>] (a
-presentacao.toc) [2
-
-] [3
-
-]
+{C:/Users/marco/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./logo.png>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 281.
+(Font)              <9> on input line 292.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 281.
-[4
+(Font)              <6> on input line 292.
+[2
 
-] [5
-
-] [6
-
-] [7
-
-] [8
-
-] [9
-
-]
-LaTeX Font Info:    Font shape `T1/aer/b/it' in size <10> not available
-(Font)              Font shape `T1/aer/bx/it' tried instead on input line 419.
-[10
-
-] [11
-
-] [12
-
-]
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 536.
-[13
-
-] [14
-
-] [15
-
-] [16
-
-]
-<apresentacao_files/figure-beamer/unnamed-chunk-4-1.pdf, id=149, 722.7pt x 614.
-295pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-4-1.pdf Graphic file (type
- pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-4-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-4-1.pdf
-  used on input line 648.
-(pdftex.def)             Requested size: 199.1693pt x 169.29251pt.
-[17
-
- <./apresentacao_files/figure-beamer/unnamed-chunk-4-1.pdf>]
-<apresentacao_files/figure-beamer/unnamed-chunk-9-1.pdf, id=167, 722.7pt x 289.
-08pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-9-1.pdf Graphic file (type
- pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-9-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-9-1.pdf
-  used on input line 660.
-(pdftex.def)             Requested size: 398.3386pt x 159.33412pt.
-[18
-
- <./apresentacao_files/figure-beamer/unnamed-chunk-9-1.pdf>]
-<apresentacao_files/figure-beamer/unnamed-chunk-15-1.pdf, id=186, 722.7pt x 505
-.89pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-15-1.pdf Graphic file (typ
-e pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-15-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-15-1.pd
-f  used on input line 748.
-(pdftex.def)             Requested size: 199.1693pt x 139.41736pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 748.
-
-Overfull \vbox (9.6603pt too high) detected at line 748
- []
-
-[19
-
- <./apresentacao_files/figure-beamer/unnamed-chunk-15-1.pdf>] [20
-
-]
-<apresentacao_files/figure-beamer/unnamed-chunk-21-1.pdf, id=216, 722.7pt x 325
-.215pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-21-1.pdf Graphic file (typ
-e pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-21-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-21-1.pd
-f  used on input line 787.
-(pdftex.def)             Requested size: 398.3386pt x 179.2509pt.
-[21
-
- <./apresentacao_files/figure-beamer/unnamed-chunk-21-1.pdf>] [22
-
-]
-<apresentacao_files/figure-beamer/unnamed-chunk-24-1.pdf, id=241, 722.7pt x 274
-.02374pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-24-1.pdf Graphic file (typ
-e pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-24-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-24-1.pd
-f  used on input line 826.
-(pdftex.def)             Requested size: 398.3386pt x 151.03548pt.
-[23
-
- <./apresentacao_files/figure-beamer/unnamed-chunk-24-1.pdf>]
-<apresentacao_files/figure-beamer/unnamed-chunk-28-1.pdf, id=258, 722.7pt x 614
-.295pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-28-1.pdf Graphic file (typ
-e pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-28-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-28-1.pd
-f  used on input line 876.
-(pdftex.def)             Requested size: 199.1693pt x 169.29251pt.
-[24
-
- <./apresentacao_files/figure-beamer/unnamed-chunk-28-1.pdf>] [25
-
-]
-<apresentacao_files/figure-beamer/unnamed-chunk-31-1.pdf, id=285, 722.7pt x 325
-.215pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-31-1.pdf Graphic file (typ
-e pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-31-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-31-1.pd
-f  used on input line 914.
-(pdftex.def)             Requested size: 398.3386pt x 179.2509pt.
-[26
-
- <./apresentacao_files/figure-beamer/unnamed-chunk-31-1.pdf>] [27
-
-]
-<apresentacao_files/figure-beamer/unnamed-chunk-34-1.pdf, id=310, 722.7pt x 266
-.9975pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-34-1.pdf Graphic file (typ
-e pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-34-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-34-1.pd
-f  used on input line 953.
-(pdftex.def)             Requested size: 398.3386pt x 147.16277pt.
-[28
-
- <./apresentacao_files/figure-beamer/unnamed-chunk-34-1.pdf>] [29
-
-]
-<apresentacao_files/figure-beamer/unnamed-chunk-36-1.pdf, id=333, 722.7pt x 289
-.08pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-36-1.pdf Graphic file (typ
-e pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-36-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-36-1.pd
-f  used on input line 1004.
-(pdftex.def)             Requested size: 199.1693pt x 79.66705pt.
-[30
-
- <./apresentacao_files/figure-beamer/unnamed-chunk-36-1.pdf>] [31
-
-]
-<apresentacao_files/figure-beamer/unnamed-chunk-45-1.pdf, id=362, 722.7pt x 325
-.215pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-45-1.pdf Graphic file (typ
-e pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-45-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-45-1.pd
-f  used on input line 1097.
-(pdftex.def)             Requested size: 398.3386pt x 179.2509pt.
-
-Overfull \vbox (17.2283pt too high) detected at line 1097
- []
-
-[32
-
- <./apresentacao_files/figure-beamer/unnamed-chunk-45-1.pdf>]
-<apresentacao_files/figure-beamer/unnamed-chunk-47-1.pdf, id=380, 722.7pt x 289
-.08pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-47-1.pdf Graphic file (typ
-e pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-47-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-47-1.pd
-f  used on input line 1147.
-(pdftex.def)             Requested size: 199.1693pt x 79.66705pt.
-[33
-
- <./apresentacao_files/figure-beamer/unnamed-chunk-47-1.pdf>]pdfTeX warning (ex
-t4): destination with the same identifier (name{tab:tab_eqm_aplicacao1}) has be
-en already used, duplicate ignored
+]pdfTeX warning (ext4): destination with the same identifier (name{tab:tab_simu
+lacao_namostras_cenario1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1227 \end{frame}
-                   [34
+l.321 \end{frame}
+                  [3
 
 ]
-<apresentacao_files/figure-beamer/unnamed-chunk-57-1.pdf, id=407, 722.7pt x 325
-.215pt>
-File: apresentacao_files/figure-beamer/unnamed-chunk-57-1.pdf Graphic file (typ
-e pdf)
-<use apresentacao_files/figure-beamer/unnamed-chunk-57-1.pdf>
-Package pdftex.def Info: apresentacao_files/figure-beamer/unnamed-chunk-57-1.pd
-f  used on input line 1239.
-(pdftex.def)             Requested size: 398.3386pt x 179.2509pt.
+\openout4 = `modelo_apresentacao_rmarkdown.vrb'.
 
-Overfull \vbox (6.2283pt too high) detected at line 1239
- []
+(modelo_apresentacao_rmarkdown.vrb
+LaTeX Font Info:    Trying to load font information for T1+aett on input line 4
+.
+(C:\Users\marco\AppData\Local\Programs\MiKTeX\tex/latex/ae\t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+)
 
-[35
+LaTeX Font Warning: Font shape `T1/aett/b/n' undefined
+(Font)              using `T1/aett/m/n' instead on input line 5.
 
- <./apresentacao_files/figure-beamer/unnamed-chunk-57-1.pdf>] [36
+LaTeX Font Info:    Trying to load font information for TS1+aett on input line 
+13.
+LaTeX Font Info:    No file TS1aett.fd. on input line 13.
 
-] [37
+LaTeX Font Warning: Font shape `TS1/aett/m/n' undefined
+(Font)              using `TS1/cmr/m/n' instead
+(Font)              for symbol `textquotesingle' on input line 13.
 
-] [38
-
-] [39
-
-] [40
-
-] [41
+) [4
 
 ]
-\tf@nav=\write5
-\openout5 = `apresentacao.nav'.
+\tf@nav=\write6
+\openout6 = `modelo_apresentacao_rmarkdown.nav'.
 
-\tf@toc=\write6
-\openout6 = `apresentacao.toc'.
+\tf@toc=\write7
+\openout7 = `modelo_apresentacao_rmarkdown.toc'.
 
-\tf@snm=\write7
-\openout7 = `apresentacao.snm'.
+\tf@snm=\write8
+\openout8 = `modelo_apresentacao_rmarkdown.snm'.
 
-(apresentacao.aux)
+(modelo_apresentacao_rmarkdown.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1881,52 +1713,31 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33908 strings out of 478889
- 649734 string characters out of 2850833
- 1054283 words of memory out of 3000000
- 50283 multiletter control sequences out of 15000+600000
- 529537 words of font info for 439 fonts, out of 8000000 for 9000
+ 33490 strings out of 478889
+ 638981 string characters out of 2850833
+ 1056830 words of memory out of 3000000
+ 50343 multiletter control sequences out of 15000+600000
+ 478138 words of font info for 187 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,11n,124p,454b,922s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 128i,11n,124p,457b,790s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.en
-c}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.en
-c}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C
-:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}{C
-:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-t
-s1.enc}<C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmb10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmbxti10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/marco/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/marco/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/marco/AppDat
-a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/marco
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/User
-s/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb>
-<C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmti10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmti9.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/lm/lmex10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/lm/lmmi10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/lm/lmmi12.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/lm/lmmi6.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/lm/lmmi7.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/lm/lmmi8.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/lm/lmmi9.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/lm/lmr10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/lm/lmr6.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/lm/lmr7.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/lm/lmr8.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/lm/lmr9.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
-m/lmsy10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
-m/lmsy8.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm
-/lmsy9.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/symbols/msam10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/cm-super/sfrm1000.pfb>
-Output written on apresentacao.pdf (41 pages, 1146152 bytes).
+c}{C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-sup
+er-ts1.enc}<C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmb10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb><C:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmr12.pfb><C:/Users/marco/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/marco/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/marco/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/marco/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/m
+arco/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C
+:/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:
+/Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/
+Users/marco/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1000.
+pfb>
+Output written on modelo_apresentacao_rmarkdown.pdf (4 pages, 175400 bytes).
 PDF statistics:
- 639 PDF objects out of 1000 (max. 8388607)
- 166 named destinations out of 1000 (max. 500000)
- 137364 words of extra memory for PDF output out of 154059 (max. 10000000)
+ 105 PDF objects out of 1000 (max. 8388607)
+ 15 named destinations out of 1000 (max. 500000)
+ 67632 words of extra memory for PDF output out of 74296 (max. 10000000)
 

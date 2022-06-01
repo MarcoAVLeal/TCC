@@ -1,0 +1,63 @@
+
+
+\definecolor{cor1}{RGB}{0,100,166}
+\definecolor{cor2}{RGB}{100,195,213}
+\definecolor{cor5}{RGB}{150,203,226}
+\definecolor{cor3}{RGB}{30,130,186}
+\definecolor{cor4}{RGB}{40,185,218}
+\definecolor{preto}{RGB}{0,0,0}
+\definecolor{branco}{RGB}{255,255,255}
+
+\setbeamercolor{paleta1}{fg=cor1,bg=white}
+\setbeamercolor{paleta2}{fg=cor1,bg=white}
+\setbeamercolor{estrutura}{fg=cor1,bg=white}
+\setbeamercolor{titulo_rodape}{fg=black,bg=white}
+\setbeamercolor{data_rodape}{fg=gray,bg=white}
+\setbeamercolor{frametitle}{fg=cor1,bg=branco}
+
+
+
+
+
+\defbeamertemplate*{title page}{mytheme}
+{
+  \begin{tikzpicture}[remember picture,overlay]
+    \filldraw[cor1]
+    (current page.north west) --
+    ([yshift=-12cm]current page.north west) --
+    ([xshift=-4cm,yshift=-12cm]current page.north east) {[rounded corners=15pt]--
+    ([xshift=-4cm,yshift=5cm]current page.south east)} --
+    ([yshift=5cm]current page.south west) --
+    (current page.south west) --
+    (current page.south east) --
+    (current page.north east) -- cycle
+    ;
+  \filldraw[branco]
+    (current page.north west) --
+    ([yshift=-2cm]current page.north west) --
+    ([xshift=-3cm,yshift=-2cm]current page.north east) {[rounded corners=15pt]--
+    ([xshift=-3cm,yshift=4.5cm]current page.south east)} --
+    ([yshift=4.5cm]current page.south west) --
+    (current page.south west) --
+    (current page.south east) --
+    (current page.north east) -- cycle
+    ;
+   
+    
+  
+  
+  \node[text=cor1,anchor=south west,font=\sffamily\small,text width=.75\paperwidth] 
+  at ([xshift=10pt,yshift=3.0cm]current page.west)
+  (title)
+  {\raggedright  Universidade Estadual de Maringá                     \\
+                 Departamento de Estatística                          \\
+                 Trabalho de Conclusão de Curso                         };  
+  
+  \node[anchor=east]
+  at ([xshift=-0.15cm,yshift=-0.75cm]current page.north east)
+  {\includegraphics[width=2.5cm]{logo.png}};
+  
+ 
+  \end{tikzpicture}
+
+

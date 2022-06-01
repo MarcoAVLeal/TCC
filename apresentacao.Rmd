@@ -43,13 +43,7 @@ header-includes:
   - \usepackage{bm}
   - \usepackage{stackrel}
 ---
-\setbeamertemplate{section page}{  \begingroup    \centering     \begin{beamercolorbox}[sep=12pt,center,colsep=-4bp,rounded=true,shadow=true]{section title}       \usebeamerfont{section title}\insertsection\par     \end{beamercolorbox}   \endgroup }
 
-\pagestyle{fancy}
-\fancyhf{}
-\chead{{\vspace{0.02cm}  {\Large \textbf{ \tikz\node[opacity=0.15]{3º Encontro Anual de Extensão Universitária}}}}}
-\rhead{\includegraphics[width=2.5cm]{logo.png}}
-\lhead{}
 
 
 \definecolor{cor1}{RGB}{0,100,166}
@@ -183,7 +177,7 @@ library(readxl)
 
 \small
 
-* A análise de regressão tem como objetivo descrever a relação entre uma variável resposta de interesse ($y$) e um conjunto de $p$ variáveis preditoras. A variável resposta está relacionada às coariáveis na seguinte relação linear: 
+* A **análise de regressão** tem como objetivo descrever a relação entre uma variável resposta de interesse ($y$) e um conjunto de $p$ variáveis preditoras. A variável resposta está relacionada às coariáveis na seguinte **relação linear**: 
 
 \vspace{-0.55cm}
 
@@ -191,11 +185,9 @@ library(readxl)
 y = \beta_0 + \sum_{j=1}^p\beta_j x_j +\varepsilon
 \end{equation}
 
-* Os modelos de regressão linear múltipla são vistos como modelos empíricos ou funções aproximadas; 
+* A relação existente entre a variável resposta e cada uma das covariáveis **pode não ser linear**;
 
-* A relação existente entre a variável resposta e cada uma das covariáveis pode não ser linear;
-
-* Os modelos aditivos são um caso particular de uma classe mais geral denominada modelos aditivos generalizados (HASTIE & TIBSHIRANI, 1990), definido por,
+* Os **modelos aditivos** são um caso particular de uma classe mais geral denominada modelos aditivos generalizados (HASTIE & TIBSHIRANI, 1990), definido por,
 
 \vspace{-0.25cm}
 
@@ -205,7 +197,7 @@ y = \alpha + \sum_{j=1}^{p} f_j (x_j) + \varepsilon
 
 * Observa-se que um modelo de regressão linear múltiplo é obtido adotando $f_j(x_j) = \beta_jx_j$;
 
-* As funções $f_j$ devem ser estimadas por meio de suavizadores, que estimam uma tendênica menos variável e descreve sua dependência em relação à variável resposta.
+* As funções $f_j$ devem ser estimadas por meio de **suavizadores**, que estimam uma tendência menos variável e descreve sua dependência em relação à variável resposta.
 
 
 # Objetivos
@@ -218,7 +210,7 @@ y = \alpha + \sum_{j=1}^{p} f_j (x_j) + \varepsilon
 
 \item O objetivo deste trabalho é estudar algumas das principais técnicas de estimação do modelo aditivo no contexto não paramétrico.
 
-\item Em particular, serão abordados os suavizadores \textit{Kernel}, \textit{Loes} e \textit{Splines} de regressão considerando apenas uma covariável, e  seus desempenhos  serão comparados com foco principal na predição.
+\item Em particular, serão abordados os suavizadores \textit{Kernel}, \textit{Loess} e \textit{Splines} de regressão considerando apenas uma covariável, e  seus desempenhos  serão comparados com foco principal na predição.
 
 
 
@@ -227,7 +219,7 @@ y = \alpha + \sum_{j=1}^{p} f_j (x_j) + \varepsilon
 
 
 
-\item Apresentar algumas das principais  técnicas de suavização da literatura para estimar funções não paramétricas presentes nos modelos aditivos, identificando suas principais características;
+\item Apresentar algumas técnicas de suavização  para estimar funções não paramétricas presentes nos modelos aditivos;
 
 \item Introduzir uma métrica para estimar o parâmetro de suavização de cada técnica;
 
@@ -263,54 +255,44 @@ y = \alpha +  f (x) + \varepsilon
 
 * A função $f(x)$ do componente sistemático pode ser estimada a partir de um suavizador (\textit{smoother}).
 
-* Um suavizador pode ser definido como uma ferramenta para resumo da tendência das medidas $y$ como função de uma (ou mais medidas) $x$. 
-
-
-* Chama-se a estimativa produzida por um suavizador  de “\textit{smooth}”. No caso de uma variável preditora é chamado de suavizador em diagrama de dispersão.
+* No caso de uma variável preditora é chamado de suavizador em diagrama de dispersão.
 
 * Os suavizadores possuem dois usos principais:
-  - Descrição; 
-  - Estimação. 
+  - **Descrição**; 
+  - **Estimação**. 
 
 ## Metodologia - Suavizadores
 
 
 
-*  suavizador mais simples é o caso dos preditores categóricos;
+* O Suavizador mais simples é o caso dos preditores **categóricos**;
 
-* Para suavizar $y$ podemos simplesmente realizar a médias de seus valores cada categoria.
+* Para suavizar $y$ podemos simplesmente **realizar as médias** de seus valores cada categoria.
 
-* Este processo captura a tendência de $y$ em $x$. 
+* Este processo captura a **tendência** de $y$ em $x$. 
 
-**Colocar uma figura exemplificando o suavizador categórico**
-
-*  Esta média é feita nas vizinhanças em torno do valor alvo. Nesse caso, têm-se duas decisões a serem tomadas: 
+*  Em relação as médias realizadas nas vizinhanças em torno do valor alvo, têm-se duas decisões a serem tomadas: 
 
   - O quão grande a vizinhança deve ser;
 
   - Como realizar a média dos valores da resposta $y$ em cada vizinhança.
 
-* O tamanho da vizinhança a ser tomada é, normalmente, expressa em forma de um parâmetro (parâmetro suavizador). 
-* A questão de como realizar a média em uma vizinhança é a questão de qual tipo de suavizador utilizar;
+* O tamanho da **vizinhança** a ser tomada é, normalmente, expressa em forma de um parâmetro (**parâmetro suavizador**). 
+
+* A questão de como realizar a média em uma vizinhança é a questão de qual **tipo de suavizador a utilizar**;
 
 ## Metodologia - Suavizadores
 
-* O suavizador *bin*;
+* O suavizador ***bin***;
 
 * A média móvel (\textit{running mean}); 
 
 * Linha Móvel;
 
-## Metodologia - Suavizador Loess
+* Suavizador Loess, também chamado de \textit{Lowess}, essa técnica pode ser vista como uma linha móvel com pesos locais; 
 
-* Também chamado de \textit{Lowess}, essa técnica pode ser vista como uma linha móvel com pesos locais; 
-
-\begin{itemize}
-
-    \item Os $k$ vizinhos próximos de $x_i$ são identificados e denotados por $N_{x_0}$;
-    \item É computada a distância do vizinho-próximo mais distante de $x_0$,$\Delta(x_0) = max_{x\in N_{x_0}} |x_0 - x|$;
-        
-    \item Os pesos $w_i$ são designados para cada ponto em $N_{x_0}$, usando a função de peso tri-cúbica:
+* Os pesos $w_i$ são designados para cada ponto contidas nos vizinhos mais próximos, usando a função de peso tri-cúbica:
+   
     \begin{equation*}
         w_i = W \Bigg( \dfrac{|x_0 - x_i|}{\Delta (x_0)}\Bigg)
     \end{equation*}
@@ -322,52 +304,50 @@ y = \alpha +  f (x) + \varepsilon
         0 , \qquad \qquad \mbox{caso contrário}
         \end{cases}
     \end{equation*}
-    \item  Considerando a i-ésima observação, ajusta-se uma regressão linear, levando em conta a função de peso tri-cúbica, que deve ser incorporada no modelo. A estimativa para $s(x_i)$, para i-ésima observação, será o valor predito de $x_i$ em relação a seu i-ésimo modelo de regressão linear.
     
+*  Considerando a i-ésima observação, ajusta-se uma regressão linear, levando em conta a função de peso tri-cúbica, que deve ser incorporada no modelo. A estimativa para $s(x_i)$, para i-ésima observação, será o valor predito de $x_i$ em relação a seu i-ésimo modelo de regressão linear.
     
-\end{itemize}
 
-## Metodologia - Suavizador Kernel
+## Metodologia - Suavizadores
 
-* Um suavizador *kernel* usa pesos que decrescem suavemente enquanto se distância do ponto de interesse $x_0$.
+* Um suavizador *kernel* usa **pesos que decrescem suavemente** enquanto se distância do ponto de interesse $x_0$.
 
 * Um suavizador *Kernel* pode ser definido da forma
 
-\begin{equation*}
+\begin{equation}
     \hat{y}_i = \dfrac{\sum_{j=1}^{n} y_i K \Big( \dfrac{x_i - x_j}{b} \Big)  }{\sum_{j=1}^{n} K \Big( \dfrac{x_i - x_j}{b} \Big)}
-\end{equation*}
-
-
-
-## Metodologia - Suavizador Splines de Regressão
+\end{equation}
 
 * Um \textit{Spline} pode ser visto como uma função definida por um polinômio por partes.
 
-* Pontos distintos são escolhidos no intervalo das observações (nós) e um polinômio é definido para cada intervalo.
+* Pontos distintos são escolhidos no intervalo das observações (nós) e um **polinômio** é definido para **cada intervalo**.
 
 * Além disso, o \textit{spline} permite modelar um comportamento atípico dos dados, o que não seria possível com apenas uma função.
 
-* Existem várias diferentes configurações para um \textit{spline}, mas uma escolha popular é o \textit{spline} cúbico;
+* Existem várias diferentes configurações para um \textit{spline}, mas uma escolha popular é o **\textit{spline} cúbico**;
 
-* Para qualquer grupo de nós, o \textit{spline} de regressão é ajustado a partir de mínimos quadrados em um grupo apropriado de vetores base.
 
-* Quando trabalha-se com \textit{splines}, existe uma dificuldade em escolher a localização e quantidade ideal dos nós.
+* Quando trabalha-se com \textit{splines}, existe uma dificuldade em escolher a **localização e quantidade ideal dos nós**.
 
 ## Metodologia - Seleção de parâmetros - Função de Risco
 
-* Para elaborar boas funções de predição, cria-se um critério para mensurar o desempenho que determinada função predição; valendo-se, por exemplo, do do risco quadrático (IZBICKI E SANTOS, 2020).
+* Para elaborar boas funções de predição, cria-se um critério para mensurar o desempenho que determinada função predição; valendo-se, por exemplo, do do risco quadrático (IZBICKI E SANTOS, 2020);
 
-$$R_{pred}(g) = E \left [  (Y - g(X))^2\right].$$
+\begin{equation}
+R_{pred}(g) = E \left [  (Y - g(X))^2\right].
+\end{equation}
 
-* Constata-se que $(X,Y)$ é uma observação nova não utilizada ao se estimar $g$. Sendo assim, melhor será a função de predição $g$, quanto menor for o risco..
+* Constata-se que $(X,Y)$ é uma observação nova não utilizada ao se estimar $g$. Sendo assim, melhor será a função de predição $g$, quanto **menor for o risco**;
 
-* Usualmente ajusta-se distintos modelos para a função de regressão e encontrar qual deles apresenta um melhor poder preditivo;
+* Usualmente ajusta-se distintos modelos para a função de regressão e encontrar qual deles apresenta um **melhor poder preditivo**;
 
-* O método de seleção de modelos pretende selecionar uma boa função $g$. 
+* O método de seleção de modelos pretende selecionar uma **boa função $g$**. 
 
-* O risco observado, conhecido como erro quadrático médio em relação aos dados, e determinado por,
+* O risco observado, conhecido como erro quadrático médio em **relação aos dados**, e determinado por,
 
-$$EQM(g) = \frac{1}{n}E \sum^n_{i = 1}\left [  (Y_i - g(X_i))^2\right],$$
+\begin{equation}
+EQM(g) = \frac{1}{n}E \sum^n_{i = 1}\left [  (Y_i - g(X_i))^2\right],
+\end{equation}
 
 
 
@@ -469,8 +449,8 @@ $$EQM_c = \dfrac{1}{n}\sum_{i=1}^n(y_i-\hat{y}_i)^2.$$
 
 \item 
 
-\begin
-{equation} y = 10 + 5sen\pi \dfrac{x}{24} + \varepsilon
+\begin{equation} 
+y = 10 + 5sen\pi \dfrac{x}{24} + \varepsilon
 \end{equation}
 
 \item $\varepsilon$ é um termo aleatório, normalmente, distribuído com média zero e variância constante;
